@@ -13,6 +13,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/OxfordIHTM/icd/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OxfordIHTM/icd?branch=main)
+[![test-coverage](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml)
+[![CodeFactor](https://www.codefactor.io/repository/github/oxfordihtm/icd/badge)](https://www.codefactor.io/repository/github/oxfordihtm/icd)
 <!-- badges: end -->
 
 The [International Classification of Diseases
@@ -25,6 +27,49 @@ It is an HTTP based REST API. This package provides functions that
 interface with the ICD API.
 
 ## What does `icd` do?
+
+Please note that `icd` is still highly experimental and is undergoing a
+lot of development. Hence, any functionalities described below have a
+high likelihood of changing interface or approach as we approach a
+stable working version.
+
+### Authenticating with the ICD API
+
+The ICD API uses OAuth2 for authentication. The package has a set of
+utility functions that support the ICD API authentication specifications
+leading to the generation of an OAuth2 token. The `icd_token()` function
+is the downstream and user-facing function that creates an ICD OAuth2
+token that can be used by future functions that wrap ICD API for entity
+and linearization information retrieval.
+
+An ICD OAuth2 token can be generated as follows:
+
+``` r
+icd_token()
+```
+
+This function uses a built in OAuth2 application created for light use
+and for purposes of package development and testing.
+
+It is recommended that those intending to use this package for
+programmatically performing high volume of calls to the ICD API to
+create their own **access keys** (`client id` and `client secret`) using
+[these
+instructions](https://icd.who.int/docs/icd-api/API-Authentication/).
+
+Then, with your access keys, perform the following commands:
+
+``` r
+## Create your own OAuth application ----
+my_app <- icd_oauth_app(
+  appname = "NAME_OF_YOUR_APP",
+  key = "YOUR_CLIEND_ID",
+  secret = "YOUR_CLIENT_SECRET"
+)
+
+## Create authentication token ----
+my_token <- icd_token(app = my_app)
+```
 
 ## Installation
 
