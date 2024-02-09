@@ -7,6 +7,7 @@
 #' and coded with the ICD. ICD API allows programmatic access to the ICD. It is
 #' an HTTP based REST API. This package provides functions that interface with
 #' the ICD API.
+#'
 #' @docType package
 #' @keywords internal
 #' @name icd
