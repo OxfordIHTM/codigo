@@ -1,0 +1,53 @@
+title: icd
+
+url: https://oxford-ihtm.io/icd/
+
+template:
+  bootstrap: 5
+  bootswatch: superhero
+  theme: haddock
+  ganalytics: #
+
+home:
+  links:
+  - text: Read more about the International Classification of Diseases
+    href: https://www.who.int/standards/classifications/classification-of-diseases
+
+navbar:
+  bg: primary
+  type: light
+  structure:
+    left:  [home, reference, articles, news]
+    # right: [linkedin, github]
+
+  # components:
+    # articles:
+    #   text: Articles
+    #   menu:
+    #   - text: "Detecting haemoglobinaemia"
+    #     href: articles/haemoglobinaemia.html
+    #   - text: "Detecting inflammation"
+    #     href: articles/inflammation.html
+    #   - text: "Detecting iron deficiency"
+    #     href: articles/iron-deficiency.html
+    #   - text: "Detecting iodine deficiency"
+    #     href: articles/iodine-deficiency.html
+    # linkedin:
+    #   icon: "fab fa-linkedin fa-lg"
+    #   href: https://www.linkedin.com/company/katilingban
+
+
+reference:
+  - title: Description
+    contents:
+    - icd
+
+  - title: Authentication
+    contents:
+    - icd_endpoint
+    - icd_oauth_app
+    - icd_token
+
+  - title: Supporting datasets
+    contents:
+    - icd_versions
