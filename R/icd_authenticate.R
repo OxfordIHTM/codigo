@@ -34,7 +34,6 @@
 #'
 #' @export
 #'
-
 icd_endpoint <- function(authorize = NULL,
                          access = "https://icdaccessmanagement.who.int/connect/token") {
   httr::oauth_endpoint(authorize = authorize, access = access)
@@ -44,11 +43,23 @@ icd_endpoint <- function(authorize = NULL,
 #' @rdname icd_authenticate
 #' @export
 #'
+icd_oauth_app <- function(appname = "icd_app",
+                          key = "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e-2f4b-46de-b127-df7454e36be8",
+                          secret = "OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE=") {
+  httr::oauth_app(
+    appname = appname,
+    key = key,
+    secret = secret
+  )
+}
 
+#'
+#' @rdname icd_authenticate
+#' @export
+#'
 icd_token <- function(endpoint = icd_endpoint(),
                       app = icd_oauth_app(),
                       scope = "icdapi_access",
-                      #use_oob = TRUE,
                       as_header = TRUE,
                       client_credentials = TRUE, ...) {
   httr::oauth2.0_token(
@@ -62,18 +73,5 @@ icd_token <- function(endpoint = icd_endpoint(),
   )
 }
 
-#'
-#' @rdname icd_authenticate
-#' @export
-#'
 
-icd_oauth_app <- function(appname = "icd_app",
-                          key = "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e-2f4b-46de-b127-df7454e36be8",
-                          secret = "OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE=") {
-  httr::oauth_app(
-    appname = appname,
-    key = key,
-    secret = secret
-  )
-}
 
