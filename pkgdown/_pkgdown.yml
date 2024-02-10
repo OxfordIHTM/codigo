@@ -51,3 +51,6 @@ reference:
   - title: Supporting datasets
     contents:
     - icd_versions
+    - icd11_linearization_mms
+    - icd11_simple_table_mms
+

@@ -42,9 +42,9 @@ Despite its name, this does not necessarily need to be protected like a
 password, i.e. the user still has to authenticate themselves and grant the
 app permission to access resources on their behalf.}
 
-\item{endpoint}{OAuth endpoint for the ICD API, created by `icd_endpoint()`}
+\item{endpoint}{OAuth endpoint for the ICD API, created by \code{icd_endpoint()}}
 
-\item{app}{An OAuth consumer application, created by `icd_oauth_app()` by
+\item{app}{An OAuth consumer application, created by \code{icd_oauth_app()} by
 default.}
 
 \item{scope}{ICD API scope to request. Default is "icdapi_access".}
@@ -57,10 +57,10 @@ add itself as a url parameter of subsequent requests.}
 Credentials Grant instead of Authorization Code Grant. See
 https://www.rfc-editor.org/rfc/rfc6749#section-4.4.}
 
-\item{...}{Other parameters/arguments to be passed onto `httr::oauth2.0_token()`}
+\item{...}{Other parameters/arguments to be passed onto \code{httr::oauth2.0_token()}}
 }
 \value{
-For `icd_token()`, a Token2.0 reference class (RC) object.
+For \code{icd_token()}, a Token2.0 reference class (RC) object.
 }
 \description{
 OAuth2 authentication to ICD API

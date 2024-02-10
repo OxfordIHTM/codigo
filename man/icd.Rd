@@ -13,6 +13,15 @@ and coded with the ICD. ICD API allows programmatic access to the ICD. It is
 an HTTP based REST API. This package provides functions that interface with
 the ICD API.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://oxford-ihtm.io/icd/}
+  \item \url{https://github.com/OxfordIHTM/icd}
+  \item Report bugs at \url{https://github.com/OxfordIHTM/icd/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ernest Guevarra \email{ernest@guevarra.io} (\href{https://orcid.org/0000-0002-4887-4415}{ORCID}) [copyright holder]
 
