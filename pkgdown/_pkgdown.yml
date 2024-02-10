@@ -4,7 +4,7 @@ url: https://oxford-ihtm.io/icd/
 
 template:
   bootstrap: 5
-  bootswatch: superhero
+  bootswatch: litera
   theme: haddock
   ganalytics: #
 
@@ -18,9 +18,9 @@ navbar:
   type: light
   structure:
     left:  [home, reference, articles, news]
-    # right: [linkedin, github]
+    right: [linkedin, github]
 
-  # components:
+  components:
     # articles:
     #   text: Articles
     #   menu:
@@ -32,9 +32,9 @@ navbar:
     #     href: articles/iron-deficiency.html
     #   - text: "Detecting iodine deficiency"
     #     href: articles/iodine-deficiency.html
-    # linkedin:
-    #   icon: "fab fa-linkedin fa-lg"
-    #   href: https://www.linkedin.com/company/katilingban
+    linkedin:
+      icon: "fab fa-linkedin fa-lg"
+      href: https://www.linkedin.com/company/international-health-and-tropical-medicine
 
 
 reference:
