@@ -15,6 +15,8 @@ Description: The International Classification of Diseases (ICD) serves a broad
     ICD. It is an HTTP based REST API. This package provides functions that
     interface with the ICD API.
 License: GPL (>= 3)
+Depends: 
+    R (>= 2.10)
 Imports: 
     httr
 Suggests: 
@@ -23,7 +25,8 @@ Suggests:
     spelling
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
-Depends: 
-    R (>= 2.10)
 Language: en-GB
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
+URL: https://oxford-ihtm.io/icd/, https://github.com/OxfordIHTM/icd
+BugReports: https://github.com/OxfordIHTM/icd/issues

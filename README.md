@@ -33,6 +33,32 @@ lot of development. Hence, any functionalities described below have a
 high likelihood of changing interface or approach as we approach a
 stable working version.
 
+Currently, the package provides functions for authenticating with the
+ICD API. From here, the plan is to develop functions that wrap the
+various available [API
+endpoints](https://id.who.int/swagger/index.html).
+
+## Installation
+
+`icd` is not yet on CRAN.
+
+You can install the development version of `icd` from
+[GitHub](https://github.com/OxfordIHTM/icd) with:
+
+``` r
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("OxfordIHTM/icd")
+```
+
+then load `icd`
+
+``` r
+# load package
+library(icd)
+```
+
+## Usage
+
 ### Authenticating with the ICD API
 
 The ICD API uses OAuth2 for authentication. The package has a set of
@@ -70,27 +96,6 @@ my_app <- icd_oauth_app(
 ## Create authentication token ----
 my_token <- icd_token(app = my_app)
 ```
-
-## Installation
-
-`icd` is not yet on CRAN.
-
-You can install the development version of `icd` from
-[GitHub](https://github.com/OxfordIHTM/icd) with:
-
-``` r
-if(!require(remotes)) install.packages("remotes")
-remotes::install_github("OxfordIHTM/icd")
-```
-
-then load `icd`
-
-``` r
-# load package
-library(icd)
-```
-
-## Usage
 
 ## Citation
 

@@ -30,6 +30,28 @@ The [International Classification of Diseases (ICD)](https://www.who.int/standar
 
 Please note that `icd` is still highly experimental and is undergoing a lot of development. Hence, any functionalities described below have a high likelihood of changing interface or approach as we approach a stable working version.
 
+Currently, the package provides functions for authenticating with the ICD API. From here, the plan is to develop functions that wrap the various available [API endpoints](https://id.who.int/swagger/index.html).
+
+## Installation
+
+`icd` is not yet on CRAN.
+
+You can install the development version of `icd` from [GitHub](https://github.com/OxfordIHTM/icd) with:
+
+```{r gh-installation1, eval = FALSE}
+if(!require(remotes)) install.packages("remotes")
+remotes::install_github("OxfordIHTM/icd")
+```
+
+then load `icd`
+
+```{r gh-installation2, eval = FALSE}
+# load package
+library(icd)
+```
+
+## Usage
+
 ### Authenticating with the ICD API
 
 The ICD API uses OAuth2 for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The `icd_token()` function is the downstream and user-facing function that creates an ICD OAuth2 token that can be used by future functions that wrap ICD API for entity and linearization information retrieval.
@@ -58,26 +80,6 @@ my_app <- icd_oauth_app(
 ## Create authentication token ----
 my_token <- icd_token(app = my_app)
 ```
-
-## Installation
-
-`icd` is not yet on CRAN.
-
-You can install the development version of `icd` from [GitHub](https://github.com/OxfordIHTM/icd) with:
-
-```{r gh-installation1, eval = FALSE}
-if(!require(remotes)) install.packages("remotes")
-remotes::install_github("OxfordIHTM/icd")
-```
-
-then load `icd`
-
-```{r gh-installation2, eval = FALSE}
-# load package
-library(icd)
-```
-
-## Usage
 
 ## Citation
 
