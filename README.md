@@ -30,8 +30,8 @@ interface with the ICD API.
 
 Please note that `icd` is still highly experimental and is undergoing a
 lot of development. Hence, any functionalities described below have a
-high likelihood of changing interface or approach as we approach a
-stable working version.
+high likelihood of changing interface or approach as we aim for a stable
+working version.
 
 Currently, the package provides functions for authenticating with the
 ICD API. From here, the plan is to develop functions that wrap the

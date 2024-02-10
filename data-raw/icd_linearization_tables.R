@@ -2,6 +2,7 @@
 
 ## Load libraries ----
 library(openxlsx2)
+library(stringr)
 
 
 ## Download data ----
