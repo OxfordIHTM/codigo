@@ -5,16 +5,16 @@
 \alias{icd_versions}
 \title{Table of supported classifications and versions by the ICD API}
 \format{
-A data frame with 6 columns and 11 rows:
+A data frame with 6 columns and 11 rows:\tabular{ll}{
+   \strong{Variable} \tab \strong{Description} \cr
+   \emph{Classification} \tab Version of classification. Either ICD-11 or ICD-10 \cr
+   \emph{Release ID} \tab Release identifier for specific classification version \cr
+   \emph{Foundation} \tab Logical. Does this version include the Foundation? \cr
+   \emph{MMS} \tab Logical. Does this version include the MMS information? \cr
+   \emph{ICF} \tab Logical. Does this version include the ICF? \cr
+   \emph{Languages} \tab Languages in which version and release is available for \cr
+}
 
-| **Variable** | **Description** |
-| :--- | :--- |
-| *Classification* | Version of classification. Either ICD-11 or ICD-10 |
-| *Release ID* | Release identifier for specific classification version |
-| *Foundation* | Logical. Does this version include the Foundation? |
-| *MMS* | Logical. Does this version include the MMS information? |
-| *ICF* | Logical. Does this version include the ICF? |
-| *Languages* | Languages in which version and release is available for |
 
 For logical fields that specify NA, this indicates that for that particular
 version and release, the particular field was not applicable or relevant.
