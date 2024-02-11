@@ -82,7 +82,7 @@
 <div class="section level2">
 <h2 id="what-does-icd-do">What does <code>icd</code> do?<a class="anchor" aria-label="anchor" href="#what-does-icd-do"></a>
 </h2>
-<p>Please note that <code>icd</code> is still highly experimental and is undergoing a lot of development. Hence, any functionalities described below have a high likelihood of changing interface or approach as we approach a stable working version.</p>
+<p>Please note that <code>icd</code> is still highly experimental and is undergoing a lot of development. Hence, any functionalities described below have a high likelihood of changing interface or approach as we aim for a stable working version.</p>
 <p>Currently, the package provides functions for authenticating with the ICD API. From here, the plan is to develop functions that wrap the various available <a href="https://id.who.int/swagger/index.html" class="external-link">API endpoints</a>.</p>
 </div>
 <div class="section level2">
@@ -104,23 +104,21 @@
 <div class="section level3">
 <h3 id="authenticating-with-the-icd-api">Authenticating with the ICD API<a class="anchor" aria-label="anchor" href="#authenticating-with-the-icd-api"></a>
 </h3>
-<p>The ICD API uses OAuth2 for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The <code><a href="reference/icd_authenticate.html">icd_token()</a></code> function is the downstream and user-facing function that creates an ICD OAuth2 token that can be used by future functions that wrap ICD API for entity and linearization information retrieval.</p>
-<p>An ICD OAuth2 token can be generated as follows:</p>
+<p>The ICD API uses OAuth2 for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The <code><a href="reference/icd_authenticate.html">icd_oauth_client()</a></code> function is the downstream and user-facing function that creates an ICD OAuth2 client that can be used for token retrieval by future functions that wrap ICD API for entity and linearization information retrieval.</p>
+<p>An ICD OAuth2 client can be generated as follows:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/icd_authenticate.html">icd_token</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>This function uses a built in OAuth2 application created for light use and for purposes of package development and testing.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/icd_authenticate.html">icd_oauth_client</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>This function uses a built in OAuth2 client created for light use and for purposes of package development and testing.</p>
 <p>It is recommended that those intending to use this package for programmatically performing high volume of calls to the ICD API to create their own <strong>access keys</strong> (<code>client id</code> and <code>client secret</code>) using <a href="https://icd.who.int/docs/icd-api/API-Authentication/" class="external-link">these instructions</a>.</p>
 <p>Then, with your access keys, perform the following commands:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Create your own OAuth application ----</span></span>
-<span><span class="va">my_app</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/icd_authenticate.html">icd_oauth_app</a></span><span class="op">(</span></span>
-<span>  appname <span class="op">=</span> <span class="st">"NAME_OF_YOUR_APP"</span>,</span>
-<span>  key <span class="op">=</span> <span class="st">"YOUR_CLIEND_ID"</span>,</span>
-<span>  secret <span class="op">=</span> <span class="st">"YOUR_CLIENT_SECRET"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## Create authentication token ----</span></span>
-<span><span class="va">my_token</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/icd_authenticate.html">icd_token</a></span><span class="op">(</span>app <span class="op">=</span> <span class="va">my_app</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## Create your own OAuth client ----</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>my_oauth_client <span class="ot">&lt;-</span> <span class="fu">icd_oauth_client</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">"YOUR_CLIENT_ID"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">token_url =</span> <span class="st">"https://icdaccessmanagement.who.int/connect/token"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">secret =</span> <span class="st">"YOUR_CLIENT_SECRET"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"NAME_OF_YOUR_APP</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="st">)</span></span></code></pre></div>
+<p>This OAuth2 client can now be used to the various functions in the package that require an OAuth2 client for authentication for making requests to the ICD API.</p>
 </div>
 </div>
 <div class="section level2">

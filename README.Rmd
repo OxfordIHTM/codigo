@@ -54,32 +54,31 @@ library(icd)
 
 ### Authenticating with the ICD API
 
-The ICD API uses OAuth2 for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The `icd_token()` function is the downstream and user-facing function that creates an ICD OAuth2 token that can be used by future functions that wrap ICD API for entity and linearization information retrieval.
+The ICD API uses OAuth2 for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The `icd_oauth_client()` function is the downstream and user-facing function that creates an ICD OAuth2 client that can be used for token retrieval by future functions that wrap ICD API for entity and linearization information retrieval.
 
-An ICD OAuth2 token can be generated as follows:
+An ICD OAuth2 client can be generated as follows:
 
 ```R
-icd_token()
+icd_oauth_client()
 ```
 
-This function uses a built in OAuth2 application created for light use and for purposes of package development and testing.
+This function uses a built in OAuth2 client created for light use and for purposes of package development and testing.
 
 It is recommended that those intending to use this package for programmatically performing high volume of calls to the ICD API to create their own **access keys** (`client id` and `client secret`) using [these instructions](https://icd.who.int/docs/icd-api/API-Authentication/).
 
 Then, with your access keys, perform the following commands:
 
-
 ```R
-## Create your own OAuth application ----
-my_app <- icd_oauth_app(
-  appname = "NAME_OF_YOUR_APP",
-  key = "YOUR_CLIEND_ID",
-  secret = "YOUR_CLIENT_SECRET"
+## Create your own OAuth client ----
+my_oauth_client <- icd_oauth_client(
+  id = "YOUR_CLIENT_ID",
+  token_url = "https://icdaccessmanagement.who.int/connect/token",
+  secret = "YOUR_CLIENT_SECRET",
+  name = "NAME_OF_YOUR_APP
 )
-
-## Create authentication token ----
-my_token <- icd_token(app = my_app)
 ```
+
+This OAuth2 client can now be used to the various functions in the package that require an OAuth2 client for authentication for making requests to the ICD API.
 
 ## Citation
 
