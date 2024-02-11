@@ -23,7 +23,8 @@ Imports:
 Suggests: 
     covr,
     httpuv,
-    spelling
+    spelling,
+    tibble
 Encoding: UTF-8
 LazyData: true
 Language: en-GB

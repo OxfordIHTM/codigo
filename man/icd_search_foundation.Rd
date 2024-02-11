@@ -5,11 +5,15 @@
 \title{Search the foundation component of the ICD-11}
 \usage{
 icd_search_foundation(
-  base_url = "https://id.who.int/icd",
+  base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  q = NULL,
+  q,
+  subtree = NULL,
+  chapter = NULL,
   flexisearch = FALSE,
   flat = TRUE,
+  properties = NULL,
+  release = NULL,
   highlight = FALSE,
   api_version = c("v2", "v1"),
   language = "en"
@@ -17,12 +21,20 @@ icd_search_foundation(
 }
 \arguments{
 \item{base_url}{The base URL of the API. Default uses the WHO API server at
-https://id.who.int/icd/entity}
+https://id.who.int. If you are using a locally deployed server or hosting
+your own ICD API server, you should specify the URL of your instance here.}
 
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}}
+\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
 
 \item{q}{String. Text to be searched. Having the character \verb{\%} at the end will
-be regarded as a wild card for that word}
+be regarded as a wild card for that word.}
+
+\item{subtree}{A string or vector of strings of URIs. If provided, the
+search will be performed on the entities provided and their descendants.}
+
+\item{chapter}{A string or vector of strings of chapter codes
+eg: c("01", "02") When provided, the search will be performed only on
+these chapters.}
 
 \item{flexisearch}{Logical. Default is FALSE. Changes the search mode to
 flexible search. In the regular search mode, the Coding Tool will only give
@@ -33,19 +45,29 @@ in flexible search mode, the results do not have to contain all of the words
 that are typed. It would still try to find the best matching phrase but
 there may be words in your search that are not matched at all. It is
 recommended to use flexible search only when regular search does not
-provide a result}
+provide a result.}
 
 \item{flat}{Logical. Default is FALSE. If set to true the search result
 entities are provided in a nested data structure representing the
-ICD-11 hierarchy. Otherwise they are listed as flat list of matches}
+ICD-11 hierarchy. Otherwise they are listed as flat list of matches.}
+
+\item{properties}{A string or a vector of strings for the properties to be
+searched. By default the system  searches, \emph{"Title"}, \emph{"Synonyms"}, and
+\emph{"FullySpecifiedName"}. The valid values that could be used are: \emph{Title"},
+\emph{"Synonym"}, \emph{"NarrowerTerm"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, and
+\emph{"Exclusion"}.}
+
+\item{release}{A string specifying the release version of the Foundation to
+search from. If not specified, defaults to the latest release version. See
+the available versions with \code{icd_versions}.}
 
 \item{highlight}{Logical. Default is FALSE. If set to FALSE the search result
 highlighting is turned off and the results don't contain special tags for
-highlighting where the results are found within the text}
+highlighting where the results are found within the text.}
 
 \item{api_version}{Version of the API. Possible values are \code{v1} or \code{v2}.
 For example, if you provide value v2, the API will respond in the format of
-the version 2 of the API. Default is \code{v2}}
+the version 2 of the API. Default is \code{v2}.}
 
 \item{language}{ICD-API is multi-lingual. By changing this header, you may
 make the API respond in different languages. Languages will be available as

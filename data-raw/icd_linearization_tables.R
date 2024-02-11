@@ -38,6 +38,9 @@ icd11_linearization_mms$Version <- header_values |>
   (\(x) x[2:3])() |>
   paste(collapse = ":")
 
+icd11_linearization_mms <- icd11_linearization_mms |>
+  tibble::tibble()
+
 usethis::use_data(icd11_linearization_mms, overwrite = TRUE, compress = "xz")
 
 ### Simple Table MMS ----
@@ -59,5 +62,8 @@ icd11_simple_table_mms <- read_xlsx(
   file = "data-raw/simple-tab-icd11-mms/SimpleTabulation-ICD-11-MMS-en.xlsx",
   sheet = 1, data_only = TRUE
 )
+
+icd11_simple_table_mms |>
+  tibble::tibble()
 
 usethis::use_data(icd11_simple_table_mms, overwrite = TRUE, compress = "xz")
