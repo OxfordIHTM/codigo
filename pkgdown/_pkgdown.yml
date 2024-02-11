@@ -44,9 +44,11 @@ reference:
 
   - title: Authentication
     contents:
-    - icd_endpoint
-    - icd_oauth_app
-    - icd_token
+    - icd_oauth_client
+
+  - title: Search
+    contents:
+    - icd_search_foundation
 
   - title: Supporting datasets
     contents:
