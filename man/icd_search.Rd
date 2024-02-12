@@ -7,6 +7,7 @@
 icd_search_foundation(
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
+  scope = "icdapi_access",
   q,
   subtree = NULL,
   chapter = NULL,
@@ -25,6 +26,9 @@ https://id.who.int. If you are using a locally deployed server or hosting
 your own ICD API server, you should specify the URL of your instance here.}
 
 \item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+
+\item{scope}{Scopes to be requested from the resource owner. Default is
+\emph{"icdapi_access"} as specified in the ICD API documentation.}
 
 \item{q}{String. Text to be searched. Having the character \verb{\%} at the end will
 be regarded as a wild card for that word.}

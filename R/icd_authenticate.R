@@ -9,9 +9,14 @@
 #'   app permission to access resources on their behalf.
 #' @param name Name of the application. This is not used for OAuth, but is
 #'   used to make it easier to identify different applications.
+#' @param req A request
+#' @param client An OAuth2 client. Default is a call to `icd_oauth_client()`.
+#' @param scope Scopes to be requested from the resource owner. Default is
+#'   *"icdapi_access"* as specified in the ICD API documentation.
 #' @param ... Other parameters/arguments to be passed onto `httr2::oauth_client()`
+#'   or to `httr2::req_oauth_client_credentials()`
 #'
-#' @return An `httr2_oauth_client` class (RC) object.
+#' @return An `httr2_oauth_client` class object.
 #'
 #' @examples
 #' icd_oauth_client()
@@ -34,4 +39,18 @@ icd_oauth_client <- function(id = "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e
   )
 }
 
-
+#'
+#' @rdname icd_authenticate
+#' @export
+#'
+icd_authenticate <- function(req,
+                             client = icd_oauth_client(),
+                             scope = "icdapi_access",
+                             ...) {
+  httr2::req_oauth_client_credentials(
+    req = req,
+    client = client,
+    scope = scope,
+    ...
+  )
+}
