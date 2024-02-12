@@ -60,6 +60,13 @@
 <span>  secret <span class="op">=</span> <span class="st">"OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE="</span>,</span>
 <span>  name <span class="op">=</span> <span class="st">"icd_client"</span>,</span>
 <span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">icd_authenticate</span><span class="op">(</span></span>
+<span>  <span class="va">req</span>,</span>
+<span>  client <span class="op">=</span> <span class="fu">icd_oauth_client</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  scope <span class="op">=</span> <span class="st">"icdapi_access"</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -86,14 +93,28 @@ used to make it easier to identify different applications.</p></dd>
 
 
 <dt>...</dt>
-<dd><p>Other parameters/arguments to be passed onto <code><a href="https://httr2.r-lib.org/reference/oauth_client.html" class="external-link">httr2::oauth_client()</a></code></p></dd>
+<dd><p>Other parameters/arguments to be passed onto <code><a href="https://httr2.r-lib.org/reference/oauth_client.html" class="external-link">httr2::oauth_client()</a></code>
+or to <code><a href="https://httr2.r-lib.org/reference/req_oauth_client_credentials.html" class="external-link">httr2::req_oauth_client_credentials()</a></code></p></dd>
+
+
+<dt>req</dt>
+<dd><p>A request</p></dd>
+
+
+<dt>client</dt>
+<dd><p>An OAuth2 client. Default is a call to <code>icd_oauth_client()</code>.</p></dd>
+
+
+<dt>scope</dt>
+<dd><p>Scopes to be requested from the resource owner. Default is
+<em>"icdapi_access"</em> as specified in the ICD API documentation.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>An <code>httr2_oauth_client</code> class (RC) object.</p>
+<p>An <code>httr2_oauth_client</code> class object.</p>
     </div>
 
     <div class="section level2">

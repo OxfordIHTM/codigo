@@ -5,6 +5,8 @@
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
 #' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param scope Scopes to be requested from the resource owner. Default is
+#'   *"icdapi_access"* as specified in the ICD API documentation.
 #' @param q String. Text to be searched. Having the character `%` at the end will
 #'   be regarded as a wild card for that word.
 #' @param subtree A string or vector of strings of URIs. If provided, the
@@ -56,6 +58,7 @@
 
 icd_search_foundation <- function(base_url = "https://id.who.int",
                                   client = icd_oauth_client(),
+                                  scope = "icdapi_access",
                                   q,
                                   subtree = NULL,
                                   chapter = NULL,
@@ -121,13 +124,12 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
       "API-Version" = api_version,
       "Accept-Language" = language
     ) |>
-    ## Authenticate ----
-    httr2::req_oauth_client_credentials(
-      client = client,
-      scope = "icdapi_access"
-    ) |>
-    ## Perform request ----
-    httr2::req_perform()
+  ## Authenticate ----
+    icd_authenticate(client = client, scope = scope) |>
+  ## Perform request ----
+    httr2::req_perform() |>
+  ## Structure JSON response ----
+    httr2::resp_body_json()
 }
 
 

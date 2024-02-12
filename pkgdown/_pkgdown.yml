@@ -45,10 +45,16 @@ reference:
   - title: Authentication
     contents:
     - icd_oauth_client
+    - icd_authenticate
 
   - title: Search
     contents:
     - icd_search_foundation
+
+  - title: Get
+    contents:
+    - icd_get_foundation
+    - icd_get_entity
 
   - title: Supporting datasets
     contents:
