@@ -127,9 +127,10 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
   ## Authenticate ----
     icd_authenticate(client = client, scope = scope) |>
   ## Perform request ----
-    httr2::req_perform() |>
+    httr2::req_perform()
+
   ## Structure JSON response ----
-    httr2::resp_body_json()
+  httr2::resp_body_json(req)
 }
 
 
