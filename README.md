@@ -99,6 +99,251 @@ This OAuth2 client can now be used to the various functions in the
 package that require an OAuth2 client for authentication for making
 requests to the ICD API.
 
+### Performing a basic search
+
+The main feature of the ICD API is the ability to search ICD 11
+Foundation and ICD 11 Linearization for information regarding an
+illness/disease. This feature is captured by the
+`icd_search_foundation()` function. For example, if *colorectal cancer*
+is the disease of interest and information available from ICD 11 is
+needed, the following call can be made:
+
+``` r
+icd_search_foundation(q = "colorectal cancer")
+```
+
+which gives the following output:
+
+    #> $error
+    #> [1] FALSE
+    #> 
+    #> $errorMessage
+    #> NULL
+    #> 
+    #> $resultChopped
+    #> [1] FALSE
+    #> 
+    #> $wordSuggestionsChopped
+    #> [1] FALSE
+    #> 
+    #> $guessType
+    #> [1] 2
+    #> 
+    #> $uniqueSearchId
+    #> [1] "0bed938d-3a23-4553-9591-565525ce74ec"
+    #> 
+    #> $words
+    #> NULL
+    #> 
+    #> $destinationEntities
+    #> $destinationEntities[[1]]
+    #> $destinationEntities[[1]]$id
+    #> [1] "http://id.who.int/icd/entity/774170412"
+    #> 
+    #> $destinationEntities[[1]]$title
+    #> [1] "Malignant neoplasms of rectosigmoid junction"
+    #> 
+    #> $destinationEntities[[1]]$stemId
+    #> [1] "http://id.who.int/icd/entity/774170412"
+    #> 
+    #> $destinationEntities[[1]]$isLeaf
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$postcoordinationAvailability
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[1]]$hasCodingNote
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$hasMaternalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$hasPerinatalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs
+    #> $destinationEntities[[1]]$matchingPVs[[1]]
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$propertyId
+    #> [1] "Synonym"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$label
+    #> [1] "Colorectal Cancer NOS"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$score
+    #> [1] 1
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$important
+    #> [1] TRUE
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$foundationUri
+    #> [1] "http://id.who.int/icd/entity/774170412"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[1]]$propertyValueType
+    #> [1] 0
+    #> 
+    #> 
+    #> 
+    #> $destinationEntities[[1]]$propertiesTruncated
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$isResidualOther
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$isResidualUnspecified
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$chapter
+    #> [1] "02"
+    #> 
+    #> $destinationEntities[[1]]$theCode
+    #> NULL
+    #> 
+    #> $destinationEntities[[1]]$score
+    #> [1] 1
+    #> 
+    #> $destinationEntities[[1]]$titleIsASearchResult
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$titleIsTopScore
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$entityType
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[1]]$important
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$descendants
+    #> list()
+    #> 
+    #> 
+    #> $destinationEntities[[2]]
+    #> $destinationEntities[[2]]$id
+    #> [1] "http://id.who.int/icd/entity/545664807"
+    #> 
+    #> $destinationEntities[[2]]$title
+    #> [1] "Familial nonpolyposis colorectal cancer"
+    #> 
+    #> $destinationEntities[[2]]$stemId
+    #> [1] "http://id.who.int/icd/entity/545664807"
+    #> 
+    #> $destinationEntities[[2]]$isLeaf
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$postcoordinationAvailability
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[2]]$hasCodingNote
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$hasMaternalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$hasPerinatalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$matchingPVs
+    #> list()
+    #> 
+    #> $destinationEntities[[2]]$propertiesTruncated
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$isResidualOther
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$isResidualUnspecified
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$chapter
+    #> [1] "02"
+    #> 
+    #> $destinationEntities[[2]]$theCode
+    #> NULL
+    #> 
+    #> $destinationEntities[[2]]$score
+    #> [1] 0.5203158
+    #> 
+    #> $destinationEntities[[2]]$titleIsASearchResult
+    #> [1] TRUE
+    #> 
+    #> $destinationEntities[[2]]$titleIsTopScore
+    #> [1] TRUE
+    #> 
+    #> $destinationEntities[[2]]$entityType
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[2]]$important
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[2]]$descendants
+    #> list()
+    #> 
+    #> 
+    #> $destinationEntities[[3]]
+    #> $destinationEntities[[3]]$id
+    #> [1] "http://id.who.int/icd/entity/8113015"
+    #> 
+    #> $destinationEntities[[3]]$title
+    #> [1] "Hereditary nonpolyposis colorectal cancer"
+    #> 
+    #> $destinationEntities[[3]]$stemId
+    #> [1] "http://id.who.int/icd/entity/8113015"
+    #> 
+    #> $destinationEntities[[3]]$isLeaf
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$postcoordinationAvailability
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[3]]$hasCodingNote
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$hasMaternalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$hasPerinatalChapterLink
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$matchingPVs
+    #> list()
+    #> 
+    #> $destinationEntities[[3]]$propertiesTruncated
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$isResidualOther
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$isResidualUnspecified
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$chapter
+    #> [1] "02"
+    #> 
+    #> $destinationEntities[[3]]$theCode
+    #> NULL
+    #> 
+    #> $destinationEntities[[3]]$score
+    #> [1] 0.5075196
+    #> 
+    #> $destinationEntities[[3]]$titleIsASearchResult
+    #> [1] TRUE
+    #> 
+    #> $destinationEntities[[3]]$titleIsTopScore
+    #> [1] TRUE
+    #> 
+    #> $destinationEntities[[3]]$entityType
+    #> [1] 0
+    #> 
+    #> $destinationEntities[[3]]$important
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[3]]$descendants
+    #> list()
+
+The output is a list parsed from the JSON body text of the HTTP response
+from the ICD API. This output can then be further processed by the user
+for their intended end use.
+
 ## Citation
 
 If you find the `icd` package useful please cite using the suggested
