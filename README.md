@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# icd: Interface to the International Classification of Diseases (ICD) API
+# codigo: Interface to the International Classification of Diseases (ICD) API <img src="man/figures/logo.png" width="200" align="right" />
 
 <!-- badges: start -->
 
@@ -26,10 +26,10 @@ API](https://icd.who.int/icdapi) allows programmatic access to the ICD.
 It is an HTTP based REST API. This package provides functions that
 interface with the ICD API.
 
-## What does `icd` do?
+## What does `codigo` do?
 
-Please note that `icd` is still highly experimental and is undergoing a
-lot of development. Hence, any functionalities described below have a
+Please note that `codigo` is still highly experimental and is undergoing
+a lot of development. Hence, any functionalities described below have a
 high likelihood of changing interface or approach as we aim for a stable
 working version.
 
@@ -40,21 +40,21 @@ endpoints](https://id.who.int/swagger/index.html).
 
 ## Installation
 
-`icd` is not yet on CRAN.
+`codigo` is not yet on CRAN.
 
-You can install the development version of `icd` from
-[GitHub](https://github.com/OxfordIHTM/icd) with:
+You can install the development version of `codigo` from
+[GitHub](https://github.com/OxfordIHTM/codigo) with:
 
 ``` r
 if(!require(remotes)) install.packages("remotes")
-remotes::install_github("OxfordIHTM/icd")
+remotes::install_github("OxfordIHTM/codigo")
 ```
 
-then load `icd`
+then load `codigo`
 
 ``` r
 # load package
-library(icd)
+library(codigo)
 ```
 
 ## Usage
@@ -130,7 +130,7 @@ which gives the following output:
     #> [1] 2
     #> 
     #> $uniqueSearchId
-    #> [1] "0bed938d-3a23-4553-9591-565525ce74ec"
+    #> [1] "525bf14f-6ae8-4f42-bac6-ea9e2b9073f6"
     #> 
     #> $words
     #> NULL
@@ -346,11 +346,11 @@ for their intended end use.
 
 ## Citation
 
-If you find the `icd` package useful please cite using the suggested
+If you find the `codigo` package useful please cite using the suggested
 citation provided by a call to the `citation()` function as follows:
 
 ``` r
-citation("icd")
+citation("codigo")
 #> To cite icd in publications use:
 #> 
 #>   Anita Makori and Ernest Guevarra (2024). icd: Interface to the
@@ -371,10 +371,10 @@ citation("icd")
 ## Community guidelines
 
 Feedback, bug reports and feature requests are welcome; file issues or
-seek support [here](https://github.com/OxfordIHTM/icd/issues). If you
+seek support [here](https://github.com/OxfordIHTM/codigo/issues). If you
 would like to contribute to the package, please see our [contributing
-guidelines](https://oxford-ihtm.io/icd/CONTRIBUTING.html).
+guidelines](https://oxford-ihtm.io/codigo/CONTRIBUTING.html).
 
 This project is released with a [Contributor Code of
-Conduct](https://OxfordIHTM/codeditr/CODE_OF_CONDUCT.html). By
+Conduct](https://OxfordIHTM/codigo/CODE_OF_CONDUCT.html). By
 participating in this project you agree to abide by its terms.
