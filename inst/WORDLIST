@@ -8,6 +8,7 @@ Codecov
 DepthInKind
 FullySpecifiedName
 GroupingX
+ICD
 ICF
 IsLeaf
 IsResidual
@@ -29,6 +30,7 @@ es
 etc
 fileName
 iCatLink
+icd
 icdapi
 icdcdn
 int

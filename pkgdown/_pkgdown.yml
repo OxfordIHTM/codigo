@@ -1,6 +1,6 @@
-title: icd
+title: codigo
 
-url: https://oxford-ihtm.io/icd/
+url: https://oxford-ihtm.io/codigo/
 
 template:
   bootstrap: 5
@@ -40,7 +40,7 @@ navbar:
 reference:
   - title: Description
     contents:
-    - icd
+    - codigo
 
   - title: Authentication
     contents:

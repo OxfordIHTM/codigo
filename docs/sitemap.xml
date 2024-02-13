@@ -1,48 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://oxford-ihtm.io/icd/404.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/404.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/CODE_OF_CONDUCT.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/CONTRIBUTING.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/LICENSE.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/authors.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/authors.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/index.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/index.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/codigo.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd11_linearization_mms.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd11_simple_table_mms.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd11_linearization_mms.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd_authenticate.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd11_simple_table_mms.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd_get.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_authenticate.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd_search.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_get.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd_search_foundation.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_search.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/icd_versions.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_search_foundation.html</loc>
   </url>
   <url>
-    <loc>https://oxford-ihtm.io/icd/reference/index.html</loc>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_versions.html</loc>
+  </url>
+  <url>
+    <loc>https://oxford-ihtm.io/codigo/reference/index.html</loc>
   </url>
 </urlset>

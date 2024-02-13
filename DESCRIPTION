@@ -1,4 +1,4 @@
-Package: icd
+Package: codigo
 Type: Package
 Title: Interface to the International Classification of Diseases (ICD) API
 Version: 0.0.0.9000
@@ -30,5 +30,5 @@ LazyData: true
 Language: en-GB
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
-URL: https://oxford-ihtm.io/icd/, https://github.com/OxfordIHTM/icd
-BugReports: https://github.com/OxfordIHTM/icd/issues
+URL: https://oxford-ihtm.io/codigo/, https://github.com/OxfordIHTM/codigo
+BugReports: https://github.com/OxfordIHTM/codigo/issues
