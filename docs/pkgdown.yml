@@ -2,7 +2,7 @@ pandoc: 3.1.1
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-02-13T16:55Z
+last_built: 2024-02-14T13:53Z
 urls:
   reference: https://oxford-ihtm.io/codigo/reference
   article: https://oxford-ihtm.io/codigo/articles
