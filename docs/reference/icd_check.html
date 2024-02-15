@@ -87,21 +87,21 @@ message or a warning if <code>language</code> requested is available or not for
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_check_release</span><span class="op">(</span><span class="st">"2024-01"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release identifier provided matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">icd_check_release</span><span class="op">(</span><span class="st">"2025-01"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in icd_check_release("2025-01") : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Release identifier provided does not match any known release for ICD-11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Release `2025-01` does not match any known release for ICD-11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        or ICD-10. Please verify and check with `icd_versions` and try again.</span>
 <span class="r-in"><span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2024-01"</span>, <span class="st">"ar"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release identifier provided matches a known release for ICD-11.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `ar` is available for the release specified.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Language `ar` is available for the release specified.</span>
 <span class="r-in"><span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2024-01"</span>, <span class="st">"rr"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release identifier provided matches a known release for ICD-11.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`rr` is not available for the release specified.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Language `rr` is not available for the release specified.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>                 Returning results for `en` (default).</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2025-01"</span>, <span class="st">"ar"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in icd_check_release(release) : </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Release identifier provided does not match any known release for ICD-11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Release `2025-01` does not match any known release for ICD-11</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        or ICD-10. Please verify and check with `icd_versions` and try again.</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

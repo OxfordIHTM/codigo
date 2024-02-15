@@ -65,6 +65,10 @@ reference:
     - icd_check_release
     - icd_check_language
 
+  - title: Utilities
+    contents:
+    - icd_get_releases
+
   - title: Supporting datasets
     contents:
     - icd_versions
