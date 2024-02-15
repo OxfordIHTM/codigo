@@ -75,6 +75,7 @@
 #' | *IsLeaf* | true if this entity does not have any children |
 #' | *Primary Tabulation* | |
 #' | *GroupingX* | Groupings that the entity is included in |
+#' | *Version* | Date and time linearization was produced |
 #'
 #' @examples
 #' icd11_simple_table_mms

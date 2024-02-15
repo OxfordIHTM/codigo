@@ -3,11 +3,14 @@
 \name{icd_get_releases}
 \alias{icd_get_releases}
 \alias{icd_get_languages}
+\alias{icd_get_entities}
 \title{Utility functions for retrieving ICD parameters and definitions}
 \usage{
 icd_get_releases(icd = c("icd11", "icd10"), latest = FALSE)
 
 icd_get_languages(icd = c("icd11", "icd10"), latest = FALSE)
+
+icd_get_entities(class = NULL)
 }
 \arguments{
 \item{icd}{A character string of available ICD classifications. Currently,
@@ -16,11 +19,17 @@ classifications are used (currently both "icd10" and "icd11").}
 
 \item{latest}{Logical. If TRUE, identifier for latest release is returned.
 Default is FALSE.}
+
+\item{class}{A character string of code classes to retrieve. This can be
+either "chapter", "block", or "category". If NULL (default), all
+classes are retrieved.}
 }
 \value{
 A tibble for ICD classification values and their corresponding
 release identifiers (for \code{icd_get_releases()}). A names list of
-corresponding languages (for \code{icg_get_languages()}).
+corresponding languages (for \code{icd_get_languages()}). A tibble of
+entities with their definitions/titles and classes
+(for \code{icd_get_entitties()}).
 }
 \description{
 Utility functions for retrieving ICD parameters and definitions
@@ -28,5 +37,6 @@ Utility functions for retrieving ICD parameters and definitions
 \examples{
 icd_get_releases()
 icd_get_languages()
+icd_get_entities()
 
 }

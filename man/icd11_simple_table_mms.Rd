@@ -20,6 +20,7 @@ A data frame with 18 columns and 36044 rows:\tabular{ll}{
    \emph{IsLeaf} \tab true if this entity does not have any children \cr
    \emph{Primary Tabulation} \tab  \cr
    \emph{GroupingX} \tab Groupings that the entity is included in \cr
+   \emph{Version} \tab Date and time linearization was produced \cr
 }
 }
 \source{

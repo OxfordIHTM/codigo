@@ -69,6 +69,7 @@ reference:
     contents:
     - icd_get_releases
     - icd_get_languages
+    - icd_get_entities
 
   - title: Supporting datasets
     contents:
