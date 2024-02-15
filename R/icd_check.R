@@ -27,13 +27,13 @@ icd_check_release <- function(release) {
   if (release_check) {
     message(
       paste0(
-        "Release identifier provided matches a known release for ",
+        "Release `", release, "` matches a known release for ",
         icd_set, "."
       )
     )
   } else {
     stop(
-      "Release identifier provided does not match any known release for ICD-11
+      "Release `", release, "` does not match any known release for ICD-11
        or ICD-10. Please verify and check with `icd_versions` and try again."
     )
   }
@@ -53,17 +53,17 @@ icd_check_language <- function(release = NULL, language) {
 
   ## Get languages available for release provided ----
   languages_available <- with(
-    codigo::icd_versions, Languages[`Release ID` == release]
+    codigo::icd_versions, Languages[`Release ID` == release] |> unlist()
   )
 
   if (length(language) == 1) {
     if (language %in% languages_available) {
       message(
-        paste0("`", language, "` is available for the release specified.")
+        paste0("Language `", language, "` is available for the release specified.")
       )
     } else {
       warning(
-        paste0("`", language, "` is not available for the release specified.
+        paste0("Language `", language, "` is not available for the release specified.
                 Returning results for `en` (default).")
       )
     }
