@@ -60,6 +60,10 @@ reference:
     contents:
     - icd_structure_foundation
 
+  - title: Checks
+    contents:
+    - icd_check_release
+
   - title: Supporting datasets
     contents:
     - icd_versions

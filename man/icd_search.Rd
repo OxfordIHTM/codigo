@@ -86,6 +86,6 @@ An \code{httr2_response} object
 Search the foundation component of the ICD-11
 }
 \examples{
-icd_search_foundation(q = "cholera")
+icd_search_foundation(q = "colorectal cancer")
 
 }
