@@ -1,12 +1,6 @@
 #'
 #' Get information on various ICD 11 Foundation entities
 #'
-#' @param base_url The base URL of the API. Default uses the WHO API server at
-#'   https://id.who.int. If you are using a locally deployed server or hosting
-#'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
-#' @param scope Scopes to be requested from the resource owner. Default is
-#'   *"icdapi_access"* as specified in the ICD API documentation.
 #' @param id Unique numerical identifier for an entity.
 #' @param release A string specifying the release version of the Foundation to
 #'   search from. If not specified, defaults to the latest release version. See
@@ -23,11 +17,15 @@
 #'   the translations of ICD-11 completes. The values are language codes such as
 #'   en, es, zh, etc. Depending on the `release_id` specified, the available
 #'   languages will vary. Default is English ("en").
-#' @param parse Logical. Should JSON response body be parsed? Default is
-#'   TRUE. If FALSE, response body is kept as raw JSON.
+#' @param base_url The base URL of the API. Default uses the WHO API server at
+#'   https://id.who.int. If you are using a locally deployed server or hosting
+#'   your own ICD API server, you should specify the URL of your instance here.
+#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param scope Scopes to be requested from the resource owner. Default is
+#'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
-#' @return A list or JSON (depending on `parse`) with information on specified
-#'   ICD 11 Foundation and top level entities
+#' @return A list with information on specified ICD 11 Foundation and top level
+#'   entities.
 #'
 #' @examples
 #' icd_get_foundation()
@@ -38,13 +36,12 @@
 #' @rdname icd_get
 #' @export
 #'
-icd_get_foundation <- function(base_url = "https://id.who.int",
-                               client = icd_oauth_client(),
-                               scope = "icdapi_access",
-                               release = NULL,
+icd_get_foundation <- function(release = NULL,
                                api_version = c("v2", "v1"),
                                language = "en",
-                               parse = TRUE) {
+                               base_url = "https://id.who.int",
+                               client = icd_oauth_client(),
+                               scope = "icdapi_access") {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -55,29 +52,18 @@ icd_get_foundation <- function(base_url = "https://id.who.int",
   if (!is.null(language)) icd_check_language(release, language)
 
   ## Make request ----
-  req <- httr2::request(file.path(base_url, "icd/entity")) |>
+  resp <- httr2::request(file.path(base_url, "icd/entity")) |>
     httr2::req_headers(
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
     ) |>
-  ## Authenticate ----
+  ## Authenticate and perform request ----
     icd_authenticate(client = client, scope = scope) |>
-  ## Perform request ----
-    httr2::req_perform()
+    httr2::req_perform() |>
+    httr2::resp_body_json()
 
-  ## Determine what output to return ----
-  if (parse) {
-    ### Parse JSON and simplify ----
-    resp <- req |>
-      httr2::resp_body_json()
-  } else {
-    ### Keep as JSON ----
-    resp <- req |>
-      httr2::resp_body_raw()
-  }
-
-  ## Return response body ----
+  ## Return response ----
   resp
 }
 
@@ -86,15 +72,14 @@ icd_get_foundation <- function(base_url = "https://id.who.int",
 #' @rdname icd_get
 #' @export
 #'
-icd_get_entity <- function(base_url = "https://id.who.int",
-                           client = icd_oauth_client(),
-                           scope = "icdapi_access",
-                           id,
+icd_get_entity <- function(id,
                            release = NULL,
                            include = NULL,
                            api_version = c("v2", "v1"),
                            language = "en",
-                           parse = TRUE) {
+                           base_url = "https://id.who.int",
+                           client = icd_oauth_client(),
+                           scope = "icdapi_access") {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -128,23 +113,12 @@ icd_get_entity <- function(base_url = "https://id.who.int",
       httr2::req_url_query(include = include)
   }
 
-  ## Authenticate request ----
-  req <- req |>
+  ## Authenticate and perform request ----
+  resp <- req |>
     icd_authenticate(client = client, scope = "icdapi_access") |>
-  ## Perform request ----
-    httr2::req_perform()
+    httr2::req_perform() |>
+    httr2::resp_body_json()
 
-  ## Determine what output to return ----
-  if (parse) {
-    ### Parse JSON and simplify ----
-    resp <- req |>
-      httr2::resp_body_json()
-  } else {
-    ### Keep as JSON ----
-    resp <- req |>
-      httr2::resp_body_raw()
-  }
-
-  ## Return response body ----
+  ## Return response ----
   resp
 }

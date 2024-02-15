@@ -18,8 +18,10 @@ License: GPL (>= 3)
 Depends: 
     R (>= 2.10)
 Imports: 
+    dplyr,
     httr2,
-    tibble
+    tibble,
+    tidyr
 Suggests: 
     covr,
     httpuv,

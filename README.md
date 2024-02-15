@@ -109,240 +109,34 @@ is the disease of interest and information available from ICD 11 is
 needed, the following call can be made:
 
 ``` r
-icd_search_foundation(q = "colorectal cancer")
+icd_search_foundation("colorectal cancer")
 ```
 
 which gives the following output:
 
-    #> $error
-    #> [1] FALSE
-    #> 
-    #> $errorMessage
-    #> NULL
-    #> 
-    #> $resultChopped
-    #> [1] FALSE
-    #> 
-    #> $wordSuggestionsChopped
-    #> [1] FALSE
-    #> 
-    #> $guessType
-    #> [1] 2
-    #> 
-    #> $uniqueSearchId
-    #> [1] "7cfa4170-9a40-421d-8d83-1a78b5c8be03"
-    #> 
-    #> $words
-    #> NULL
-    #> 
-    #> $destinationEntities
-    #> $destinationEntities[[1]]
-    #> $destinationEntities[[1]]$id
-    #> [1] "http://id.who.int/icd/entity/774170412"
-    #> 
-    #> $destinationEntities[[1]]$title
-    #> [1] "Malignant neoplasms of rectosigmoid junction"
-    #> 
-    #> $destinationEntities[[1]]$stemId
-    #> [1] "http://id.who.int/icd/entity/774170412"
-    #> 
-    #> $destinationEntities[[1]]$isLeaf
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$postcoordinationAvailability
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[1]]$hasCodingNote
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$hasMaternalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$hasPerinatalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs
-    #> $destinationEntities[[1]]$matchingPVs[[1]]
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$propertyId
-    #> [1] "Synonym"
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$label
-    #> [1] "Colorectal Cancer NOS"
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$score
-    #> [1] 1
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$important
-    #> [1] TRUE
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$foundationUri
-    #> [1] "http://id.who.int/icd/entity/774170412"
-    #> 
-    #> $destinationEntities[[1]]$matchingPVs[[1]]$propertyValueType
-    #> [1] 0
-    #> 
-    #> 
-    #> 
-    #> $destinationEntities[[1]]$propertiesTruncated
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$isResidualOther
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$isResidualUnspecified
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$chapter
-    #> [1] "02"
-    #> 
-    #> $destinationEntities[[1]]$theCode
-    #> NULL
-    #> 
-    #> $destinationEntities[[1]]$score
-    #> [1] 1
-    #> 
-    #> $destinationEntities[[1]]$titleIsASearchResult
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$titleIsTopScore
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$entityType
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[1]]$important
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[1]]$descendants
-    #> list()
-    #> 
-    #> 
-    #> $destinationEntities[[2]]
-    #> $destinationEntities[[2]]$id
-    #> [1] "http://id.who.int/icd/entity/545664807"
-    #> 
-    #> $destinationEntities[[2]]$title
-    #> [1] "Familial nonpolyposis colorectal cancer"
-    #> 
-    #> $destinationEntities[[2]]$stemId
-    #> [1] "http://id.who.int/icd/entity/545664807"
-    #> 
-    #> $destinationEntities[[2]]$isLeaf
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$postcoordinationAvailability
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[2]]$hasCodingNote
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$hasMaternalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$hasPerinatalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$matchingPVs
-    #> list()
-    #> 
-    #> $destinationEntities[[2]]$propertiesTruncated
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$isResidualOther
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$isResidualUnspecified
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$chapter
-    #> [1] "02"
-    #> 
-    #> $destinationEntities[[2]]$theCode
-    #> NULL
-    #> 
-    #> $destinationEntities[[2]]$score
-    #> [1] 0.5203158
-    #> 
-    #> $destinationEntities[[2]]$titleIsASearchResult
-    #> [1] TRUE
-    #> 
-    #> $destinationEntities[[2]]$titleIsTopScore
-    #> [1] TRUE
-    #> 
-    #> $destinationEntities[[2]]$entityType
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[2]]$important
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[2]]$descendants
-    #> list()
-    #> 
-    #> 
-    #> $destinationEntities[[3]]
-    #> $destinationEntities[[3]]$id
-    #> [1] "http://id.who.int/icd/entity/8113015"
-    #> 
-    #> $destinationEntities[[3]]$title
-    #> [1] "Hereditary nonpolyposis colorectal cancer"
-    #> 
-    #> $destinationEntities[[3]]$stemId
-    #> [1] "http://id.who.int/icd/entity/8113015"
-    #> 
-    #> $destinationEntities[[3]]$isLeaf
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$postcoordinationAvailability
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[3]]$hasCodingNote
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$hasMaternalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$hasPerinatalChapterLink
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$matchingPVs
-    #> list()
-    #> 
-    #> $destinationEntities[[3]]$propertiesTruncated
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$isResidualOther
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$isResidualUnspecified
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$chapter
-    #> [1] "02"
-    #> 
-    #> $destinationEntities[[3]]$theCode
-    #> NULL
-    #> 
-    #> $destinationEntities[[3]]$score
-    #> [1] 0.5075196
-    #> 
-    #> $destinationEntities[[3]]$titleIsASearchResult
-    #> [1] TRUE
-    #> 
-    #> $destinationEntities[[3]]$titleIsTopScore
-    #> [1] TRUE
-    #> 
-    #> $destinationEntities[[3]]$entityType
-    #> [1] 0
-    #> 
-    #> $destinationEntities[[3]]$important
-    #> [1] FALSE
-    #> 
-    #> $destinationEntities[[3]]$descendants
-    #> list()
+    #> Release `2024-01` matches a known release for ICD-11.
+    #> Language `en` is available for the release specified.
+    #> # A tibble: 8 × 18
+    #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+    #> * <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
+    #> 1 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 2 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 3 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 4 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 5 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 6 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+    #> 7 http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        
+    #> 8 http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        
+    #> # ℹ abbreviated name: ¹​postcoordinationAvailability
+    #> # ℹ 12 more variables: hasMaternalChapterLink <lgl>,
+    #> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+    #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
+    #> #   isResidualUnspecified <lgl>, chapter <chr>, score <dbl>,
+    #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
+    #> #   important <lgl>
 
-The output is a list parsed from the JSON body text of the HTTP response
-from the ICD API. This output can then be further processed by the user
-for their intended end use.
+The output is a tibble created from parsed JSON body text of the HTTP
+response from the ICD API.
 
 ## Citation
 

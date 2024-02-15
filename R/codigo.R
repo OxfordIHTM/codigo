@@ -12,6 +12,9 @@
 #' @keywords internal
 #' @name codigo
 #' @importFrom httr2 oauth_client request req_url_query req_headers
-#'   req_oauth_client_credentials req_perform
+#'   req_oauth_client_credentials req_perform resp_body_json
+#' @importFrom tibble tibble
+#' @importFrom dplyr bind_cols bind_rows
+#' @importFrom tidyr unnest
 #'
 "_PACKAGE"

@@ -5,9 +5,6 @@
 \title{Search the foundation component of the ICD-11}
 \usage{
 icd_search_foundation(
-  base_url = "https://id.who.int",
-  client = icd_oauth_client(),
-  scope = "icdapi_access",
   q,
   subtree = NULL,
   chapter = NULL,
@@ -18,19 +15,13 @@ icd_search_foundation(
   highlight = FALSE,
   api_version = c("v2", "v1"),
   language = "en",
-  parse = TRUE
+  structure = TRUE,
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
 )
 }
 \arguments{
-\item{base_url}{The base URL of the API. Default uses the WHO API server at
-https://id.who.int. If you are using a locally deployed server or hosting
-your own ICD API server, you should specify the URL of your instance here.}
-
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
-
-\item{scope}{Scopes to be requested from the resource owner. Default is
-\emph{"icdapi_access"} as specified in the ICD API documentation.}
-
 \item{q}{String. Text to be searched. Having the character \verb{\%} at the end will
 be regarded as a wild card for that word.}
 
@@ -80,16 +71,25 @@ the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en").}
 
-\item{parse}{Logical. Should JSON response body be parsed? Default is
-TRUE. If FALSE, response body is kept as raw JSON.}
+\item{structure}{Logical. Should output be structured into a tibble? Default
+to TRUE.}
+
+\item{base_url}{The base URL of the API. Default uses the WHO API server at
+https://id.who.int. If you are using a locally deployed server or hosting
+your own ICD API server, you should specify the URL of your instance here.}
+
+\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+
+\item{scope}{Scopes to be requested from the resource owner. Default is
+\emph{"icdapi_access"} as specified in the ICD API documentation.}
 }
 \value{
-An \code{httr2_response} object
+A tibble of search results.
 }
 \description{
 Search the foundation component of the ICD-11
 }
 \examples{
-icd_search_foundation(q = "colorectal cancer")
+icd_search_foundation("colorectal cancer")
 
 }

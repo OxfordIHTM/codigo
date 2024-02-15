@@ -6,37 +6,26 @@
 \title{Get information on various ICD 11 Foundation entities}
 \usage{
 icd_get_foundation(
-  base_url = "https://id.who.int",
-  client = icd_oauth_client(),
-  scope = "icdapi_access",
   release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
-  parse = TRUE
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
 )
 
 icd_get_entity(
-  base_url = "https://id.who.int",
-  client = icd_oauth_client(),
-  scope = "icdapi_access",
   id,
   release = NULL,
   include = NULL,
   api_version = c("v2", "v1"),
   language = "en",
-  parse = TRUE
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
 )
 }
 \arguments{
-\item{base_url}{The base URL of the API. Default uses the WHO API server at
-https://id.who.int. If you are using a locally deployed server or hosting
-your own ICD API server, you should specify the URL of your instance here.}
-
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
-
-\item{scope}{Scopes to be requested from the resource owner. Default is
-\emph{"icdapi_access"} as specified in the ICD API documentation.}
-
 \item{release}{A string specifying the release version of the Foundation to
 search from. If not specified, defaults to the latest release version. See
 the available versions with \code{icd_versions}.}
@@ -51,8 +40,14 @@ the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en").}
 
-\item{parse}{Logical. Should JSON response body be parsed? Default is
-TRUE. If FALSE, response body is kept as raw JSON.}
+\item{base_url}{The base URL of the API. Default uses the WHO API server at
+https://id.who.int. If you are using a locally deployed server or hosting
+your own ICD API server, you should specify the URL of your instance here.}
+
+\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+
+\item{scope}{Scopes to be requested from the resource owner. Default is
+\emph{"icdapi_access"} as specified in the ICD API documentation.}
 
 \item{id}{Unique numerical identifier for an entity.}
 
@@ -62,8 +57,8 @@ are \emph{"ancestor"}, \emph{"descendant"}, or \emph{"diagnosticCriteria"}. If n
 specified, these properties are not included in the response.}
 }
 \value{
-A list or JSON (depending on \code{parse}) with information on specified
-ICD 11 Foundation and top level entities
+A list with information on specified ICD 11 Foundation and top level
+entities.
 }
 \description{
 Get information on various ICD 11 Foundation entities

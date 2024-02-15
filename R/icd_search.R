@@ -1,12 +1,6 @@
 #'
 #' Search the foundation component of the ICD-11
 #'
-#' @param base_url The base URL of the API. Default uses the WHO API server at
-#'   https://id.who.int. If you are using a locally deployed server or hosting
-#'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
-#' @param scope Scopes to be requested from the resource owner. Default is
-#'   *"icdapi_access"* as specified in the ICD API documentation.
 #' @param q String. Text to be searched. Having the character `%` at the end will
 #'   be regarded as a wild card for that word.
 #' @param subtree A string or vector of strings of URIs. If provided, the
@@ -46,22 +40,25 @@
 #'   the translations of ICD-11 completes. The values are language codes such as
 #'   en, es, zh, etc. Depending on the `release_id` specified, the available
 #'   languages will vary. Default is English ("en").
-#' @param parse Logical. Should JSON response body be parsed? Default is
-#'   TRUE. If FALSE, response body is kept as raw JSON.
+#' @param structure Logical. Should output be structured into a tibble? Default
+#'   to TRUE.
+#' @param base_url The base URL of the API. Default uses the WHO API server at
+#'   https://id.who.int. If you are using a locally deployed server or hosting
+#'   your own ICD API server, you should specify the URL of your instance here.
+#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param scope Scopes to be requested from the resource owner. Default is
+#'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
-#' @return An `httr2_response` object
+#' @return A tibble of search results.
 #'
 #' @examples
-#' icd_search_foundation(q = "colorectal cancer")
+#' icd_search_foundation("colorectal cancer")
 #'
 #' @rdname icd_search
 #' @export
 #'
 
-icd_search_foundation <- function(base_url = "https://id.who.int",
-                                  client = icd_oauth_client(),
-                                  scope = "icdapi_access",
-                                  q,
+icd_search_foundation <- function(q,
                                   subtree = NULL,
                                   chapter = NULL,
                                   flexisearch = FALSE,
@@ -71,7 +68,10 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
                                   highlight = FALSE,
                                   api_version = c("v2", "v1"),
                                   language = "en",
-                                  parse = TRUE) {
+                                  structure = TRUE,
+                                  base_url = "https://id.who.int",
+                                  client = icd_oauth_client(),
+                                  scope = "icdapi_access") {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -126,30 +126,23 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
       highlightingEnabled = ifelse(highlight, "true", "false")
     )
 
-  ## Add headers ----
-  req <- req |>
+  ## Add headers, authenticate, and perform request ----
+  resp <- req |>
     httr2::req_headers(
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
     ) |>
-  ## Authenticate ----
     icd_authenticate(client = client, scope = scope) |>
-  ## Perform request ----
-    httr2::req_perform()
+    httr2::req_perform() |>
+    httr2::resp_body_json()
 
   ## Determine what output to return ----
-  if (parse) {
-    ## Structure JSON response ----
-    resp <- httr2::resp_body_json(req)
+  if (structure) {
+    icd_structure_search(resp)
   } else {
-    ### Keep as JSON ----
-    resp <- req |>
-      httr2::resp_body_raw()
+    resp
   }
-
-  ## Return response body ----
-  resp
 }
 
 
