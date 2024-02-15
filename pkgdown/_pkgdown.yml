@@ -56,6 +56,10 @@ reference:
     - icd_get_foundation
     - icd_get_entity
 
+  - title: Structure
+    contents:
+    - icd_structure_foundation
+
   - title: Supporting datasets
     contents:
     - icd_versions

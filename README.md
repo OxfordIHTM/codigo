@@ -130,7 +130,7 @@ which gives the following output:
     #> [1] 2
     #> 
     #> $uniqueSearchId
-    #> [1] "525bf14f-6ae8-4f42-bac6-ea9e2b9073f6"
+    #> [1] "7cfa4170-9a40-421d-8d83-1a78b5c8be03"
     #> 
     #> $words
     #> NULL
@@ -376,5 +376,5 @@ would like to contribute to the package, please see our [contributing
 guidelines](https://oxford-ihtm.io/codigo/CONTRIBUTING.html).
 
 This project is released with a [Contributor Code of
-Conduct](https://OxfordIHTM/codigo/CODE_OF_CONDUCT.html). By
+Conduct](https://oxford-ihtm.io/codigo/CODE_OF_CONDUCT.html). By
 participating in this project you agree to abide by its terms.

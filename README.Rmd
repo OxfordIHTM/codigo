@@ -108,4 +108,4 @@ citation("codigo")
 
 Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/OxfordIHTM/codigo/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://oxford-ihtm.io/codigo/CONTRIBUTING.html).
 
-This project is released with a [Contributor Code of Conduct](https://OxfordIHTM/codigo/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.
+This project is released with a [Contributor Code of Conduct](https://oxford-ihtm.io/codigo/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.
