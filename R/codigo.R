@@ -11,7 +11,6 @@
 #' @docType package
 #' @keywords internal
 #' @name codigo
-#' @importFrom httr oauth2.0_token oauth_app oauth_endpoint
 #' @importFrom httr2 oauth_client request req_url_query req_headers
 #'   req_oauth_client_credentials req_perform
 #'
