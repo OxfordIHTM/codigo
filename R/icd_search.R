@@ -46,6 +46,8 @@
 #'   the translations of ICD-11 completes. The values are language codes such as
 #'   en, es, zh, etc. Depending on the `release_id` specified, the available
 #'   languages will vary. Default is English ("en").
+#' @param parse Logical. Should JSON response body be parsed? Default is
+#'   TRUE. If FALSE, response body is kept as raw JSON.
 #'
 #' @return An `httr2_response` object
 #'
@@ -68,7 +70,8 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
                                   release = NULL,
                                   highlight = FALSE,
                                   api_version = c("v2", "v1"),
-                                  language = "en") {
+                                  language = "en",
+                                  parse = TRUE) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -135,8 +138,18 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
   ## Perform request ----
     httr2::req_perform()
 
-  ## Structure JSON response ----
-  httr2::resp_body_json(req)
+  ## Determine what output to return ----
+  if (parse) {
+    ## Structure JSON response ----
+    resp <- httr2::resp_body_json(req)
+  } else {
+    ### Keep as JSON ----
+    resp <- req |>
+      httr2::resp_body_raw()
+  }
+
+  ## Return response body ----
+  resp
 }
 
 
