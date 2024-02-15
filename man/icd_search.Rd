@@ -17,7 +17,8 @@ icd_search_foundation(
   release = NULL,
   highlight = FALSE,
   api_version = c("v2", "v1"),
-  language = "en"
+  language = "en",
+  parse = TRUE
 )
 }
 \arguments{
@@ -78,6 +79,9 @@ make the API respond in different languages. Languages will be available as
 the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en").}
+
+\item{parse}{Logical. Should JSON response body be parsed? Default is
+TRUE. If FALSE, response body is kept as raw JSON.}
 }
 \value{
 An \code{httr2_response} object
