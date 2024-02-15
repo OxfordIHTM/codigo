@@ -2,23 +2,31 @@
 % Please edit documentation in R/utils.R
 \name{icd_get_releases}
 \alias{icd_get_releases}
+\alias{icd_get_languages}
 \title{Utility functions for retrieving ICD parameters and definitions}
 \usage{
-icd_get_releases(icd = c("icd11", "icd10"))
+icd_get_releases(icd = c("icd11", "icd10"), latest = FALSE)
+
+icd_get_languages(icd = c("icd11", "icd10"), latest = FALSE)
 }
 \arguments{
 \item{icd}{A character string of available ICD classifications. Currently,
 this can be either "icd10" or "icd11". Default is "icd11". If NULL, all ICD
 classifications are used (currently both "icd10" and "icd11").}
+
+\item{latest}{Logical. If TRUE, identifier for latest release is returned.
+Default is FALSE.}
 }
 \value{
-A character value or a vector of character values for release
-identifiers
+A tibble for ICD classification values and their corresponding
+release identifiers (for \code{icd_get_releases()}). A names list of
+corresponding languages (for \code{icg_get_languages()}).
 }
 \description{
 Utility functions for retrieving ICD parameters and definitions
 }
 \examples{
 icd_get_releases()
+icd_get_languages()
 
 }

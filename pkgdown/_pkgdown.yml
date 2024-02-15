@@ -68,6 +68,7 @@ reference:
   - title: Utilities
     contents:
     - icd_get_releases
+    - icd_get_languages
 
   - title: Supporting datasets
     contents:
