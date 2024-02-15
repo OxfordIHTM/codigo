@@ -48,6 +48,12 @@ icd_get_foundation <- function(base_url = "https://id.who.int",
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
+  ## Check release identifier ----
+  if (!is.null(release)) icd_check_release(release)
+
+  ## Check language ----
+  if (!is.null(language)) icd_check_language(release, language)
+
   ## Make request ----
   req <- httr2::request(file.path(base_url, "icd/entity")) |>
     httr2::req_headers(
@@ -91,6 +97,12 @@ icd_get_entity <- function(base_url = "https://id.who.int",
                            parse = TRUE) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
+
+  ## Check release identifier ----
+  if (!is.null(release)) icd_check_release(release)
+
+  ## Check language ----
+  if (!is.null(language)) icd_check_language(release, language)
 
   ## Make base request ----
   req <- httr2::request(file.path(base_url, "icd/entity", id)) |>

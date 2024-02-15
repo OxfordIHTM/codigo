@@ -50,7 +50,7 @@
 #' @return An `httr2_response` object
 #'
 #' @examples
-#' icd_search_foundation(q = "cholera")
+#' icd_search_foundation(q = "colorectal cancer")
 #'
 #' @rdname icd_search
 #' @export
@@ -71,6 +71,12 @@ icd_search_foundation <- function(base_url = "https://id.who.int",
                                   language = "en") {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
+
+  ## Check release identifier ----
+  if (!is.null(release)) icd_check_release(release)
+
+  ## Check language ----
+  if (!is.null(language)) icd_check_language(release, language)
 
   ## Make base request ----
   req <- httr2::request(file.path(base_url, "icd/entity/search")) |>
