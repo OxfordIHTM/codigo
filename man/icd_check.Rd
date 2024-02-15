@@ -3,7 +3,8 @@
 \name{icd_check_release}
 \alias{icd_check_release}
 \alias{icd_check_language}
-\title{Check that release date is specified correctly}
+\title{Checks for specified parameters supplied to search, autocode, and get
+functions}
 \usage{
 icd_check_release(release)
 
@@ -20,7 +21,8 @@ message or a warning if \code{language} requested is available or not for
 \code{release} provided.
 }
 \description{
-Check that release date is specified correctly
+Checks for specified parameters supplied to search, autocode, and get
+functions
 }
 \examples{
 icd_check_release("2024-01")

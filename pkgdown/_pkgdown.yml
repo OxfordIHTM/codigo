@@ -63,6 +63,7 @@ reference:
   - title: Checks
     contents:
     - icd_check_release
+    - icd_check_language
 
   - title: Supporting datasets
     contents:

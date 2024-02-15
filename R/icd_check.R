@@ -1,5 +1,6 @@
 #'
-#' Check that release date is specified correctly
+#' Checks for specified parameters supplied to search, autocode, and get
+#' functions
 #'
 #' @param release A string specifying the release version of the ICD-11.
 #' @param language language codes such as en, es, zh, etc.
