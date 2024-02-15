@@ -16,7 +16,7 @@ icd_versions <- icd_session |>
     MMS = c(rep(TRUE, 7), rep(NA, 4)),
     ICF = c(TRUE, rep(FALSE, 6), rep(NA, 4)),
     Languages = ifelse(Classification == "ICD-10", `ICD-11 MMS`, `Available Languages 2`) |>
-      stringr::str_split(pattern = ", ", simplify = TRUE)
+      stringr::str_split(pattern = ", ")
   ) |>
   dplyr::rename(`Release ID` = `Release Id 1`) |>
   dplyr::select(`Classification`, `Release ID`, Foundation, MMS, ICF, Languages)
