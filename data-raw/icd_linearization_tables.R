@@ -63,7 +63,14 @@ icd11_simple_table_mms <- read_xlsx(
   sheet = 1, data_only = TRUE
 )
 
-icd11_simple_table_mms |>
+icd11_simple_table_mms[ncol(icd11_simple_table_mms)] <- names(icd11_simple_table_mms)[ncol(icd11_simple_table_mms)] |>
+  stringr::str_split(pattern = ":", simplify = TRUE) |>
+  (\(x) x[2:3])() |>
+  paste(collapse = ":")
+
+names(icd11_simple_table_mms)[ncol(icd11_simple_table_mms)] <- "Version"
+
+icd11_simple_table_mms <- icd11_simple_table_mms |>
   tibble::tibble()
 
 usethis::use_data(icd11_simple_table_mms, overwrite = TRUE, compress = "xz")

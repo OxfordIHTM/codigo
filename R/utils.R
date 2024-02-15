@@ -6,14 +6,20 @@
 #'   classifications are used (currently both "icd10" and "icd11").
 #' @param latest Logical. If TRUE, identifier for latest release is returned.
 #'   Default is FALSE.
+#' @param class A character string of code classes to retrieve. This can be
+#'   either "chapter", "block", or "category". If NULL (default), all
+#'   classes are retrieved.
 #'
 #' @return A tibble for ICD classification values and their corresponding
 #'   release identifiers (for `icd_get_releases()`). A names list of
-#'   corresponding languages (for `icg_get_languages()`).
+#'   corresponding languages (for `icd_get_languages()`). A tibble of
+#'   entities with their definitions/titles and classes
+#'   (for `icd_get_entitties()`).
 #'
 #' @examples
 #' icd_get_releases()
 #' icd_get_languages()
+#' icd_get_entities()
 #'
 #' @rdname icd_utils
 #' @export
@@ -87,4 +93,26 @@ icd_get_languages <- function(icd = c("icd11", "icd10"), latest = FALSE) {
       }
       )()
   }
+}
+
+#'
+#' @rdname icd_utils
+#' @export
+#'
+
+
+icd_get_entities <- function(class = NULL) {
+  entity_df <- with(
+    codigo::icd11_simple_table_mms,
+    tibble::tibble(
+      entity_foundation = basename(`Foundation URI`),
+      entity_mms = basename(`Linearization URI`),
+      code = Code,
+      title = Title,
+      class = ClassKind
+    )
+  )
+
+  if (!is.null(class)) entity_df |> (\(x) x[x$class %in% class, ])()
+  else entity_df
 }
