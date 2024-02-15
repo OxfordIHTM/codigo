@@ -70,6 +70,8 @@ Get information on various ICD 11 Foundation entities
 }
 \examples{
 icd_get_foundation()
-icd_get_entity(id = "1112016389")
+icd_get_entity(id = "1435254666")     ## chapter
+icd_get_entity(id = "588616678")      ## block; depth 1
+icd_get_entity(id = "1465325727")     ## category; depth 1
 
 }
