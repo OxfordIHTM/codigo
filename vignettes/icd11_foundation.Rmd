@@ -1,0 +1,19 @@
+---
+title: "The ICD-11 Foundation and Linearization"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The ICD-11 Foundation and Linearization}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(codigo)
+```

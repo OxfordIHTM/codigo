@@ -27,7 +27,7 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Anita Makori \email{mark@brixtonhealth.com} [copyright holder]
+  \item Anita Makori [copyright holder]
 }
 
 }
