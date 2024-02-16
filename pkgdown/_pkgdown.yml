@@ -51,6 +51,10 @@ reference:
     contents:
     - icd_search_foundation
 
+  - title: Autcode
+    contents:
+    - icd_autocode_foundation
+
   - title: Get
     contents:
     - icd_get_foundation
@@ -59,6 +63,8 @@ reference:
   - title: Structure
     contents:
     - icd_structure_foundation
+    - icd_structure_search
+    - icd_structure_autocode
 
   - title: Checks
     contents:
