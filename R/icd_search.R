@@ -82,7 +82,8 @@ icd_search_foundation <- function(q,
   if (!is.null(release)) icd_check_release(release, verbose = verbose)
 
   ## Check language ----
-  if (!is.null(language)) icd_check_language(release, language, verbose = verbose)
+  if (!is.null(language))
+    language <- icd_check_language(release, language, verbose = verbose)
 
   ## Make base request ----
   req <- httr2::request(file.path(base_url, "icd/entity/search")) |>
