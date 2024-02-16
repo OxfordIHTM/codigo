@@ -15,7 +15,7 @@ icd_search_foundation(
   highlight = FALSE,
   api_version = c("v2", "v1"),
   language = "en",
-  structure = TRUE,
+  tabular = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -71,7 +71,7 @@ the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en").}
 
-\item{structure}{Logical. Should output be structured into a tibble? Default
+\item{tabular}{Logical. Should output be structured into a tibble? Default
 to TRUE.}
 
 \item{base_url}{The base URL of the API. Default uses the WHO API server at

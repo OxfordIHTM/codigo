@@ -9,6 +9,7 @@ icd_get_foundation(
   release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
+  tabular = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -39,6 +40,9 @@ make the API respond in different languages. Languages will be available as
 the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en").}
+
+\item{tabular}{Logical. Should output be structured into a tibble? Default
+to TRUE.}
 
 \item{base_url}{The base URL of the API. Default uses the WHO API server at
 https://id.who.int. If you are using a locally deployed server or hosting

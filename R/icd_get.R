@@ -17,6 +17,8 @@
 #'   the translations of ICD-11 completes. The values are language codes such as
 #'   en, es, zh, etc. Depending on the `release_id` specified, the available
 #'   languages will vary. Default is English ("en").
+#' @param tabular Logical. Should output be structured into a tibble? Default
+#'   to TRUE.
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
@@ -39,6 +41,7 @@
 icd_get_foundation <- function(release = NULL,
                                api_version = c("v2", "v1"),
                                language = "en",
+                               tabular = TRUE,
                                base_url = "https://id.who.int",
                                client = icd_oauth_client(),
                                scope = "icdapi_access") {
@@ -63,8 +66,12 @@ icd_get_foundation <- function(release = NULL,
     httr2::req_perform() |>
     httr2::resp_body_json()
 
-  ## Return response ----
-  resp
+  ## Determine what output to return ----
+  if (tabular) {
+    icd_structure_foundation(resp)
+  } else {
+    resp
+  }
 }
 
 

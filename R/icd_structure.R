@@ -9,9 +9,9 @@
 #' @return A tibble of structured ICD outputs.
 #'
 #' @examples
-#' icd_list <- icd_get_foundation()
+#' icd_list <- icd_get_foundation(tabular = FALSE)
 #' icd_tbl_foundation <- icd_structure_foundation(icd_list)
-#' icd_structure_search(icd_search_foundation("cholera", structure = FALSE))
+#' icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 #'
 #' @rdname icd_structure
 #' @export
@@ -89,3 +89,5 @@ icd_structure_search <- function(icd_search) {
   ## Return search results
   search_results
 }
+
+

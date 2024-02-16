@@ -80,13 +80,13 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">icd_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="icd_get.html">icd_get_foundation</a></span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">icd_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="icd_get.html">icd_get_foundation</a></span><span class="op">(</span>tabular <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-in"><span><span class="va">icd_tbl_foundation</span> <span class="op">&lt;-</span> <span class="fu">icd_structure_foundation</span><span class="op">(</span><span class="va">icd_list</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> New names:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...8`</span>
-<span class="r-in"><span><span class="fu">icd_structure_search</span><span class="op">(</span><span class="fu"><a href="icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"cholera"</span>, structure <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">icd_structure_search</span><span class="op">(</span><span class="fu"><a href="icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"cholera"</span>, tabular <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 103 × 18</span></span>

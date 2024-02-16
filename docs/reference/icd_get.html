@@ -58,6 +58,7 @@
 <span>  release <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  api_version <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"v2"</span>, <span class="st">"v1"</span><span class="op">)</span>,</span>
 <span>  language <span class="op">=</span> <span class="st">"en"</span>,</span>
+<span>  tabular <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://id.who.int"</span>,</span>
 <span>  client <span class="op">=</span> <span class="fu"><a href="icd_authenticate.html">icd_oauth_client</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  scope <span class="op">=</span> <span class="st">"icdapi_access"</span></span>
@@ -95,6 +96,11 @@ make the API respond in different languages. Languages will be available as
 the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the <code>release_id</code> specified, the available
 languages will vary. Default is English ("en").</p></dd>
+
+
+<dt>tabular</dt>
+<dd><p>Logical. Should output be structured into a tibble? Default
+to TRUE.</p></dd>
 
 
 <dt>base_url</dt>
@@ -136,69 +142,14 @@ entities.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_get_foundation</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/contexts/contextForTopLevel.json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $`@id`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/entity"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title$`@language`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "en"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $title$`@value`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "WHO Family of International Classifications Foundation"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $releaseId</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ar"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "cs"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "en"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "es"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[5]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "fr"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[6]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "pt"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[7]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ru"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[8]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "tr"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[9]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "uz"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $availableLanguages[[10]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "zh"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $releaseDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-21"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $child</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $child[[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/entity/448895267"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $child[[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/entity/1405434703"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $browserUrl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://icd.who.int/browse/2024-01/foundation/en"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> New names:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `` -&gt; `...8`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 9</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   `@context`   `@id` `title@language` `title@value` releaseId availableLanguages</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.w… http… en               WHO Family o… 2024-01   ar, cs, en, es, f…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.w… http… en               WHO Family o… 2024-01   ar, cs, en, es, f…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3 more variables: releaseDate &lt;chr&gt;, child &lt;chr&gt;, browserUrl &lt;chr&gt;</span></span>
 <span class="r-in"><span><span class="fu">icd_get_entity</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"1435254666"</span><span class="op">)</span>     <span class="co">## chapter</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
