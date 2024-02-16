@@ -17,15 +17,15 @@ navbar:
   bg: primary
   type: light
   structure:
-    left:  [home, reference, articles, news]
+    left:  [home, intro, reference, articles, news]
     right: [linkedin, github]
 
   components:
-    # articles:
-    #   text: Articles
-    #   menu:
-    #   - text: "Detecting haemoglobinaemia"
-    #     href: articles/haemoglobinaemia.html
+    articles:
+      text: Articles
+      menu:
+      - text: "ICD-11 Foundation"
+        href: articles/icd11_foundation.html
     #   - text: "Detecting inflammation"
     #     href: articles/inflammation.html
     #   - text: "Detecting iron deficiency"
