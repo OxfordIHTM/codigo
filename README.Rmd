@@ -85,16 +85,16 @@ This OAuth2 client can now be used to the various functions in the package that 
 The main feature of the ICD API is the ability to search ICD 11 Foundation and ICD 11 Linearization for information regarding an illness/disease. This feature is captured by the `icd_search_foundation()` function. For example, if *colorectal cancer* is the disease of interest and information available from ICD 11 is needed, the following call can be made:
 
 ```{r search, eval = FALSE}
-icd_search_foundation(q = "colorectal cancer")
+icd_search_foundation("colorectal cancer", client = my_oauth_client)
 ```
 
 which gives the following output:
 
 ```{r result, echo = FALSE}
-icd_search_foundation(q = "colorectal cancer")
+icd_search_foundation("colorectal cancer")
 ```
 
-The output is a list parsed from the JSON body text of the HTTP response from the ICD API. This output can then be further processed by the user for their intended end use.
+The output is a tibble created from parsed JSON body text of the HTTP response from the ICD API.
 
 ## Citation
 

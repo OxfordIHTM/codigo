@@ -2,23 +2,34 @@
 % Please edit documentation in R/icd_structure.R
 \name{icd_structure_foundation}
 \alias{icd_structure_foundation}
-\title{Structure ICD list outputs}
+\alias{icd_structure_search}
+\title{Structure ICD list and ICD search outputs}
 \usage{
 icd_structure_foundation(icd_list)
+
+icd_structure_search(icd_search)
 }
 \arguments{
-\item{icd_list}{An \code{icd_list} object produced by a call to any of the \code{icd_get}
-functions}
+\item{icd_list}{An \code{icd_list} object produced by a call to any of the
+\code{icd_get} functions}
+
+\item{icd_search}{An \code{icd_search} object produced by a call to any of the
+\code{icd_search} functions}
 }
 \value{
-An object of class \code{icd_tbl} which is basically a \code{data.frame} format
-of ICD outputs
+A tibble of structured ICD outputs.
 }
 \description{
-Structure ICD list outputs
+Structure ICD list and ICD search outputs
+}
+\details{
+These functions are meant to be helper functions and are used
+within the \code{icd_get} and \code{icd_search} functions to structure the output
+responses.
 }
 \examples{
-icd_list <- icd_get_foundation()
+icd_list <- icd_get_foundation(tabular = FALSE)
 icd_tbl_foundation <- icd_structure_foundation(icd_list)
+icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 
 }
