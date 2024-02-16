@@ -19,6 +19,8 @@
 #'   languages will vary. Default is English ("en").
 #' @param tabular Logical. Should output be structured into a tibble? Default
 #'   to TRUE.
+#' @param verbose Logical. Should non-warning and non-error messages be
+#'   printed? Default is TRUE.
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
@@ -42,6 +44,7 @@ icd_get_foundation <- function(release = NULL,
                                api_version = c("v2", "v1"),
                                language = "en",
                                tabular = TRUE,
+                               verbose = TRUE,
                                base_url = "https://id.who.int",
                                client = icd_oauth_client(),
                                scope = "icdapi_access") {
@@ -49,10 +52,10 @@ icd_get_foundation <- function(release = NULL,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release)
+  if (!is.null(release)) icd_check_release(release, verbose = verbose)
 
   ## Check language ----
-  if (!is.null(language)) icd_check_language(release, language)
+  if (!is.null(language)) icd_check_language(release, language, verbose = verbose)
 
   ## Make request ----
   resp <- httr2::request(file.path(base_url, "icd/entity")) |>

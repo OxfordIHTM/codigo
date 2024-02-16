@@ -6,12 +6,15 @@
 \title{Checks for specified parameters supplied to search, autocode, and get
 functions}
 \usage{
-icd_check_release(release)
+icd_check_release(release, verbose = TRUE)
 
-icd_check_language(release = NULL, language)
+icd_check_language(release = NULL, language, verbose = TRUE)
 }
 \arguments{
 \item{release}{A string specifying the release version of the ICD-11.}
+
+\item{verbose}{Logical. Should non-warning and non-error messages be
+printed? Default is TRUE.}
 
 \item{language}{language codes such as en, es, zh, etc.}
 }
