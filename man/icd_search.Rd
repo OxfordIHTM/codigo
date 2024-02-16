@@ -50,7 +50,7 @@ ICD-11 hierarchy. Otherwise they are listed as flat list of matches.}
 
 \item{properties}{A string or a vector of strings for the properties to be
 searched. By default the system  searches, \emph{"Title"}, \emph{"Synonyms"}, and
-\emph{"FullySpecifiedName"}. The valid values that could be used are: \emph{Title"},
+\emph{"FullySpecifiedName"}. The valid values that could be used are: \emph{"Title"},
 \emph{"Synonym"}, \emph{"NarrowerTerm"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, and
 \emph{"Exclusion"}.}
 
