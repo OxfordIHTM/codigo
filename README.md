@@ -14,7 +14,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![Codecov test
 coverage](https://codecov.io/gh/OxfordIHTM/icd/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OxfordIHTM/icd?branch=main)
 [![test-coverage](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml)
-[![CodeFactor](https://www.codefactor.io/repository/github/oxfordihtm/icd/badge)](https://www.codefactor.io/repository/github/oxfordihtm/icd)
+[![CodeFactor](https://www.codefactor.io/repository/github/oxfordihtm/codigo/badge)](https://www.codefactor.io/repository/github/oxfordihtm/codigo)
 <!-- badges: end -->
 
 The [International Classification of Diseases
