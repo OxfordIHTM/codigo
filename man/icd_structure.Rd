@@ -22,6 +22,11 @@ A tibble of structured ICD outputs.
 \description{
 Structure ICD list and ICD search outputs
 }
+\details{
+These functions are meant to be helper functions and are used
+within the \code{icd_get} and \code{icd_search} functions to structure the output
+responses.
+}
 \examples{
 icd_list <- icd_get_foundation(tabular = FALSE)
 icd_tbl_foundation <- icd_structure_foundation(icd_list)

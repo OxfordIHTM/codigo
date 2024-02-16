@@ -134,7 +134,7 @@
 </h3>
 <p>The main feature of the ICD API is the ability to search ICD 11 Foundation and ICD 11 Linearization for information regarding an illness/disease. This feature is captured by the <code><a href="reference/icd_search.html">icd_search_foundation()</a></code> function. For example, if <em>colorectal cancer</em> is the disease of interest and information available from ICD 11 is needed, the following call can be made:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span>, client <span class="op">=</span> <span class="va">my_oauth_client</span><span class="op">)</span></span></code></pre></div>
 <p>which gives the following output:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
@@ -165,20 +165,20 @@
 <p>If you find the <code>codigo</code> package useful please cite using the suggested citation provided by a call to the <code><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation()</a></code> function as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"codigo"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; To cite icd in publications use:</span></span>
+<span><span class="co">#&gt; To cite codigo in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Anita Makori and Ernest Guevarra (2024). icd: Interface to the</span></span>
+<span><span class="co">#&gt;   Anita Makori and Ernest Guevarra (2024). codigo: Interface to the</span></span>
 <span><span class="co">#&gt;   International Classification of Diseases (ICD) API. R package version</span></span>
-<span><span class="co">#&gt;   0.0.9000. URL https://oxford-ihtm.io/icd/</span></span>
+<span><span class="co">#&gt;   0.0.9000. URL https://oxford-ihtm.io/codigo/</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   @Manual{,</span></span>
-<span><span class="co">#&gt;     title = {icd: Interface to the International Classification of Diseases (ICD) API},</span></span>
+<span><span class="co">#&gt;     title = {codigo: Interface to the International Classification of Diseases (ICD) API},</span></span>
 <span><span class="co">#&gt;     author = {{Anita Makori} and {Ernest Guevarra}},</span></span>
 <span><span class="co">#&gt;     year = {2024},</span></span>
 <span><span class="co">#&gt;     note = {R package version 0.0.9000},</span></span>
-<span><span class="co">#&gt;     url = {https://oxford-ihtm.io/icd/},</span></span>
+<span><span class="co">#&gt;     url = {https://oxford-ihtm.io/codigo/},</span></span>
 <span><span class="co">#&gt;   }</span></span></code></pre></div>
 </div>
 <div class="section level2">

@@ -109,7 +109,7 @@ is the disease of interest and information available from ICD 11 is
 needed, the following call can be made:
 
 ``` r
-icd_search_foundation("colorectal cancer")
+icd_search_foundation("colorectal cancer", client = my_oauth_client)
 ```
 
 which gives the following output:
@@ -145,20 +145,20 @@ citation provided by a call to the `citation()` function as follows:
 
 ``` r
 citation("codigo")
-#> To cite icd in publications use:
+#> To cite codigo in publications use:
 #> 
-#>   Anita Makori and Ernest Guevarra (2024). icd: Interface to the
+#>   Anita Makori and Ernest Guevarra (2024). codigo: Interface to the
 #>   International Classification of Diseases (ICD) API. R package version
-#>   0.0.9000. URL https://oxford-ihtm.io/icd/
+#>   0.0.9000. URL https://oxford-ihtm.io/codigo/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {icd: Interface to the International Classification of Diseases (ICD) API},
+#>     title = {codigo: Interface to the International Classification of Diseases (ICD) API},
 #>     author = {{Anita Makori} and {Ernest Guevarra}},
 #>     year = {2024},
 #>     note = {R package version 0.0.9000},
-#>     url = {https://oxford-ihtm.io/icd/},
+#>     url = {https://oxford-ihtm.io/codigo/},
 #>   }
 ```
 
