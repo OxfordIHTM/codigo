@@ -57,14 +57,24 @@ icd_get_foundation <- function(release = NULL,
   ## Check language ----
   if (!is.null(language)) icd_check_language(release, language, verbose = verbose)
 
-  ## Make request ----
-  resp <- httr2::request(file.path(base_url, "icd/entity")) |>
+  ## Make base request ----
+  req <- httr2::request(file.path(base_url, "icd/entity"))
+
+  ## Add optional query components ----
+
+  ### Add releaseId ----
+  if (!is.null(release)) {
+    req <- req |>
+      httr2::req_url_query(releaseId = release)
+  }
+
+  ## Add headers, authenticate, and perform request ----
+  resp <- req |>
     httr2::req_headers(
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
     ) |>
-  ## Authenticate and perform request ----
     icd_authenticate(client = client, scope = scope) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
