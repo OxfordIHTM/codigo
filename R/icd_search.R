@@ -23,7 +23,7 @@
 #'   ICD-11 hierarchy. Otherwise they are listed as flat list of matches.
 #' @param properties A string or a vector of strings for the properties to be
 #'   searched. By default the system  searches, *"Title"*, *"Synonyms"*, and
-#'   *"FullySpecifiedName"*. The valid values that could be used are: *Title"*,
+#'   *"FullySpecifiedName"*. The valid values that could be used are: *"Title"*,
 #'   *"Synonym"*, *"NarrowerTerm"*, *"FullySpecifiedName"*, *"Definition"*, and
 #'   *"Exclusion"*.
 #' @param release A string specifying the release version of the Foundation to
