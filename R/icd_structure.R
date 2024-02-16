@@ -1,21 +1,24 @@
 #'
 #' Structure ICD list and ICD search outputs
 #'
-#' @param icd_list An `icd_list` object produced by a call to any of the
-#'   `icd_get` functions
-#' @param icd_search An `icd_search` object produced by a call to any of the
-#'    `icd_search` functions
+#' @param icd_list An object produced by a call to any of the `icd_get`
+#'   functions
+#' @param icd_search An object produced by a call to any of the `icd_search`
+#'   functions
+#' @param icd_autocode An object produced by a call to any of the `icd_autocode`
+#'   functions
 #'
 #' @return A tibble of structured ICD outputs.
 #'
 #' @details These functions are meant to be helper functions and are used
-#'   within the `icd_get` and `icd_search` functions to structure the output
-#'   responses.
+#'   within the `icd_get`, `icd_search`, and `icd_autocode` functions to
+#'   structure the output responses.
 #'
 #' @examples
 #' icd_list <- icd_get_foundation(tabular = FALSE)
 #' icd_tbl_foundation <- icd_structure_foundation(icd_list)
 #' icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
+#' icd_structure_autocode(icd_autocode_foundation("cholera"))
 #'
 #' @rdname icd_structure
 #' @export
@@ -95,3 +98,10 @@ icd_structure_search <- function(icd_search) {
 }
 
 
+#'
+#' @rdname icd_structure
+#' @export
+#'
+icd_structure_autocode <- function(icd_autocode) {
+  dplyr::bind_cols(icd_autocode)
+}

@@ -3,18 +3,24 @@
 \name{icd_structure_foundation}
 \alias{icd_structure_foundation}
 \alias{icd_structure_search}
+\alias{icd_structure_autocode}
 \title{Structure ICD list and ICD search outputs}
 \usage{
 icd_structure_foundation(icd_list)
 
 icd_structure_search(icd_search)
+
+icd_structure_autocode(icd_autocode)
 }
 \arguments{
-\item{icd_list}{An \code{icd_list} object produced by a call to any of the
-\code{icd_get} functions}
+\item{icd_list}{An object produced by a call to any of the \code{icd_get}
+functions}
 
-\item{icd_search}{An \code{icd_search} object produced by a call to any of the
-\code{icd_search} functions}
+\item{icd_search}{An object produced by a call to any of the \code{icd_search}
+functions}
+
+\item{icd_autocode}{An object produced by a call to any of the \code{icd_autocode}
+functions}
 }
 \value{
 A tibble of structured ICD outputs.
@@ -24,12 +30,13 @@ Structure ICD list and ICD search outputs
 }
 \details{
 These functions are meant to be helper functions and are used
-within the \code{icd_get} and \code{icd_search} functions to structure the output
-responses.
+within the \code{icd_get}, \code{icd_search}, and \code{icd_autocode} functions to
+structure the output responses.
 }
 \examples{
 icd_list <- icd_get_foundation(tabular = FALSE)
 icd_tbl_foundation <- icd_structure_foundation(icd_list)
 icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
+icd_structure_autocode(icd_autocode_foundation("cholera"))
 
 }
