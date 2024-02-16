@@ -16,6 +16,7 @@ icd_search_foundation(
   api_version = c("v2", "v1"),
   language = "en",
   tabular = TRUE,
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -73,6 +74,9 @@ languages will vary. Default is English ("en").}
 
 \item{tabular}{Logical. Should output be structured into a tibble? Default
 to TRUE.}
+
+\item{verbose}{Logical. Should non-warning and non-error messages be
+printed? Default is TRUE.}
 
 \item{base_url}{The base URL of the API. Default uses the WHO API server at
 https://id.who.int. If you are using a locally deployed server or hosting

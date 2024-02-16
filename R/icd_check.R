@@ -4,6 +4,8 @@
 #'
 #' @param release A string specifying the release version of the ICD-11.
 #' @param language language codes such as en, es, zh, etc.
+#' @param verbose Logical. Should non-warning and non-error messages be
+#'   printed? Default is TRUE.
 #'
 #' @return A message or an error if `release` provided is recognised or not. A
 #'   message or a warning if `language` requested is available or not for
@@ -19,13 +21,16 @@
 #' @rdname icd_check
 #' @export
 #'
-icd_check_release <- function(release) {
+icd_check_release <- function(release, verbose = TRUE) {
   release_check <- release %in% codigo::icd_versions$`Release ID`
 
-  icd_set <- with(codigo::icd_versions, Classification[`Release ID` == release])
-
   if (release_check) {
-    message(
+    icd_set <- with(
+      codigo::icd_versions,
+      Classification[`Release ID` == release]
+    )
+
+    if (verbose) message(
       paste0(
         "Release `", release, "` matches a known release for ",
         icd_set, "."
@@ -44,12 +49,12 @@ icd_check_release <- function(release) {
 #' @rdname icd_check
 #' @export
 #'
-icd_check_language <- function(release = NULL, language) {
+icd_check_language <- function(release = NULL, language, verbose = TRUE) {
   ## Check if release is NULL ----
   if (is.null(release)) release <- codigo::icd_versions$`Release ID`[1]
 
   ## Check whether release is specified correctly ----
-  icd_check_release(release)
+  icd_check_release(release, verbose = verbose)
 
   ## Get languages available for release provided ----
   languages_available <- with(
@@ -58,7 +63,7 @@ icd_check_language <- function(release = NULL, language) {
 
   if (length(language) == 1) {
     if (language %in% languages_available) {
-      message(
+      if (verbose) message(
         paste0("Language `", language, "` is available for the release specified.")
       )
     } else {
