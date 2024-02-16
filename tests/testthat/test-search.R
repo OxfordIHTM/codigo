@@ -22,6 +22,9 @@ testthat::expect_s3_class(test_search_release, "tbl_df")
 testthat::expect_type(test_search_release, "list")
 testthat::expect_error(icd_search_foundation(q = "cholera", release = "2025-01"))
 
+## Test language specification ----
+testthat::expect_warning(icd_search_foundation(q = "cholera", language = "pp"))
+
 ## Test subtrees query ----
 test_search_subtree <- icd_search_foundation(q = "cholera", subtree = "http://id.who.int/icd/entity/1435254666")
 testthat::expect_message(icd_search_foundation(q = "cholera", subtree = "http://id.who.int/icd/entity/1435254666"))

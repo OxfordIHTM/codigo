@@ -9,7 +9,8 @@
 #'
 #' @return A message or an error if `release` provided is recognised or not. A
 #'   message or a warning if `language` requested is available or not for
-#'   `release` provided.
+#'   `release` provided. For `icd_check_language()`, returns a character value
+#'   or a character vector of acceptable language codes.
 #'
 #' @examples
 #' icd_check_release("2024-01")
@@ -68,9 +69,12 @@ icd_check_language <- function(release = NULL, language, verbose = TRUE) {
       )
     } else {
       warning(
-        paste0("Language `", language, "` is not available for the release specified.
-                Returning results for `en` (default).")
+        paste0(
+          "Language `", language,
+          "` is not available for the release specified. Returning results for `en` (default)."
+        )
       )
+      language <- "en"
     }
   }
 
@@ -80,14 +84,22 @@ icd_check_language <- function(release = NULL, language, verbose = TRUE) {
       language_result <- language[language %in% languages_available]
 
       message(
-        paste0("The following languages requested are available for the release
-                specified: ", language_result, ".")
+        paste0(
+          "The following languages requested are available for the release specified: ",
+          language_result, "."
+        )
       )
+
+      language <- language_result
     } else {
       warning(
-        paste0("None of the languages requested are available for the release
-                specified. Returning results for `en` (default).")
+        paste0(
+          "None of the languages requested are available for the release specified. Returning results for `en` (default).")
       )
+      language <- "en"
     }
   }
+
+  ## Return acceptable languages ----
+  language
 }

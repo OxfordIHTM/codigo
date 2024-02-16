@@ -21,7 +21,8 @@ printed? Default is TRUE.}
 \value{
 A message or an error if \code{release} provided is recognised or not. A
 message or a warning if \code{language} requested is available or not for
-\code{release} provided.
+\code{release} provided. For \code{icd_check_language()}, returns a character value
+or a character vector of acceptable language codes.
 }
 \description{
 Checks for specified parameters supplied to search, autocode, and get
