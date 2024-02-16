@@ -86,7 +86,8 @@ printed? Default is TRUE.</p></dd>
 
 <p>A message or an error if <code>release</code> provided is recognised or not. A
 message or a warning if <code>language</code> requested is available or not for
-<code>release</code> provided.</p>
+<code>release</code> provided. For <code>icd_check_language()</code>, returns a character value
+or a character vector of acceptable language codes.</p>
     </div>
 
     <div class="section level2">
@@ -100,10 +101,11 @@ message or a warning if <code>language</code> requested is available or not for
 <span class="r-in"><span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2024-01"</span>, <span class="st">"ar"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `ar` is available for the release specified.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ar"</span>
 <span class="r-in"><span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2024-01"</span>, <span class="st">"rr"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Language `rr` is not available for the release specified.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span>                 Returning results for `en` (default).</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Language `rr` is not available for the release specified. Returning results for `en` (default).</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "en"</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">icd_check_language</span><span class="op">(</span><span class="st">"2025-01"</span>, <span class="st">"ar"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in icd_check_release(release, verbose = verbose) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Release `2025-01` does not match any known release for ICD-11</span>
