@@ -34,7 +34,7 @@ LazyData: true
 Language: en-GB
 RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)
-URL: https://oxford-ihtm.io/codigo/, https://github.com/OxfordIHTM/codigo
+URL: https://oxford-ihtm.io/codigo/,https://github.com/OxfordIHTM/codigo
 BugReports: https://github.com/OxfordIHTM/codigo/issues
 Config/testthat/edition: 3
 VignetteBuilder: knitr
