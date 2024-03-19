@@ -14,6 +14,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, echo = FALSE}
 library(codigo)
 ```
+
+
+## About ICD-11
+
+The ICD-11 is the latest version of the International Classification of Diseases, replacing ICD-10 as the global standard for recording health information and causes of death. Developed and annually updated by the World Health Organization (WHO), its development began in 2007 and involved over 300 specialists from 55 countries divided into 30 work groups. Additionally, it received 10,000 proposals from people worldwide. After an alpha version in May 2011 and a beta draft in May 2012, the stable version of ICD-11 was released on June 18, 2018. It was officially endorsed by all WHO members during the 72nd World Health Assembly on May 25, 2019.
+
+## ICD-11 Structure
+
+### WHO Family of International Classifications
+
+The WHO Family of International Classifications (WHO-FIC) is a set of classifications used to describe various aspects of the healthcare system consistently with standardized terminology. It comprises four components: the WHO-FIC Foundation, Reference Classifications, Derived Classifications, and Related Classifications. The Foundation Component represents the entire WHO-FIC universe and includes over a hundred thousand entities relevant to healthcare, such as diseases, body parts, procedures, etc. These entities form a multidimensional collection, with each having multiple parents and child nodes. The Foundation Component serves as the common core for all Reference and Derived Classifications. Reference Classifications include ICD-11 MMS (Morbidity and Mortality Statistics), ICF (International Classification of Functioning, Disability, and Health), and ICHI (International Classification of Health Interventions), while Derived Classifications are tailored for specific specialities, like ICD-O for oncology. Each entity in the Foundation has a unique ID maintained across all classifications, ensuring consistency. Related Classifications cover speciality areas not addressed elsewhere in WHO-FIC. Classifications can be represented as tabular lists, known as linearizations, where entities have a single parent, making them mutually exclusive.
+
+### ICD-MMS
+
+The ICD-11 MMS (Mortality and Morbidity Statistics) serves as the primary Reference Classification in the WHO-FIC and is the main linearization of the Foundation Component. It consists of approximately 85,000 entities, including chapters, blocks, and categories, each with a unique alphanumeric ICD-11 code. Chapters and blocks do not have ICD codes and cannot be diagnosed. The MMS adopts a "flat" hierarchical tree structure, where entities are mutually exclusive. Gray nodes are used to account for overlaps between categories, such as pneumonia, which can belong to multiple chapters. Residual categories, like "Other specified" and "Unspecified," provide options for coding conditions that don't fit elsewhere or lack specific information. These categories, displayed in maroon in the ICD-11 Browser, have derivative entity IDs based on their parent nodes.

@@ -35,7 +35,7 @@
 #'
 #' @examples
 #' icd_autocode_foundation("cholera")
-#'
+#' icd_autocode_mms(release = "2024-01", q = "cholera")
 #'
 #' @rdname icd_autocode
 #' @export
@@ -72,6 +72,67 @@ icd_autocode_foundation <- function(q,
     req <- req |>
       httr2::req_url_query(releaseId = release)
   }
+
+  ### Add matchThreshold ----
+  if (!is.null(threshold)) {
+    ### Check that threshold is within accepted limits ----
+
+    req <- req |>
+      httr2::req_url_query(matchThreshold = threshold)
+  }
+
+  ## Add headers, authenticate, and perform request ----
+  resp <- req |>
+    httr2::req_headers(
+      Accept = "application/json",
+      "API-Version" = api_version,
+      "Accept-Language" = language
+    ) |>
+    icd_authenticate(client = client, scope = scope) |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  ## Determine what output to return ----
+  if (tabular) {
+    icd_structure_autocode(resp)
+  } else {
+    resp
+  }
+}
+
+
+#'
+#' @rdname icd_autocode
+#' @export
+#'
+icd_autocode_mms <- function(q,
+                             subtree = NULL,
+                             release = NULL,
+                             threshold = NULL,
+                             api_version = c("v2", "v1"),
+                             language = "en",
+                             tabular = TRUE,
+                             verbose = TRUE,
+                             base_url = "https://id.who.int",
+                             client = icd_oauth_client(),
+                             scope = "icdapi_access") {
+  ## Get API version to use ----
+  api_version <- match.arg(api_version)
+
+  ## Check release identifier ----
+  if (!is.null(release)) icd_check_release(release, verbose = verbose)
+
+  ## Check language ----
+  if (!is.null(language))
+    language <- icd_check_language(release, language, verbose = verbose)
+
+  ## Make base request ----
+  req <- httr2::request(
+    file.path(base_url, "icd/release/11", release, "mms/autocode")
+  ) |>
+    httr2::req_url_query(searchText = q)
+
+  ## Add query components ----
 
   ### Add matchThreshold ----
   if (!is.null(threshold)) {

@@ -1,10 +1,9 @@
 ---
-title: "Introduction to codigo"
-description: >
-  Interface to the International Classification of Diseases (ICD) API.
+title: "Get started with codigo"
+author: Anita Makori and Ernest Guevarra
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to codigo}
+  %\VignetteIndexEntry{Get started with codigo}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,3 +18,28 @@ knitr::opts_chunk$set(
 ```{r setup, echo = FALSE}
 library(codigo)
 ```
+
+This article takes a quick tour of the main features of `codigo`. 
+
+## Performing a basic search
+
+A feature of the ICD API is the ability to search ICD 11 Foundation and ICD 11 Linearization for information regarding an illness/disease. This feature is captured by the `icd_search_foundation()` function. For example, if *colorectal cancer* is the disease of interest and information available from ICD 11 is needed, the following call can be made:
+
+```{r search, eval = FALSE}
+icd_search_foundation("colorectal cancer", client = my_oauth_client)
+```
+
+which gives the following output:
+
+```{r result, echo = FALSE}
+icd_search_foundation("colorectal cancer")
+```
+
+The output is a tibble created from parsed JSON body text of the HTTP response from the ICD API.
+
+## Autocoding
+
+Autocoding is a focused search that returns a single result based on the closest match from ICD-11. Autocoding using the ICD Foundation API endpoint produces
+
+
+

@@ -1,3 +1,4 @@
+Autocoding
 BlockId
 BrowserLink
 CMD
@@ -6,10 +7,13 @@ ClassKind
 CodeFactor
 Codecov
 DepthInKind
+FIC
 FullySpecifiedName
 GroupingX
 ICD
 ICF
+ICHI
+IHTM
 IsLeaf
 IsResidual
 Lifecycle
@@ -37,6 +41,8 @@ icdapi
 icdcdn
 int
 isLeaf
+linearizations
+nd
 noOfNonResidualChildren
 releasefiles
 tibble
