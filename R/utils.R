@@ -31,7 +31,7 @@ icd_get_releases <- function(icd = c("icd11", "icd10"), latest = FALSE) {
     icd <- match.arg(icd)
   } else {
     icd <- c("icd11", "icd10")
-    latest <- NULL
+    latest <- FALSE
   }
 
   ## Get full ICD name ----
@@ -61,7 +61,7 @@ icd_get_languages <- function(icd = c("icd11", "icd10"), latest = FALSE) {
     icd <- match.arg(icd)
   } else {
     icd <- c("icd11", "icd10")
-    latest <- NULL
+    latest <- FALSE
   }
 
   ## Get full ICD name ----
