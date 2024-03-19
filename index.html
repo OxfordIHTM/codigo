@@ -129,13 +129,13 @@
 <p>This function uses a built in OAuth2 client created for light use and for purposes of package development and testing.</p>
 <p>It is recommended that those intending to use this package for programmatically performing high volume of calls to the ICD API to create their own <strong>access keys</strong> (<code>client id</code> and <code>client secret</code>) using <a href="https://icd.who.int/docs/icd-api/API-Authentication/" class="external-link">these instructions</a>.</p>
 <p>Then, with your access keys, perform the following commands:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create your own OAuth client ----</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_oauth_client <span class="ot">&lt;-</span> <span class="fu">icd_oauth_client</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">"YOUR_CLIENT_ID"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">token_url =</span> <span class="st">"https://icdaccessmanagement.who.int/connect/token"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">secret =</span> <span class="st">"YOUR_CLIENT_SECRET"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"NAME_OF_YOUR_APP</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="do">## Create your own OAuth client ----</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>my_oauth_client <span class="ot">&lt;-</span> <span class="fu">icd_oauth_client</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="at">id =</span> <span class="st">"YOUR_CLIENT_ID"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="at">token_url =</span> <span class="st">"https://icdaccessmanagement.who.int/connect/token"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="at">secret =</span> <span class="st">"YOUR_CLIENT_SECRET"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"NAME_OF_YOUR_APP</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="st">)</span></span></code></pre></div>
 <p>This OAuth2 client can now be used to the various functions in the package that require an OAuth2 client for authentication for making requests to the ICD API.</p>
 </div>
 <div class="section level3">
@@ -145,26 +145,26 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span>, client <span class="op">=</span> <span class="va">my_oauth_client</span><span class="op">)</span></span></code></pre></div>
 <p>which gives the following output:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 8 × 18</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; * &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;  &lt;lgl&gt;                   &lt;int&gt; &lt;lgl&gt;        </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7 http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8 http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        </span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ abbreviated name: ¹​postcoordinationAvailability</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;named list&gt;,</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   propertiesTruncated &lt;lgl&gt;, isResidualOther &lt;lgl&gt;,</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, score &lt;dbl&gt;,</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #   important &lt;lgl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 8 × 18</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; * &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;  &lt;lgl&gt;                   &lt;int&gt; &lt;lgl&gt;        </span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; 1 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; 2 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; 3 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; 4 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; 5 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; 6 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; 7 http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; 8 http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        </span></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; # ℹ abbreviated name: ¹​postcoordinationAvailability</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; # ℹ 12 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; #   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;named list&gt;,</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; #   propertiesTruncated &lt;lgl&gt;, isResidualOther &lt;lgl&gt;,</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; #   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, score &lt;dbl&gt;,</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; #   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt; #   important &lt;lgl&gt;</span></span></code></pre></div>
 <p>The output is a tibble created from parsed JSON body text of the HTTP response from the ICD API.</p>
 </div>
 </div>
