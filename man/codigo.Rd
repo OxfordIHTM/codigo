@@ -2,8 +2,8 @@
 % Please edit documentation in R/codigo.R
 \docType{package}
 \name{codigo}
-\alias{codigo}
 \alias{codigo-package}
+\alias{codigo}
 \title{Interface to the International Classification of Diseases (ICD) API}
 \description{
 The International Classification of Diseases (ICD) serves a broad range of

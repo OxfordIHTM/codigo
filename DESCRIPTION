@@ -32,7 +32,7 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Language: en-GB
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE)
 URL: https://oxford-ihtm.io/codigo/,https://github.com/OxfordIHTM/codigo
 BugReports: https://github.com/OxfordIHTM/codigo/issues
