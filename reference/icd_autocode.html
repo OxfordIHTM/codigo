@@ -75,6 +75,20 @@
 <span>  base_url <span class="op">=</span> <span class="st">"https://id.who.int"</span>,</span>
 <span>  client <span class="op">=</span> <span class="fu"><a href="icd_authenticate.html">icd_oauth_client</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  scope <span class="op">=</span> <span class="st">"icdapi_access"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">icd_autocode_mms</span><span class="op">(</span></span>
+<span>  <span class="va">q</span>,</span>
+<span>  subtree <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  release <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  threshold <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  api_version <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"v2"</span>, <span class="st">"v1"</span><span class="op">)</span>,</span>
+<span>  language <span class="op">=</span> <span class="st">"en"</span>,</span>
+<span>  tabular <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  base_url <span class="op">=</span> <span class="st">"https://id.who.int"</span>,</span>
+<span>  client <span class="op">=</span> <span class="fu"><a href="icd_authenticate.html">icd_oauth_client</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  scope <span class="op">=</span> <span class="st">"icdapi_access"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -158,7 +172,15 @@ your own ICD API server, you should specify the URL of your instance here.</p></
 <span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText foundationURI          matchLevel matchScore matchType</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera    Cholera      http://id.who.int/icd…          0          1         0</span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">icd_autocode_mms</span><span class="op">(</span>release <span class="op">=</span> <span class="st">"2024-01"</span>, q <span class="op">=</span> <span class="st">"cholera"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText theCode foundationURI      linearizationURI matchLevel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera    Cholera      1A00    http://id.who.int… http://id.who.i…          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: matchScore &lt;int&gt;, matchType &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
