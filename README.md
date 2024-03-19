@@ -29,25 +29,32 @@ interface with the ICD API.
 ## What does `codigo` do?
 
 Please note that `codigo` is still highly experimental and is undergoing
-a lot of development. Hence, any functionalities described below have a
-high likelihood of changing interface or approach as we aim for a stable
-working version.
+a lot of development. Hence, any functionalities described below and in
+the rest of the package documentation have a high likelihood of changing
+interface or approach as we aim for a stable working version.
 
-Currently, the package provides functions for authenticating with the
-ICD API. From here, the plan is to develop functions that wrap the
+Currently, the package provides functions for:
+
+- Authenticating with the ICD API;
+- Performing a search of ICD-11 foundation component;
+- Performing autocoding of causes of death using the ICD-11 foundation;
+  and,
+- Getting information on various ICD-11 foundation entities.
+
+From here, the plan is to continue developing functions that wrap the
 various available [API
 endpoints](https://id.who.int/swagger/index.html).
 
 ## Installation
 
-`codigo` is not yet on CRAN.
-
-You can install the development version of `codigo` from
-[GitHub](https://github.com/OxfordIHTM/codigo) with:
+`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R
+universe](https://oxfordihtm.r-universe.dev) as follows:
 
 ``` r
-if(!require(remotes)) install.packages("remotes")
-remotes::install_github("OxfordIHTM/codigo")
+install.packages(
+  "codigo",
+  repos = c('https://oxfordihtm.r-universe.dev', 'https://cloud.r-project.org')
+)
 ```
 
 then load `codigo`

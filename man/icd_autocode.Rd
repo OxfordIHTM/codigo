@@ -2,9 +2,24 @@
 % Please edit documentation in R/icd_autocode.R
 \name{icd_autocode_foundation}
 \alias{icd_autocode_foundation}
+\alias{icd_autocode_mms}
 \title{Perform autocoding}
 \usage{
 icd_autocode_foundation(
+  q,
+  subtree = NULL,
+  release = NULL,
+  threshold = NULL,
+  api_version = c("v2", "v1"),
+  language = "en",
+  tabular = TRUE,
+  verbose = TRUE,
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
+)
+
+icd_autocode_mms(
   q,
   subtree = NULL,
   release = NULL,
@@ -67,6 +82,6 @@ Perform autocoding
 }
 \examples{
 icd_autocode_foundation("cholera")
-
+icd_autocode_mms(release = "2024-01", q = "cholera")
 
 }

@@ -2,6 +2,7 @@
 
 export(icd_authenticate)
 export(icd_autocode_foundation)
+export(icd_autocode_mms)
 export(icd_check_language)
 export(icd_check_release)
 export(icd_get_entities)
