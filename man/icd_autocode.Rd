@@ -2,8 +2,8 @@
 % Please edit documentation in R/icd_autocode.R
 \name{icd_autocode_foundation}
 \alias{icd_autocode_foundation}
-\alias{icd_autocode_mms}
-\title{Perform autocoding}
+\alias{icd_autocode}
+\title{Autocode against the foundation component or linearizations of the ICD-11}
 \usage{
 icd_autocode_foundation(
   q,
@@ -19,8 +19,9 @@ icd_autocode_foundation(
   scope = "icdapi_access"
 )
 
-icd_autocode_mms(
+icd_autocode(
   q,
+  linearization = c("mms", "icf"),
   subtree = NULL,
   release = NULL,
   threshold = NULL,
@@ -34,8 +35,8 @@ icd_autocode_mms(
 )
 }
 \arguments{
-\item{q}{String. Text to be searched. Having the character \verb{\%} at the end will
-be regarded as a wild card for that word.}
+\item{q}{String. Text to be searched. Having the character \verb{\%} at the end
+will be regarded as a wild card for that word.}
 
 \item{subtree}{A string or vector of strings of URIs. If provided, the
 search will be performed on the entities provided and their descendants.}
@@ -44,8 +45,8 @@ search will be performed on the entities provided and their descendants.}
 search from. If not specified, defaults to the latest release version. See
 the available versions with \code{icd_versions}.}
 
-\item{threshold}{A numeric value between 0 and 1 that indicates the similarity
-between the input text and the matched term. \code{threshold} is the
+\item{threshold}{A numeric value between 0 and 1 that indicates the
+similarity between the input text and the matched term. \code{threshold} is the
 minimum score to be included in the output. Default is NULL to use
 default value specified by API.}
 
@@ -69,19 +70,26 @@ printed? Default is TRUE.}
 https://id.who.int. If you are using a locally deployed server or hosting
 your own ICD API server, you should specify the URL of your instance here.}
 
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+\item{client}{The OAuth2 client produced through a call to
+\code{icd_oauth_client()}.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the possible values for this are \emph{"mms"} and \emph{"icf"}.}
 }
 \value{
-An autocode
+A tibble of autocode results showing the search text, the matching
+text, the code, URIs for the foundation and linearization entities, the
+matching level, the matching score, and the matching type.
 }
 \description{
-Perform autocoding
+Autocode against the foundation component or linearizations of the ICD-11
 }
 \examples{
 icd_autocode_foundation("cholera")
-icd_autocode_mms(release = "2024-01", q = "cholera")
+icd_autocode(q = "cholera")
+icd_autocode(q = "impairment", linearization = "icf")
 
 }

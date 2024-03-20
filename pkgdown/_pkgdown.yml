@@ -50,16 +50,18 @@ reference:
   - title: Search
     contents:
     - icd_search_foundation
+    - icd_search
 
   - title: Autocode
     contents:
     - icd_autocode_foundation
-    - icd_autocode_mms
+    - icd_autocode
 
   - title: Get
     contents:
     - icd_get_foundation
     - icd_get_entity
+    - icd_get_info
 
   - title: Structure
     contents:

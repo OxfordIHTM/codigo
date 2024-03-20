@@ -1,15 +1,17 @@
 #'
-#' Perform autocoding
+#' Autocode against the foundation component or linearizations of the ICD-11
 #'
-#' @param q String. Text to be searched. Having the character `%` at the end will
-#'   be regarded as a wild card for that word.
+#' @param q String. Text to be searched. Having the character `%` at the end
+#'   will be regarded as a wild card for that word.
+#' @param linearization A character value for which linearization to search.
+#'   Currently, the possible values for this are *"mms"* and *"icf"*.
 #' @param release A string specifying the release version of the Foundation to
 #'   search from. If not specified, defaults to the latest release version. See
 #'   the available versions with `icd_versions`.
 #' @param subtree A string or vector of strings of URIs. If provided, the
 #'   search will be performed on the entities provided and their descendants.
-#' @param threshold A numeric value between 0 and 1 that indicates the similarity
-#'   between the input text and the matched term. `threshold` is the
+#' @param threshold A numeric value between 0 and 1 that indicates the
+#'   similarity between the input text and the matched term. `threshold` is the
 #'   minimum score to be included in the output. Default is NULL to use
 #'   default value specified by API.
 #' @param api_version Version of the API. Possible values are `v1` or `v2`.
@@ -27,15 +29,19 @@
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param client The OAuth2 client produced through a call to
+#'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
-#' @return An autocode
+#' @return A tibble of autocode results showing the search text, the matching
+#'   text, the code, URIs for the foundation and linearization entities, the
+#'   matching level, the matching score, and the matching type.
 #'
 #' @examples
 #' icd_autocode_foundation("cholera")
-#' icd_autocode_mms(release = "2024-01", q = "cholera")
+#' icd_autocode(q = "cholera")
+#' icd_autocode(q = "impairment", linearization = "icf")
 #'
 #' @rdname icd_autocode
 #' @export
@@ -105,17 +111,21 @@ icd_autocode_foundation <- function(q,
 #' @rdname icd_autocode
 #' @export
 #'
-icd_autocode_mms <- function(q,
-                             subtree = NULL,
-                             release = NULL,
-                             threshold = NULL,
-                             api_version = c("v2", "v1"),
-                             language = "en",
-                             tabular = TRUE,
-                             verbose = TRUE,
-                             base_url = "https://id.who.int",
-                             client = icd_oauth_client(),
-                             scope = "icdapi_access") {
+icd_autocode <- function(q,
+                         linearization = c("mms", "icf"),
+                         subtree = NULL,
+                         release = NULL,
+                         threshold = NULL,
+                         api_version = c("v2", "v1"),
+                         language = "en",
+                         tabular = TRUE,
+                         verbose = TRUE,
+                         base_url = "https://id.who.int",
+                         client = icd_oauth_client(),
+                         scope = "icdapi_access") {
+  ## Get linearization ----
+  linearization <- match.arg(linearization)
+
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -130,9 +140,8 @@ icd_autocode_mms <- function(q,
     language <- icd_check_language(release, language, verbose = verbose)
 
   ## Make base request ----
-  req <- httr2::request(
-    file.path(base_url, "icd/release/11", release, "mms/autocode")
-  ) |>
+  req <- httr2::request(base_url) |>
+    httr2::req_url_path("icd/release/11", release, linearization, "autocode") |>
     httr2::req_url_query(searchText = q)
 
   ## Add query components ----

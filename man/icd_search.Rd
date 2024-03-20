@@ -2,8 +2,8 @@
 % Please edit documentation in R/icd_search.R
 \name{icd_search_foundation}
 \alias{icd_search_foundation}
-\alias{icd_search_mms}
-\title{Search the foundation component of the ICD-11}
+\alias{icd_search}
+\title{Search the foundation component or linearizations of the ICD-11}
 \usage{
 icd_search_foundation(
   q,
@@ -23,8 +23,9 @@ icd_search_foundation(
   scope = "icdapi_access"
 )
 
-icd_search_mms(
+icd_search(
   q,
+  linearization = c("mms", "icf"),
   subtree = NULL,
   use_foundation = FALSE,
   keyword = FALSE,
@@ -45,8 +46,8 @@ icd_search_mms(
 )
 }
 \arguments{
-\item{q}{String. Text to be searched. Having the character \verb{\%} at the end will
-be regarded as a wild card for that word.}
+\item{q}{String. Text to be searched. Having the character \verb{\%} at the end
+will be regarded as a wild card for that word.}
 
 \item{subtree}{A string or vector of strings of URIs. If provided, the
 search will be performed on the entities provided and their descendants.}
@@ -94,10 +95,14 @@ printed? Default is TRUE.}
 https://id.who.int. If you are using a locally deployed server or hosting
 your own ICD API server, you should specify the URL of your instance here.}
 
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+\item{client}{The OAuth2 client produced through a call to
+\code{icd_oauth_client()}.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the possible values for this are \emph{"mms"} and \emph{"icf"}.}
 
 \item{use_foundation}{Logical. Default is FALSE. Should subtree filter
 use foundation descendants (TRUE) or linearization descendants (FALSE)?}
@@ -112,7 +117,7 @@ mode be turned on?}
 A tibble of search results.
 }
 \description{
-Search the foundation component of the ICD-11
+Search the foundation component or linearizations of the ICD-11
 }
 \section{On \code{flexisearch}}{
  In the regular search mode (\code{flexisearch = FALSE}),
@@ -162,16 +167,17 @@ MMS). In such cases the results will be shown based on where the match is
 aggregated into in MMS.
 }
 
-\section{language}{
- ICD-API is multi-lingual. By setting the language, you may
-make the API respond in different languages. Languages will be available as
-the translations of ICD-11 completes. The values are language codes such as
-en, es, zh, etc. Depending on the \code{release} specified, the available
-languages will vary.
+\section{On \code{language}}{
+ ICD-API is multi-lingual. By setting the language,
+you may make the API respond in different languages. Languages will be
+available as the translations of ICD-11 completes. The values are language
+codes such as en, es, zh, etc. Depending on the \code{release} specified, the
+available languages will vary.
 }
 
 \examples{
 icd_search_foundation("colorectal cancer")
-icd_search_mms("colorectal cancer")
+icd_search("colorectal cancer")
+icd_search("impairment", linearization = "icf")
 
 }

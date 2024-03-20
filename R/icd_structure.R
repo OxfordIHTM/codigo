@@ -62,21 +62,37 @@ icd_structure_search <- function(icd_search) {
     meta,
     {
       error <- ifelse(is.logical(error), error, as.logical(error))
+
       errorMessage <- ifelse(
-        is.character(errorMessage), errorMessage, as.character(errorMessage)
+        is.character(errorMessage),
+        errorMessage,
+        as.character(errorMessage)
       )
+
       resultChopped <- ifelse(
-        is.logical(resultChopped), resultChopped, as.logical(resultChopped)
+        is.logical(resultChopped),
+        resultChopped,
+        as.logical(resultChopped)
       )
+
       wordSuggestionsChopped <- ifelse(
         is.logical(wordSuggestionsChopped),
         wordSuggestionsChopped,
         as.logical(wordSuggestionsChopped)
       )
-      guessType <- ifelse(is.integer(guessType), guessType, as.integer(guessType))
-      uniqueSearchId <- ifelse(
-        is.character(uniqueSearchId), uniqueSearchId, as.character(uniqueSearchId)
+
+      guessType <- ifelse(
+        is.integer(guessType),
+        guessType,
+        as.integer(guessType)
       )
+
+      uniqueSearchId <- ifelse(
+        is.character(uniqueSearchId),
+        uniqueSearchId,
+        as.character(uniqueSearchId)
+      )
+
       words <- ifelse(is.character(words), words, as.character(words))
     }
   )
