@@ -31,16 +31,22 @@ icd_check_release <- function(release, verbose = TRUE) {
       Classification[`Release ID` == release]
     )
 
-    if (verbose) message(
-      paste0(
-        "Release `", release, "` matches a known release for ",
-        icd_set, "."
+    if (verbose)
+      message(
+        paste0(
+          "Release `", release, "` matches a known release for ",
+          icd_set, "."
+        ) |>
+          strwrap(width = 80)
       )
-    )
   } else {
     stop(
-      "Release `", release, "` does not match any known release for ICD-11
-       or ICD-10. Please verify and check with `icd_versions` and try again."
+      paste0(
+        "Release `", release,
+        "` does not match any known release for ICD-11 or ICD-10.",
+        " Please verify and check with `icd_versions` and try again."
+      ) |>
+        strwrap(width = 80)
     )
   }
 }
@@ -64,16 +70,25 @@ icd_check_language <- function(release = NULL, language, verbose = TRUE) {
 
   if (length(language) == 1) {
     if (language %in% languages_available) {
-      if (verbose) message(
-        paste0("Language `", language, "` is available for the release specified.")
-      )
+      if (verbose)
+        message(
+          paste0(
+            "Language `", language,
+            "` is available for the release specified."
+          ) |>
+            strwrap(width = 80)
+        )
     } else {
       warning(
         paste0(
           "Language `", language,
-          "` is not available for the release specified. Returning results for `en` (default)."
-        )
+          "` is not available for the release specified. Returning results for
+          `en` (default)."
+        ) |>
+          strwrap(width = 80)
       )
+
+      ## Set language to default ----
       language <- "en"
     }
   }
@@ -81,21 +96,31 @@ icd_check_language <- function(release = NULL, language, verbose = TRUE) {
   if (length(language) > 1) {
     if (any(language %in% languages_available)) {
 
+      ## Detect languages ----
       language_result <- language[language %in% languages_available]
 
-      message(
-        paste0(
-          "The following languages requested are available for the release specified: ",
-          language_result, "."
+      ## Set language to language_result ----
+      language <- language_result
+
+      ## Show message? ----
+      if (verbose)
+        message(
+          paste0(
+            "The following languages requested are available for the release
+            specified: ", language_result, "."
+          ) |>
+            strwrap(width = 80)
+        )
+    } else {
+      warning(
+        strwrap(
+          "None of the languages requested are available for the release
+          specified. Returning results for `en` (default).",
+          width = 80
         )
       )
 
-      language <- language_result
-    } else {
-      warning(
-        paste0(
-          "None of the languages requested are available for the release specified. Returning results for `en` (default).")
-      )
+      ## Set language to default ----
       language <- "en"
     }
   }
