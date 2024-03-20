@@ -36,6 +36,7 @@
 #' icd_get_entity(id = "1435254666")     ## chapter
 #' icd_get_entity(id = "588616678")      ## block; depth 1
 #' icd_get_entity(id = "1465325727")     ## category; depth 1
+#' icd_get_mms_release()
 #'
 #' @rdname icd_get
 #' @export
@@ -135,7 +136,46 @@ icd_get_entity <- function(id,
 
   ## Authenticate and perform request ----
   resp <- req |>
-    icd_authenticate(client = client, scope = "icdapi_access") |>
+    icd_authenticate(client = client, scope = scope) |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  ## Return response ----
+  resp
+}
+
+
+#'
+#' @rdname icd_get
+#' @export
+#'
+icd_get_mms_release <- function(api_version = c("v2", "v1"),
+                                language = "en",
+                                base_url = "https://id.who.int",
+                                client = icd_oauth_client(),
+                                scope = "icdapi_access") {
+  ## Get API version to use ----
+  api_version <- match.arg(api_version)
+
+  ## Check language ----
+  if (!is.null(language))
+    icd_check_language(
+      release = icd_get_releases(latest = TRUE) |> dplyr::pull(),
+      language
+    )
+
+  ## Make base request ----
+  req <- httr2::request(base_url) |>
+    httr2::req_url_path("icd/release/11/mms") |>
+    httr2::req_headers(
+      Accept = "application/json",
+      "API-Version" = api_version,
+      "Accept-Language" = language
+    )
+
+  ## Authenticate and perform request ----
+  resp <- req |>
+    icd_authenticate(client = client, scope = scope) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 

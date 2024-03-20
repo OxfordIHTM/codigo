@@ -3,6 +3,7 @@
 \name{icd_get_foundation}
 \alias{icd_get_foundation}
 \alias{icd_get_entity}
+\alias{icd_get_mms_release}
 \title{Get information on various ICD 11 Foundation entities}
 \usage{
 icd_get_foundation(
@@ -20,6 +21,14 @@ icd_get_entity(
   id,
   release = NULL,
   include = NULL,
+  api_version = c("v2", "v1"),
+  language = "en",
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
+)
+
+icd_get_mms_release(
   api_version = c("v2", "v1"),
   language = "en",
   base_url = "https://id.who.int",
@@ -76,5 +85,6 @@ icd_get_foundation()
 icd_get_entity(id = "1435254666")     ## chapter
 icd_get_entity(id = "588616678")      ## block; depth 1
 icd_get_entity(id = "1465325727")     ## category; depth 1
+icd_get_mms_release()
 
 }

@@ -41,14 +41,17 @@
 #'   MMS). In such cases the results will be shown based on where the match is
 #'   aggregated into in MMS.
 #'
-#' @section language: ICD-API is multi-lingual. By setting the language, you may
-#'   make the API respond in different languages. Languages will be available as
-#'   the translations of ICD-11 completes. The values are language codes such as
-#'   en, es, zh, etc. Depending on the `release` specified, the available
-#'   languages will vary.
+#' @section On `language`: ICD-API is multi-lingual. By setting the language,
+#'   you may make the API respond in different languages. Languages will be
+#'   available as the translations of ICD-11 completes. The values are language
+#'   codes such as en, es, zh, etc. Depending on the `release` specified, the
+#'   available languages will vary.
 #'
 #' @param q String. Text to be searched. Having the character `%` at the end will
 #'   be regarded as a wild card for that word.
+#' @param linearization A character value for which linearization to search.
+#'   Currently, the only possible value for this is *"mms"*. See section on
+#'   `linearization` for more details.
 #' @param subtree A string or vector of strings of URIs. If provided, the
 #'   search will be performed on the entities provided and their descendants.
 #' @param use_foundation Logical. Default is FALSE. Should subtree filter
@@ -198,24 +201,28 @@ icd_search_foundation <- function(q,
 #' @rdname icd_search
 #' @export
 #'
-icd_search_mms <- function(q,
-                           subtree = NULL,
-                           use_foundation = FALSE,
-                           keyword = FALSE,
-                           chapter = NULL,
-                           flexisearch = FALSE,
-                           flat = TRUE,
-                           release = NULL,
-                           highlight = FALSE,
-                           medical_mode = TRUE,
-                           properties = NULL,
-                           api_version = c("v2", "v1"),
-                           language = "en",
-                           tabular = TRUE,
-                           verbose = TRUE,
-                           base_url = "https://id.who.int",
-                           client = icd_oauth_client(),
-                           scope = "icdapi_access") {
+icd_search <- function(q,
+                       linearization = "mms",
+                       subtree = NULL,
+                       use_foundation = FALSE,
+                       keyword = FALSE,
+                       chapter = NULL,
+                       flexisearch = FALSE,
+                       flat = TRUE,
+                       release = NULL,
+                       highlight = FALSE,
+                       medical_mode = TRUE,
+                       properties = NULL,
+                       api_version = c("v2", "v1"),
+                       language = "en",
+                       tabular = TRUE,
+                       verbose = TRUE,
+                       base_url = "https://id.who.int",
+                       client = icd_oauth_client(),
+                       scope = "icdapi_access") {
+  ## Get linearization to search ----
+  linearization <- match.arg(linearization)
+
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -231,7 +238,7 @@ icd_search_mms <- function(q,
 
   ## Make base request ----
   req <- httr2::request(base_url) |>
-    httr2::req_url_path("icd/release/11", release, "mms/search") |>
+    httr2::req_url_path("icd/release/11", release, linearization, "search") |>
     httr2::req_url_query(q = q)
 
   ## Add query components ----

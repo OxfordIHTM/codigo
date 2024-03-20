@@ -162,12 +162,12 @@ MMS). In such cases the results will be shown based on where the match is
 aggregated into in MMS.
 }
 
-\section{language}{
- ICD-API is multi-lingual. By setting the language, you may
-make the API respond in different languages. Languages will be available as
-the translations of ICD-11 completes. The values are language codes such as
-en, es, zh, etc. Depending on the \code{release} specified, the available
-languages will vary.
+\section{On \code{language}}{
+ ICD-API is multi-lingual. By setting the language,
+you may make the API respond in different languages. Languages will be
+available as the translations of ICD-11 completes. The values are language
+codes such as en, es, zh, etc. Depending on the \code{release} specified, the
+available languages will vary.
 }
 
 \examples{
