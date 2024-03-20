@@ -4,6 +4,7 @@
 \alias{icd_get_foundation}
 \alias{icd_get_entity}
 \alias{icd_get_info}
+\alias{icd_get_chapter}
 \title{Get information on various ICD-11 foundation and linearization entities}
 \usage{
 icd_get_foundation(
@@ -30,6 +31,16 @@ icd_get_entity(
 
 icd_get_info(
   linearization = c("mms", "icf"),
+  api_version = c("v2", "v1"),
+  language = "en",
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
+)
+
+icd_get_chapter(
+  linearization = c("mms", "icf"),
+  release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
   base_url = "https://id.who.int",
@@ -93,5 +104,7 @@ icd_get_entity(id = "588616678")      ## block; depth 1
 icd_get_entity(id = "1465325727")     ## category; depth 1
 icd_get_info()
 icd_get_info("icf")
+icd_get_chapter()
+icd_get_chapter("icf")
 
 }
