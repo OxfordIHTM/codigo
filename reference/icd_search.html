@@ -103,7 +103,7 @@
 <span>  flat <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  release <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  highlight <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  medical_coding_mode <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  medical_mode <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  api_version <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"v2"</span>, <span class="st">"v1"</span><span class="op">)</span>,</span>
 <span>  language <span class="op">=</span> <span class="st">"en"</span>,</span>
@@ -149,7 +149,7 @@ ICD-11 hierarchy. Otherwise they are listed as flat list of matches.</p></dd>
 searched. When set to NULL (default), search is performed on a default
 set of properties depending on whether foundation or linearization (see
 section on <code>properties</code> for more details). Should be set/specified if
-<code>medical_coding_mode = FALSE</code>.</p></dd>
+<code>medical_mode = FALSE</code>.</p></dd>
 
 
 <dt>release</dt>
@@ -211,7 +211,7 @@ use foundation descendants (TRUE) or linearization descendants (FALSE)?</p></dd>
 list? See section on <code>keyword</code> for more details.</p></dd>
 
 
-<dt>medical_coding_mode</dt>
+<dt>medical_mode</dt>
 <dd><p>Logical. Default is FALSE. Should medical coding
 mode be turned on?</p></dd>
 
@@ -223,9 +223,9 @@ mode be turned on?</p></dd>
 <p>A tibble of search results.</p>
     </div>
     <div class="section level2">
-    <h2 id="flexisearch">flexisearch<a class="anchor" aria-label="anchor" href="#flexisearch"></a></h2>
-    <p>In the regular search mode (<code>flexisearch = FALSE</code>), the
-function will only give you results that contain all of the words that
+    <h2 id="on-flexisearch">On <code>flexisearch</code><a class="anchor" aria-label="anchor" href="#on-flexisearch"></a></h2>
+    <p>In the regular search mode (<code>flexisearch = FALSE</code>),
+the function will only give you results that contain all of the words that
 you've used in your search. It accepts different variants or synonyms of
 the words but essentially it searches for a result that contains all
 components of your search. Whereas in flexible search mode, the results do
@@ -235,7 +235,7 @@ are not matched at all. It is recommended to use flexible search only when
 regular search does not provide a result.</p>
     </div>
     <div class="section level2">
-    <h2 id="keyword">keyword<a class="anchor" aria-label="anchor" href="#keyword"></a></h2>
+    <h2 id="on-keyword">On <code>keyword</code><a class="anchor" aria-label="anchor" href="#on-keyword"></a></h2>
     <p>If set to true, the search result will also include
 keyword list. If the last word provided is incomplete, keyword list
 includes all words that start with the incomplete word
@@ -244,25 +244,25 @@ will provide suggested additional words that could be added to the search
 query (word suggestion mode).</p>
     </div>
     <div class="section level2">
-    <h2 id="medical-coding-mode">medical_coding_mode<a class="anchor" aria-label="anchor" href="#medical-coding-mode"></a></h2>
-    <p>When searching the classification for medical
-coding purposes, this should be set to TRUE (default). In this mode, the
-search gives results only from the entities that have a code. The system
-will search all index terms of an entity. i.e. <em>titles</em>, <em>synonyms</em>,
-<em>fully specified term</em>, all terms of other entities that are in the
-foundation are aggregated into this entity. By default, <em>chapters 26</em>, <em>V</em>,
-and <em>X</em> are not included in the search results. If <code>medical_coding_mode</code> is
+    <h2 id="on-medical-mode">On <code>medical_mode</code><a class="anchor" aria-label="anchor" href="#on-medical-mode"></a></h2>
+    <p>When searching the classification for
+medical coding purposes, this should be set to TRUE (default). In this
+mode, the search gives results only from the entities that have a code.
+The system will search all index terms of an entity. i.e. <em>titles</em>,
+<em>synonyms</em>, <em>fully specified term</em>, all terms of other entities that are in
+the foundation are aggregated into this entity. By default, <em>chapters 26</em>,
+<em>V</em>, and <em>X</em> are not included in the search results. If <code>medical_mode</code> is
 set to FALSE, then the <code>properties</code> argument will need to be specified
 (see next section).</p>
     </div>
     <div class="section level2">
-    <h2 id="properties">properties<a class="anchor" aria-label="anchor" href="#properties"></a></h2>
+    <h2 id="on-properties">On <code>properties</code><a class="anchor" aria-label="anchor" href="#on-properties"></a></h2>
     <p>In the Foundation search, by default the function
 searches  <em>"Title"</em>, <em>"Synonyms"</em>, and <em>"FullySpecifiedName"</em>. The valid
 values that could be used for properties are: <em>"Title"</em>, <em>"Synonym"</em>,
 <em>"NarrowerTerm"</em>, <em>"FullySpecifiedName"</em>, <em>"Definition"</em>, and
 <em>"Exclusion"</em>. In the MMS search, this argument is only used when
-<code>medical_coding_mode = FALSE</code>. The valid values that could be used are:
+<code>medical_mode = FALSE</code>. The valid values that could be used are:
 <em>"Title"</em>, <em>"FullySpecifiedName"</em>, <em>"Definition"</em>, <em>"Exclusion"</em>, and
 <em>"IndexTerm"</em>. If <em>"IndexTerm"</em> is used, the search will be performed on
 all <em>"Titles"</em>, <em>"Synonyms"</em>, and <em>"FullySpecifiedNames"</em> including the
