@@ -33,7 +33,7 @@ icd_search_mms(
   flat = TRUE,
   release = NULL,
   highlight = FALSE,
-  medical_coding_mode = TRUE,
+  medical_mode = TRUE,
   properties = NULL,
   api_version = c("v2", "v1"),
   language = "en",
@@ -66,7 +66,7 @@ ICD-11 hierarchy. Otherwise they are listed as flat list of matches.}
 searched. When set to NULL (default), search is performed on a default
 set of properties depending on whether foundation or linearization (see
 section on \code{properties} for more details). Should be set/specified if
-\code{medical_coding_mode = FALSE}.}
+\code{medical_mode = FALSE}.}
 
 \item{release}{A string specifying the release version of the Foundation to
 search from. If not specified, defaults to the latest release version. See
@@ -105,7 +105,7 @@ use foundation descendants (TRUE) or linearization descendants (FALSE)?}
 \item{keyword}{Logical. Default is FALSE. Should search results show keyword
 list? See section on \code{keyword} for more details.}
 
-\item{medical_coding_mode}{Logical. Default is FALSE. Should medical coding
+\item{medical_mode}{Logical. Default is FALSE. Should medical coding
 mode be turned on?}
 }
 \value{
@@ -114,9 +114,9 @@ A tibble of search results.
 \description{
 Search the foundation component of the ICD-11
 }
-\section{flexisearch}{
- In the regular search mode (\code{flexisearch = FALSE}), the
-function will only give you results that contain all of the words that
+\section{On \code{flexisearch}}{
+ In the regular search mode (\code{flexisearch = FALSE}),
+the function will only give you results that contain all of the words that
 you've used in your search. It accepts different variants or synonyms of
 the words but essentially it searches for a result that contains all
 components of your search. Whereas in flexible search mode, the results do
@@ -126,7 +126,7 @@ are not matched at all. It is recommended to use flexible search only when
 regular search does not provide a result.
 }
 
-\section{keyword}{
+\section{On \code{keyword}}{
  If set to true, the search result will also include
 keyword list. If the last word provided is incomplete, keyword list
 includes all words that start with the incomplete word
@@ -135,25 +135,25 @@ will provide suggested additional words that could be added to the search
 query (word suggestion mode).
 }
 
-\section{medical_coding_mode}{
- When searching the classification for medical
-coding purposes, this should be set to TRUE (default). In this mode, the
-search gives results only from the entities that have a code. The system
-will search all index terms of an entity. i.e. \emph{titles}, \emph{synonyms},
-\emph{fully specified term}, all terms of other entities that are in the
-foundation are aggregated into this entity. By default, \emph{chapters 26}, \emph{V},
-and \emph{X} are not included in the search results. If \code{medical_coding_mode} is
+\section{On \code{medical_mode}}{
+ When searching the classification for
+medical coding purposes, this should be set to TRUE (default). In this
+mode, the search gives results only from the entities that have a code.
+The system will search all index terms of an entity. i.e. \emph{titles},
+\emph{synonyms}, \emph{fully specified term}, all terms of other entities that are in
+the foundation are aggregated into this entity. By default, \emph{chapters 26},
+\emph{V}, and \emph{X} are not included in the search results. If \code{medical_mode} is
 set to FALSE, then the \code{properties} argument will need to be specified
 (see next section).
 }
 
-\section{properties}{
+\section{On \code{properties}}{
  In the Foundation search, by default the function
 searches  \emph{"Title"}, \emph{"Synonyms"}, and \emph{"FullySpecifiedName"}. The valid
 values that could be used for properties are: \emph{"Title"}, \emph{"Synonym"},
 \emph{"NarrowerTerm"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, and
 \emph{"Exclusion"}. In the MMS search, this argument is only used when
-\code{medical_coding_mode = FALSE}. The valid values that could be used are:
+\code{medical_mode = FALSE}. The valid values that could be used are:
 \emph{"Title"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, \emph{"Exclusion"}, and
 \emph{"IndexTerm"}. If \emph{"IndexTerm"} is used, the search will be performed on
 all \emph{"Titles"}, \emph{"Synonyms"}, and \emph{"FullySpecifiedNames"} including the

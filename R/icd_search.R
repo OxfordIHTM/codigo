@@ -1,8 +1,8 @@
 #'
 #' Search the foundation component of the ICD-11
 #'
-#' @section flexisearch: In the regular search mode (`flexisearch = FALSE`), the
-#'   function will only give you results that contain all of the words that
+#' @section On `flexisearch`: In the regular search mode (`flexisearch = FALSE`),
+#'   the function will only give you results that contain all of the words that
 #'   you've used in your search. It accepts different variants or synonyms of
 #'   the words but essentially it searches for a result that contains all
 #'   components of your search. Whereas in flexible search mode, the results do
@@ -11,29 +11,29 @@
 #'   are not matched at all. It is recommended to use flexible search only when
 #'   regular search does not provide a result.
 #'
-#' @section keyword: If set to true, the search result will also include
+#' @section On `keyword`: If set to true, the search result will also include
 #'   keyword list. If the last word provided is incomplete, keyword list
 #'   includes all words that start with the incomplete word
 #'   (word completion mode). If the last word is complete, the keyword list
 #'   will provide suggested additional words that could be added to the search
 #'   query (word suggestion mode).
 #'
-#' @section medical_coding_mode: When searching the classification for medical
-#'   coding purposes, this should be set to TRUE (default). In this mode, the
-#'   search gives results only from the entities that have a code. The system
-#'   will search all index terms of an entity. i.e. *titles*, *synonyms*,
-#'   *fully specified term*, all terms of other entities that are in the
-#'   foundation are aggregated into this entity. By default, *chapters 26*, *V*,
-#'   and *X* are not included in the search results. If `medical_coding_mode` is
+#' @section On `medical_mode`: When searching the classification for
+#'   medical coding purposes, this should be set to TRUE (default). In this
+#'   mode, the search gives results only from the entities that have a code.
+#'   The system will search all index terms of an entity. i.e. *titles*,
+#'   *synonyms*, *fully specified term*, all terms of other entities that are in
+#'   the foundation are aggregated into this entity. By default, *chapters 26*,
+#'   *V*, and *X* are not included in the search results. If `medical_mode` is
 #'   set to FALSE, then the `properties` argument will need to be specified
 #'   (see next section).
 #'
-#' @section properties: In the Foundation search, by default the function
+#' @section On `properties`: In the Foundation search, by default the function
 #'   searches  *"Title"*, *"Synonyms"*, and *"FullySpecifiedName"*. The valid
 #'   values that could be used for properties are: *"Title"*, *"Synonym"*,
 #'   *"NarrowerTerm"*, *"FullySpecifiedName"*, *"Definition"*, and
 #'   *"Exclusion"*. In the MMS search, this argument is only used when
-#'   `medical_coding_mode = FALSE`. The valid values that could be used are:
+#'   `medical_mode = FALSE`. The valid values that could be used are:
 #'   *"Title"*, *"FullySpecifiedName"*, *"Definition"*, *"Exclusion"*, and
 #'   *"IndexTerm"*. If *"IndexTerm"* is used, the search will be performed on
 #'   all *"Titles"*, *"Synonyms"*, and *"FullySpecifiedNames"* including the
@@ -46,9 +46,6 @@
 #'   the translations of ICD-11 completes. The values are language codes such as
 #'   en, es, zh, etc. Depending on the `release` specified, the available
 #'   languages will vary.
-#'
-#'
-#'
 #'
 #' @param q String. Text to be searched. Having the character `%` at the end will
 #'   be regarded as a wild card for that word.
@@ -66,13 +63,13 @@
 #'   ICD-11 hierarchy. Otherwise they are listed as flat list of matches.
 #' @param keyword Logical. Default is FALSE. Should search results show keyword
 #'   list? See section on `keyword` for more details.
-#' @param medical_coding_mode Logical. Default is FALSE. Should medical coding
+#' @param medical_mode Logical. Default is FALSE. Should medical coding
 #'   mode be turned on?
 #' @param properties A string or a vector of strings for the properties to be
 #'   searched. When set to NULL (default), search is performed on a default
 #'   set of properties depending on whether foundation or linearization (see
 #'   section on `properties` for more details). Should be set/specified if
-#'   `medical_coding_mode = FALSE`.
+#'   `medical_mode = FALSE`.
 #' @param release A string specifying the release version of the Foundation to
 #'   search from. If not specified, defaults to the latest release version. See
 #'   the available versions with `icd_versions`.
@@ -210,7 +207,7 @@ icd_search_mms <- function(q,
                            flat = TRUE,
                            release = NULL,
                            highlight = FALSE,
-                           medical_coding_mode = TRUE,
+                           medical_mode = TRUE,
                            properties = NULL,
                            api_version = c("v2", "v1"),
                            language = "en",
@@ -265,7 +262,7 @@ icd_search_mms <- function(q,
     )
 
   ### Medical coding mode and Properties ----
-  if (!medical_coding_mode) {
+  if (!medical_mode) {
     req <- req |>
       httr2::req_url_query(medicalCodingMode = "false")
     if (!is.null(properties)) {
@@ -274,7 +271,9 @@ icd_search_mms <- function(q,
           propertiesToBeSearched = paste(properties, collapse = ",")
         )
     } else {
-      stop("The `properties` argument needs to be specified if `medical_coding_mode = FALSE`")
+      stop(
+        "The `properties` argument needs to be specified if `medical_mode = FALSE`"
+      )
     }
   } else {
     req <- req |>

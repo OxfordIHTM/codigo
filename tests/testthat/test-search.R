@@ -100,3 +100,14 @@ test_search_property <- icd_search_mms(
 )
 testthat::expect_s3_class(test_search_property, "tbl_df")
 testthat::expect_type(test_search_property, "list")
+
+### Test medical_mode ----
+
+testthat::expect_s3_class(
+  icd_search_mms(
+    q = "cholera",
+    medical_mode = FALSE,
+    properties = c("Title","Definition", "IndexTerm")
+  ),
+  "tbl_df"
+)
