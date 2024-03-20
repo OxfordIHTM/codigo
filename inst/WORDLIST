@@ -9,11 +9,13 @@ Codecov
 DepthInKind
 FIC
 FullySpecifiedName
+FullySpecifiedNames
 GroupingX
 ICD
 ICF
 ICHI
 IHTM
+IndexTerm
 IsLeaf
 IsResidual
 Lifecycle
@@ -35,6 +37,7 @@ eg
 es
 etc
 fileName
+flexisearch
 iCatLink
 icd
 icdapi

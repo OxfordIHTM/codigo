@@ -120,7 +120,10 @@ icd_autocode_mms <- function(q,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release, verbose = verbose)
+  if (!is.null(release))
+    icd_check_release(release, verbose = verbose)
+  else
+    release <- icd_get_releases(latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
@@ -160,3 +163,4 @@ icd_autocode_mms <- function(q,
     resp
   }
 }
+
