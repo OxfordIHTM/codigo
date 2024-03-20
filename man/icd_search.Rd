@@ -2,6 +2,7 @@
 % Please edit documentation in R/icd_search.R
 \name{icd_search_foundation}
 \alias{icd_search_foundation}
+\alias{icd_search_mms}
 \title{Search the foundation component of the ICD-11}
 \usage{
 icd_search_foundation(
@@ -13,6 +14,27 @@ icd_search_foundation(
   properties = NULL,
   release = NULL,
   highlight = FALSE,
+  api_version = c("v2", "v1"),
+  language = "en",
+  tabular = TRUE,
+  verbose = TRUE,
+  base_url = "https://id.who.int",
+  client = icd_oauth_client(),
+  scope = "icdapi_access"
+)
+
+icd_search_mms(
+  q,
+  subtree = NULL,
+  use_foundation = FALSE,
+  keyword = FALSE,
+  chapter = NULL,
+  flexisearch = FALSE,
+  flat = TRUE,
+  release = NULL,
+  highlight = FALSE,
+  medical_coding_mode = TRUE,
+  properties = NULL,
   api_version = c("v2", "v1"),
   language = "en",
   tabular = TRUE,
@@ -34,25 +56,17 @@ eg: c("01", "02") When provided, the search will be performed only on
 these chapters.}
 
 \item{flexisearch}{Logical. Default is FALSE. Changes the search mode to
-flexible search. In the regular search mode, the Coding Tool will only give
-you results that contain all of the words that you've used in your search.
-It accepts different variants or synonyms of the words but essentially it
-searches for a result that contains all components of your search. Whereas
-in flexible search mode, the results do not have to contain all of the words
-that are typed. It would still try to find the best matching phrase but
-there may be words in your search that are not matched at all. It is
-recommended to use flexible search only when regular search does not
-provide a result.}
+flexible search (for more details, see section on flexisearch).}
 
 \item{flat}{Logical. Default is FALSE. If set to true the search result
 entities are provided in a nested data structure representing the
 ICD-11 hierarchy. Otherwise they are listed as flat list of matches.}
 
 \item{properties}{A string or a vector of strings for the properties to be
-searched. By default the system  searches, \emph{"Title"}, \emph{"Synonyms"}, and
-\emph{"FullySpecifiedName"}. The valid values that could be used are: \emph{"Title"},
-\emph{"Synonym"}, \emph{"NarrowerTerm"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, and
-\emph{"Exclusion"}.}
+searched. When set to NULL (default), search is performed on a default
+set of properties depending on whether foundation or linearization (see
+section on \code{properties} for more details). Should be set/specified if
+\code{medical_coding_mode = FALSE}.}
 
 \item{release}{A string specifying the release version of the Foundation to
 search from. If not specified, defaults to the latest release version. See
@@ -66,11 +80,9 @@ highlighting where the results are found within the text.}
 For example, if you provide value v2, the API will respond in the format of
 the version 2 of the API. Default is \code{v2}.}
 
-\item{language}{ICD-API is multi-lingual. By changing this header, you may
-make the API respond in different languages. Languages will be available as
-the translations of ICD-11 completes. The values are language codes such as
-en, es, zh, etc. Depending on the \code{release_id} specified, the available
-languages will vary. Default is English ("en").}
+\item{language}{Language code for language in which search results are to be
+shown. Default is English ("en"). See section on \code{language} for more
+details.}
 
 \item{tabular}{Logical. Should output be structured into a tibble? Default
 to TRUE.}
@@ -86,6 +98,15 @@ your own ICD API server, you should specify the URL of your instance here.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
+
+\item{use_foundation}{Logical. Default is FALSE. Should subtree filter
+use foundation descendants (TRUE) or linearization descendants (FALSE)?}
+
+\item{keyword}{Logical. Default is FALSE. Should search results show keyword
+list? See section on \code{keyword} for more details.}
+
+\item{medical_coding_mode}{Logical. Default is FALSE. Should medical coding
+mode be turned on?}
 }
 \value{
 A tibble of search results.
@@ -93,7 +114,59 @@ A tibble of search results.
 \description{
 Search the foundation component of the ICD-11
 }
-\examples{
-icd_search_foundation("colorectal cancer")
-
+\section{flexisearch}{
+ In the regular search mode (\code{flexisearch = FALSE}), the
+function will only give you results that contain all of the words that
+you've used in your search. It accepts different variants or synonyms of
+the words but essentially it searches for a result that contains all
+components of your search. Whereas in flexible search mode, the results do
+not have to contain all of the words that are typed. It would still try to
+find the best matching phrase but there may be words in your search that
+are not matched at all. It is recommended to use flexible search only when
+regular search does not provide a result.
 }
+
+\section{keyword}{
+ If set to true, the search result will also include
+keyword list. If the last word provided is incomplete, keyword list
+includes all words that start with the incomplete word
+(word completion mode). If the last word is complete, the keyword list
+will provide suggested additional words that could be added to the search
+query (word suggestion mode).
+}
+
+\section{medical_coding_mode}{
+ When searching the classification for medical
+coding purposes, this should be set to TRUE (default). In this mode, the
+search gives results only from the entities that have a code. The system
+will search all index terms of an entity. i.e. \emph{titles}, \emph{synonyms},
+\emph{fully specified term}, all terms of other entities that are in the
+foundation are aggregated into this entity. By default, \emph{chapters 26}, \emph{V},
+and \emph{X} are not included in the search results. If \code{medical_coding_mode} is
+set to FALSE, then the \code{properties} argument will need to be specified
+(see next section).
+}
+
+\section{properties}{
+ In the Foundation search, by default the function
+searches  \emph{"Title"}, \emph{"Synonyms"}, and \emph{"FullySpecifiedName"}. The valid
+values that could be used for properties are: \emph{"Title"}, \emph{"Synonym"},
+\emph{"NarrowerTerm"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, and
+\emph{"Exclusion"}. In the MMS search, this argument is only used when
+\code{medical_coding_mode = FALSE}. The valid values that could be used are:
+\emph{"Title"}, \emph{"FullySpecifiedName"}, \emph{"Definition"}, \emph{"Exclusion"}, and
+\emph{"IndexTerm"}. If \emph{"IndexTerm"} is used, the search will be performed on
+all \emph{"Titles"}, \emph{"Synonyms"}, and \emph{"FullySpecifiedNames"} including the
+ones that are under shoreline (i.e Entities in the foundation but not in
+MMS). In such cases the results will be shown based on where the match is
+aggregated into in MMS.
+}
+
+\section{language}{
+ ICD-API is multi-lingual. By setting the language, you may
+make the API respond in different languages. Languages will be available as
+the translations of ICD-11 completes. The values are language codes such as
+en, es, zh, etc. Depending on the \code{release} specified, the available
+languages will vary.
+}
+

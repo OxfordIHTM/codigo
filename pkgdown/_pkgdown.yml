@@ -18,7 +18,7 @@ navbar:
   type: light
   structure:
     left:  [home, intro, reference, articles, news]
-    right: [linkedin, github]
+    right: [twitter, facebook, linkedin, github]
 
   components:
     articles:
@@ -26,12 +26,12 @@ navbar:
       menu:
       - text: "ICD-11 Foundation"
         href: articles/icd11_foundation.html
-    #   - text: "Detecting inflammation"
-    #     href: articles/inflammation.html
-    #   - text: "Detecting iron deficiency"
-    #     href: articles/iron-deficiency.html
-    #   - text: "Detecting iodine deficiency"
-    #     href: articles/iodine-deficiency.html
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: http://twitter.com/OxIHTM
+    facebook:
+      icon: "fab fa-facebook fa-lg"
+      href: https://www.facebook.com/MSc-in-International-Health-and-Tropical-Medicine-University-of-Oxford-433056700228246/
     linkedin:
       icon: "fab fa-linkedin fa-lg"
       href: https://www.linkedin.com/company/international-health-and-tropical-medicine
@@ -51,9 +51,10 @@ reference:
     contents:
     - icd_search_foundation
 
-  - title: Autcode
+  - title: Autocode
     contents:
     - icd_autocode_foundation
+    - icd_autocode_mms
 
   - title: Get
     contents:
