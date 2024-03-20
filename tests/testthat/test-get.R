@@ -41,6 +41,7 @@ testthat::expect_type(icd_get_info(), "list")
 
 ## Test icd_get_chapter ----
 
+testthat::expect_type(icd_get_chapter(release = "2023-01"), "list")
 testthat::expect_type(icd_get_chapter(), "list")
 
 
