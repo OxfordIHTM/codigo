@@ -37,28 +37,28 @@ testthat::expect_s3_class(
 ## Autocode linearisation - mms ----
 
 testthat::expect_s3_class(
-  icd_autocode_mms("colorectal cancer"),
+  icd_autocode("colorectal cancer"),
   "tbl_df"
 )
 
 testthat::expect_message(
-  icd_autocode_mms("colorectal cancer")
+  icd_autocode("colorectal cancer")
 )
 
 testthat::expect_error(
-  icd_autocode_mms("colorectal cancer", release = "2025-01")
+  icd_autocode("colorectal cancer", release = "2025-01")
 )
 
 testthat::expect_no_message(
-  icd_autocode_mms("colorectal cancer", verbose = FALSE)
+  icd_autocode("colorectal cancer", verbose = FALSE)
 )
 
 testthat::expect_type(
-  icd_autocode_mms("colorectal cancer", tabular = FALSE),
+  icd_autocode("colorectal cancer", tabular = FALSE),
   "list"
 )
 
 testthat::expect_s3_class(
-  icd_autocode_mms("colorectal cancer", threshold = 1),
+  icd_autocode("colorectal cancer", threshold = 1),
   "tbl_df"
 )

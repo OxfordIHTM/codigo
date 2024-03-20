@@ -1,52 +1,6 @@
 #'
 #' Search the foundation component or linearizations of the ICD-11
 #'
-#' @section On `flexisearch`: In the regular search mode (`flexisearch = FALSE`),
-#'   the function will only give you results that contain all of the words that
-#'   you've used in your search. It accepts different variants or synonyms of
-#'   the words but essentially it searches for a result that contains all
-#'   components of your search. Whereas in flexible search mode, the results do
-#'   not have to contain all of the words that are typed. It would still try to
-#'   find the best matching phrase but there may be words in your search that
-#'   are not matched at all. It is recommended to use flexible search only when
-#'   regular search does not provide a result.
-#'
-#' @section On `keyword`: If set to true, the search result will also include
-#'   keyword list. If the last word provided is incomplete, keyword list
-#'   includes all words that start with the incomplete word
-#'   (word completion mode). If the last word is complete, the keyword list
-#'   will provide suggested additional words that could be added to the search
-#'   query (word suggestion mode).
-#'
-#' @section On `medical_mode`: When searching the classification for
-#'   medical coding purposes, this should be set to TRUE (default). In this
-#'   mode, the search gives results only from the entities that have a code.
-#'   The system will search all index terms of an entity. i.e. *titles*,
-#'   *synonyms*, *fully specified term*, all terms of other entities that are in
-#'   the foundation are aggregated into this entity. By default, *chapters 26*,
-#'   *V*, and *X* are not included in the search results. If `medical_mode` is
-#'   set to FALSE, then the `properties` argument will need to be specified
-#'   (see next section).
-#'
-#' @section On `properties`: In the Foundation search, by default the function
-#'   searches  *"Title"*, *"Synonyms"*, and *"FullySpecifiedName"*. The valid
-#'   values that could be used for properties are: *"Title"*, *"Synonym"*,
-#'   *"NarrowerTerm"*, *"FullySpecifiedName"*, *"Definition"*, and
-#'   *"Exclusion"*. In the MMS search, this argument is only used when
-#'   `medical_mode = FALSE`. The valid values that could be used are:
-#'   *"Title"*, *"FullySpecifiedName"*, *"Definition"*, *"Exclusion"*, and
-#'   *"IndexTerm"*. If *"IndexTerm"* is used, the search will be performed on
-#'   all *"Titles"*, *"Synonyms"*, and *"FullySpecifiedNames"* including the
-#'   ones that are under shoreline (i.e Entities in the foundation but not in
-#'   MMS). In such cases the results will be shown based on where the match is
-#'   aggregated into in MMS.
-#'
-#' @section On `language`: ICD-API is multi-lingual. By setting the language,
-#'   you may make the API respond in different languages. Languages will be
-#'   available as the translations of ICD-11 completes. The values are language
-#'   codes such as en, es, zh, etc. Depending on the `release` specified, the
-#'   available languages will vary.
-#'
 #' @param q String. Text to be searched. Having the character `%` at the end
 #'   will be regarded as a wild card for that word.
 #' @param linearization A character value for which linearization to search.
@@ -97,6 +51,52 @@
 #'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
 #' @return A tibble of search results.
+#'
+#' @section On `flexisearch`: In the regular search mode (`flexisearch = FALSE`),
+#'   the function will only give you results that contain all of the words that
+#'   you've used in your search. It accepts different variants or synonyms of
+#'   the words but essentially it searches for a result that contains all
+#'   components of your search. Whereas in flexible search mode, the results do
+#'   not have to contain all of the words that are typed. It would still try to
+#'   find the best matching phrase but there may be words in your search that
+#'   are not matched at all. It is recommended to use flexible search only when
+#'   regular search does not provide a result.
+#'
+#' @section On `keyword`: If set to true, the search result will also include
+#'   keyword list. If the last word provided is incomplete, keyword list
+#'   includes all words that start with the incomplete word
+#'   (word completion mode). If the last word is complete, the keyword list
+#'   will provide suggested additional words that could be added to the search
+#'   query (word suggestion mode).
+#'
+#' @section On `medical_mode`: When searching the classification for
+#'   medical coding purposes, this should be set to TRUE (default). In this
+#'   mode, the search gives results only from the entities that have a code.
+#'   The system will search all index terms of an entity. i.e. *titles*,
+#'   *synonyms*, *fully specified term*, all terms of other entities that are in
+#'   the foundation are aggregated into this entity. By default, *chapters 26*,
+#'   *V*, and *X* are not included in the search results. If `medical_mode` is
+#'   set to FALSE, then the `properties` argument will need to be specified
+#'   (see next section).
+#'
+#' @section On `properties`: In the Foundation search, by default the function
+#'   searches  *"Title"*, *"Synonyms"*, and *"FullySpecifiedName"*. The valid
+#'   values that could be used for properties are: *"Title"*, *"Synonym"*,
+#'   *"NarrowerTerm"*, *"FullySpecifiedName"*, *"Definition"*, and
+#'   *"Exclusion"*. In the MMS search, this argument is only used when
+#'   `medical_mode = FALSE`. The valid values that could be used are:
+#'   *"Title"*, *"FullySpecifiedName"*, *"Definition"*, *"Exclusion"*, and
+#'   *"IndexTerm"*. If *"IndexTerm"* is used, the search will be performed on
+#'   all *"Titles"*, *"Synonyms"*, and *"FullySpecifiedNames"* including the
+#'   ones that are under shoreline (i.e Entities in the foundation but not in
+#'   MMS). In such cases the results will be shown based on where the match is
+#'   aggregated into in MMS.
+#'
+#' @section On `language`: ICD-API is multi-lingual. By setting the language,
+#'   you may make the API respond in different languages. Languages will be
+#'   available as the translations of ICD-11 completes. The values are language
+#'   codes such as en, es, zh, etc. Depending on the `release` specified, the
+#'   available languages will vary.
 #'
 #' @examples
 #' icd_search_foundation("colorectal cancer")
@@ -280,7 +280,7 @@ icd_search <- function(q,
         )
     } else {
       stop(
-        "The `properties` argument needs to be specified if `medical_mode = FALSE`"
+        "The `properties` argument should be specified if `medical_mode = FALSE`"
       )
     }
   } else {

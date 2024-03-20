@@ -3,8 +3,8 @@
 \name{icd_get_foundation}
 \alias{icd_get_foundation}
 \alias{icd_get_entity}
-\alias{icd_get_mms_release}
-\title{Get information on various ICD 11 Foundation entities}
+\alias{icd_get_info}
+\title{Get information on various ICD-11 foundation and linearization entities}
 \usage{
 icd_get_foundation(
   release = NULL,
@@ -28,7 +28,8 @@ icd_get_entity(
   scope = "icdapi_access"
 )
 
-icd_get_mms_release(
+icd_get_info(
+  linearization = c("mms", "icf"),
   api_version = c("v2", "v1"),
   language = "en",
   base_url = "https://id.who.int",
@@ -61,7 +62,8 @@ printed? Default is TRUE.}
 https://id.who.int. If you are using a locally deployed server or hosting
 your own ICD API server, you should specify the URL of your instance here.}
 
-\item{client}{The OAuth2 client produced through a call to \code{icd_oauth_client()}.}
+\item{client}{The OAuth2 client produced through a call to
+\code{icd_oauth_client()}.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
@@ -72,19 +74,24 @@ your own ICD API server, you should specify the URL of your instance here.}
 to be included in the response. The property values that can be included
 are \emph{"ancestor"}, \emph{"descendant"}, or \emph{"diagnosticCriteria"}. If not
 specified, these properties are not included in the response.}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the possible values for this are \emph{"mms"} and \emph{"icf"}. Default
+is \emph{"mms"}.}
 }
 \value{
 A list with information on specified ICD 11 Foundation and top level
 entities.
 }
 \description{
-Get information on various ICD 11 Foundation entities
+Get information on various ICD-11 foundation and linearization entities
 }
 \examples{
 icd_get_foundation()
 icd_get_entity(id = "1435254666")     ## chapter
 icd_get_entity(id = "588616678")      ## block; depth 1
 icd_get_entity(id = "1465325727")     ## category; depth 1
-icd_get_mms_release()
+icd_get_info()
+icd_get_info("icf")
 
 }

@@ -34,3 +34,7 @@ testthat::expect_type(test_get_entity_include, "list")
 testthat::expect_true(
   all(c("ancestor", "descendant") %in% names(test_get_entity_include))
 )
+
+## Test icd_get_release ----
+
+testthat::expect_type(icd_get_info(), "list")

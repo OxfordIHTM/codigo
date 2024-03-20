@@ -1,10 +1,13 @@
 #'
-#' Get information on various ICD 11 Foundation entities
+#' Get information on various ICD-11 foundation and linearization entities
 #'
 #' @param id Unique numerical identifier for an entity.
 #' @param release A string specifying the release version of the Foundation to
 #'   search from. If not specified, defaults to the latest release version. See
 #'   the available versions with `icd_versions`.
+#' @param linearization A character value for which linearization to search.
+#'   Currently, the possible values for this are *"mms"* and *"icf"*. Default
+#'   is *"mms"*.
 #' @param include A string or a vector of strings for optional property values
 #'   to be included in the response. The property values that can be included
 #'   are *"ancestor"*, *"descendant"*, or *"diagnosticCriteria"*. If not
@@ -24,7 +27,8 @@
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param client The OAuth2 client produced through a call to
+#'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
@@ -36,7 +40,8 @@
 #' icd_get_entity(id = "1435254666")     ## chapter
 #' icd_get_entity(id = "588616678")      ## block; depth 1
 #' icd_get_entity(id = "1465325727")     ## category; depth 1
-#' icd_get_mms_release()
+#' icd_get_info()
+#' icd_get_info("icf")
 #'
 #' @rdname icd_get
 #' @export
@@ -149,11 +154,15 @@ icd_get_entity <- function(id,
 #' @rdname icd_get
 #' @export
 #'
-icd_get_mms_release <- function(api_version = c("v2", "v1"),
-                                language = "en",
-                                base_url = "https://id.who.int",
-                                client = icd_oauth_client(),
-                                scope = "icdapi_access") {
+icd_get_info <- function(linearization = c("mms", "icf"),
+                         api_version = c("v2", "v1"),
+                         language = "en",
+                         base_url = "https://id.who.int",
+                         client = icd_oauth_client(),
+                         scope = "icdapi_access") {
+  ## Get linearization to search ----
+  linearization <- match.arg(linearization)
+
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -166,7 +175,7 @@ icd_get_mms_release <- function(api_version = c("v2", "v1"),
 
   ## Make base request ----
   req <- httr2::request(base_url) |>
-    httr2::req_url_path("icd/release/11/mms") |>
+    httr2::req_url_path("icd/release/11", linearization) |>
     httr2::req_headers(
       Accept = "application/json",
       "API-Version" = api_version,
