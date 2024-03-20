@@ -1,5 +1,5 @@
 #'
-#' Search the foundation component of the ICD-11
+#' Search the foundation component or linearizations of the ICD-11
 #'
 #' @section On `flexisearch`: In the regular search mode (`flexisearch = FALSE`),
 #'   the function will only give you results that contain all of the words that
@@ -47,11 +47,10 @@
 #'   codes such as en, es, zh, etc. Depending on the `release` specified, the
 #'   available languages will vary.
 #'
-#' @param q String. Text to be searched. Having the character `%` at the end will
-#'   be regarded as a wild card for that word.
+#' @param q String. Text to be searched. Having the character `%` at the end
+#'   will be regarded as a wild card for that word.
 #' @param linearization A character value for which linearization to search.
-#'   Currently, the only possible value for this is *"mms"*. See section on
-#'   `linearization` for more details.
+#'   Currently, the possible values for this are *"mms"* and *"icf"*.
 #' @param subtree A string or vector of strings of URIs. If provided, the
 #'   search will be performed on the entities provided and their descendants.
 #' @param use_foundation Logical. Default is FALSE. Should subtree filter
@@ -92,7 +91,8 @@
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to `icd_oauth_client()`.
+#' @param client The OAuth2 client produced through a call to
+#'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
 #'
@@ -100,7 +100,8 @@
 #'
 #' @examples
 #' icd_search_foundation("colorectal cancer")
-#' icd_search_mms("colorectal cancer")
+#' icd_search("colorectal cancer")
+#' icd_search("impairment", linearization = "icf")
 #'
 #' @rdname icd_search
 #' @export
@@ -202,7 +203,7 @@ icd_search_foundation <- function(q,
 #' @export
 #'
 icd_search <- function(q,
-                       linearization = "mms",
+                       linearization = c("mms", "icf"),
                        subtree = NULL,
                        use_foundation = FALSE,
                        keyword = FALSE,

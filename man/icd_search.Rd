@@ -2,7 +2,7 @@
 % Please edit documentation in R/icd_search.R
 \name{icd_search_foundation}
 \alias{icd_search_foundation}
-\alias{icd_search_mms}
+\alias{icd_search}
 \title{Search the foundation component of the ICD-11}
 \usage{
 icd_search_foundation(
@@ -23,8 +23,9 @@ icd_search_foundation(
   scope = "icdapi_access"
 )
 
-icd_search_mms(
+icd_search(
   q,
+  linearization = "mms",
   subtree = NULL,
   use_foundation = FALSE,
   keyword = FALSE,
@@ -98,6 +99,10 @@ your own ICD API server, you should specify the URL of your instance here.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the only possible value for this is \emph{"mms"}. See section on
+\code{linearization} for more details.}
 
 \item{use_foundation}{Logical. Default is FALSE. Should subtree filter
 use foundation descendants (TRUE) or linearization descendants (FALSE)?}
