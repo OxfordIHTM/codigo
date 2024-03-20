@@ -182,3 +182,9 @@ icd_get_mms_release <- function(api_version = c("v2", "v1"),
   ## Return response ----
   resp
 }
+
+
+#'
+#' @rdname icd_get
+#' @export
+#'
