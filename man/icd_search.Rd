@@ -170,3 +170,8 @@ en, es, zh, etc. Depending on the \code{release} specified, the available
 languages will vary.
 }
 
+\examples{
+icd_search_foundation("colorectal cancer")
+icd_search_mms("colorectal cancer")
+
+}

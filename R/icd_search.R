@@ -100,7 +100,7 @@
 #'
 #' @examples
 #' icd_search_foundation("colorectal cancer")
-#' icd_search_mms("colorectal cancer", release = "2024-01)
+#' icd_search_mms("colorectal cancer")
 #'
 #' @rdname icd_search
 #' @export
@@ -125,10 +125,7 @@ icd_search_foundation <- function(q,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release))
-    icd_check_release(release, verbose = verbose)
-  else
-    release <- icd_get_releases(latest = TRUE) |> dplyr::pull()
+  if (!is.null(release)) icd_check_release(release, verbose = verbose)
 
   ## Check language ----
   if (!is.null(language))
@@ -226,7 +223,10 @@ icd_search_mms <- function(q,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release, verbose = verbose)
+  if (!is.null(release))
+    icd_check_release(release, verbose = verbose)
+  else
+    release <- icd_get_releases(latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
