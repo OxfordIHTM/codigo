@@ -111,3 +111,9 @@ testthat::expect_s3_class(
   ),
   "tbl_df"
 )
+
+testthat::expect_error(
+  icd_search_mms(
+    q = "cholera",
+    medical_mode = FALSE)
+)
