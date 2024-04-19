@@ -41,7 +41,7 @@ From here, the plan is to continue developing functions that wrap the various av
 
 ## Installation
 
-`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R universe](https://oxfordihtm.r-universe.dev) as follows:
+`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R-universe](https://oxfordihtm.r-universe.dev) as follows:
 
 ```{r install-r-universe, eval = FALSE}
 install.packages(

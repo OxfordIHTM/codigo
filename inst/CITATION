@@ -1,16 +1,10 @@
-citHeader("To cite codigo in publications use:")
-
-citEntry(
-  entry    = "Manual",
+bibentry(
+  bibtype  = "Manual",
+  header   = "To cite codigo in publications use:",
   title    = "codigo: Interface to the International Classification of Diseases (ICD) API",
   author   = c(person("Anita Makori"),  person("Ernest Guevarra")),
   year     = "2024",
   note     = "R package version 0.0.9000",
-  url      = "https://oxford-ihtm.io/codigo/",
-  textVersion = paste(
-    paste("Anita Makori and Ernest Guevarra (2024).",
-          "codigo: Interface to the International Classification of Diseases (ICD) API.",
-          "R package version 0.0.9000.",
-          "URL https://oxford-ihtm.io/codigo/")
-  )
+  url      = "https://oxford-ihtm.io/codigo/"
 )
+

@@ -47,8 +47,8 @@ endpoints](https://id.who.int/swagger/index.html).
 
 ## Installation
 
-`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R
-universe](https://oxfordihtm.r-universe.dev) as follows:
+`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM
+R-universe](https://oxfordihtm.r-universe.dev) as follows:
 
 ``` r
 install.packages(
@@ -154,9 +154,9 @@ citation provided by a call to the `citation()` function as follows:
 citation("codigo")
 #> To cite codigo in publications use:
 #> 
-#>   Anita Makori and Ernest Guevarra (2024). codigo: Interface to the
-#>   International Classification of Diseases (ICD) API. R package version
-#>   0.0.9000. URL https://oxford-ihtm.io/codigo/
+#>   Anita Makori, Ernest Guevarra (2024). _codigo: Interface to the
+#>   International Classification of Diseases (ICD) API_. R package
+#>   version 0.0.9000, <https://oxford-ihtm.io/codigo/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
