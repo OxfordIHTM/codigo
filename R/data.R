@@ -83,3 +83,83 @@
 #' @source https://icdcdn.who.int/static/releasefiles/2024-01/SimpleTabulation-ICD-11-MMS-en.zip
 #'
 "icd11_simple_table_mms"
+
+
+#'
+#' ICD 10 code or categories mapped to multiple ICD 11 categories
+#'
+#' @format A data.frame with 15658 rows and 12 columns:
+#'
+#' | **Variable** | **Description** |
+#' | :--- | :--- |
+#' | *icd10_class_kind* | ICD 10 class or kind: either chapter, block, category, or modifiedcategory |
+#' | *icd10_depth* | ICD 10 depth level |
+#' | *icd10_code* | ICD 10 code (for class chapter) or block of codes (for class block) |
+#' | *icd10_chapter* | ICD 10 chapter |
+#' | *icd10_title* | ICD 10 class or kind: either category or code |
+#' | *icd11_class_kind* | ICD 11 class or kind: either block, category, or chapter |
+#' | *icd11_depth* | ICD 11 depth level |
+#' | *icd11_foundation_uri* | ICD 11 foundation URI |
+#' | *icd11_linearization_uri* | ICD 11 linearization URI |
+#' | *icd11_code* | ICD 11 code |
+#' | *icd11_chapter* | ICD 11 chapter |
+#' | *icd11_title* | ICD 11 title |
+#'
+#' @examples
+#' ten_map_to_multiple_eleven
+#'
+#' @source https://icdcdn.who.int/static/releasefiles/2024-01/mapping.zip
+#'
+"ten_map_to_multiple_eleven"
+
+
+#'
+#' ICD 10 code or categories mapped to one ICD 11 category
+#'
+#' @format A data.frame with 12597 rows and 12 columns:
+#'
+#' | **Variable** | **Description** |
+#' | :--- | :--- |
+#' | *icd10_class_kind* | ICD 10 class or kind: either chapter, block, category, or modifiedcategory |
+#' | *icd10_depth* | ICD 10 depth level |
+#' | *icd10_code* | ICD 10 code (for class chapter) or block of codes (for class block) |
+#' | *icd10_chapter* | ICD 10 chapter |
+#' | *icd10_title* | ICD 10 class or kind: either category or code |
+#' | *icd11_class_kind* | ICD 11 class or kind: either block, category, or chapter |
+#' | *icd11_depth* | ICD 11 depth level |
+#' | *icd11_foundation_uri* | ICD 11 foundation URI |
+#' | *icd11_linearization_uri* | ICD 11 linearization URI |
+#' | *icd11_code* | ICD 11 code |
+#' | *icd11_chapter* | ICD 11 chapter |
+#' | *icd11_title* | ICD 11 title |
+#'
+#' @examples
+#' ten_map_to_one_eleven
+#'
+#' @source https://icdcdn.who.int/static/releasefiles/2024-01/mapping.zip
+#'
+"ten_map_to_one_eleven"
+
+
+#'
+#' ICD 11 code or categories mapped to one ICD 10 category
+#'
+#' @format A data.frame with 17908 rows and 7 columns:
+#'
+#' | **Variable** | **Description** |
+#' | :--- | :--- |
+#' | *icd11_linearization_uri* | ICD 11 linearization URI |
+#' | *icd11_code* | ICD 11 code |
+#' | *icd11_chapter* | ICD 11 chapter |
+#' | *icd11_title* | ICD 11 title |
+#' | *icd10_code* | ICD 10 code (for class chapter) or block of codes (for class block) |
+#' | *icd10_chapter* | ICD 10 chapter |
+#' | *icd10_title* | ICD 10 class or kind: either category or code |
+#'
+#' @examples
+#' eleven_map_to_one_ten
+#'
+#' @source https://icdcdn.who.int/static/releasefiles/2024-01/mapping.zip
+#'
+"eleven_map_to_one_ten"
+

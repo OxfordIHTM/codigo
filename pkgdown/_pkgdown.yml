@@ -95,4 +95,7 @@ reference:
     - icd_versions
     - icd11_linearization_mms
     - icd11_simple_table_mms
+    - ten_map_to_multiple_eleven
+    - ten_map_to_one_eleven
+    - eleven_map_to_one_ten
 
