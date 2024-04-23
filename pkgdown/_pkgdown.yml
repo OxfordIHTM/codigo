@@ -73,6 +73,10 @@ reference:
     - icd_10_get_release_by_category
     - icd_10_get_info
 
+  - title: Map between ICD versions
+    contents:
+    - icd_map
+
   - title: Structure
     contents:
     - icd_structure_foundation
@@ -95,4 +99,7 @@ reference:
     - icd_versions
     - icd11_linearization_mms
     - icd11_simple_table_mms
+    - ten_map_to_multiple_eleven
+    - ten_map_to_one_eleven
+    - eleven_map_to_one_ten
 
