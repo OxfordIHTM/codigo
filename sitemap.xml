@@ -31,6 +31,9 @@
     <loc>https://oxford-ihtm.io/codigo/reference/codigo.html</loc>
   </url>
   <url>
+    <loc>https://oxford-ihtm.io/codigo/reference/eleven_map_to_one_ten.html</loc>
+  </url>
+  <url>
     <loc>https://oxford-ihtm.io/codigo/reference/icd11_linearization_mms.html</loc>
   </url>
   <url>
@@ -52,6 +55,9 @@
     <loc>https://oxford-ihtm.io/codigo/reference/icd_get.html</loc>
   </url>
   <url>
+    <loc>https://oxford-ihtm.io/codigo/reference/icd_map.html</loc>
+  </url>
+  <url>
     <loc>https://oxford-ihtm.io/codigo/reference/icd_search.html</loc>
   </url>
   <url>
@@ -65,5 +71,11 @@
   </url>
   <url>
     <loc>https://oxford-ihtm.io/codigo/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://oxford-ihtm.io/codigo/reference/ten_map_to_multiple_eleven.html</loc>
+  </url>
+  <url>
+    <loc>https://oxford-ihtm.io/codigo/reference/ten_map_to_one_eleven.html</loc>
   </url>
 </urlset>
