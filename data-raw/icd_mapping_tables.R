@@ -17,3 +17,8 @@ unzip(
   overwrite = TRUE,
   exdir = "data-raw/icd-mapping"
 )
+
+
+map_to_multiple <- read_xlsx(
+  file = "data-raw/icd-mapping/10To11MapToMultipleCategories.xlsx", sheeet = 1
+)

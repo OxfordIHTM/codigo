@@ -66,6 +66,13 @@ reference:
     - icd_get_entity
     - icd_get_info
 
+  - title: Get ICD-10
+    contents:
+    - icd_10_get_releases
+    - icd_10_get_chapters
+    - icd_10_get_release_by_category
+    - icd_10_get_info
+
   - title: Structure
     contents:
     - icd_structure_foundation
