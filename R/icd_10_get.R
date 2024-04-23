@@ -151,8 +151,8 @@ icd_10_get_release_by_category <- function(category,
 #' @export
 #'
 
-icd_10_get_info <- function(release = NULL,
-                            category,
+icd_10_get_info <- function(category,
+                            release = NULL,
                             api_version = c("v2", "v1"),
                             language = "en",
                             verbose = TRUE,

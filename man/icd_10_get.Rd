@@ -33,8 +33,8 @@ icd_10_get_release_by_category(
 )
 
 icd_10_get_info(
-  release = NULL,
   category,
+  release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
   verbose = TRUE,
