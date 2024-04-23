@@ -8,6 +8,12 @@ testthat::test_that(
       icd_map(code = "A00"),
       expected = names(ten_map_to_one_eleven)
     )
+    expect_s3_class(icd_map(from = "icd10", code = "A00"), "tbl")
+    expect_length(nrow(icd_map(from = "icd10", code = "A00")), 1)
+    expect_named(
+      icd_map(from = "icd10", code = "A00"),
+      expected = names(ten_map_to_one_eleven)
+    )
   }
 )
 
