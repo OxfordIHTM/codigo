@@ -16,7 +16,8 @@ the ICD API.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://oxford-ihtm.io/codigo/,https://github.com/OxfordIHTM/codigo}
+  \item \url{https://oxford-ihtm.io/codigo/}
+  \item \url{https://github.com/OxfordIHTM/codigo}
   \item Report bugs at \url{https://github.com/OxfordIHTM/codigo/issues}
 }
 
@@ -27,6 +28,13 @@ Useful links:
 Authors:
 \itemize{
   \item Anita Makori [copyright holder]
+}
+
+Other contributors:
+\itemize{
+  \item Sanjeev Pugazhendhi [thesis advisor, reviewer]
+  \item Williams Udoh Ituen-Umanah [reviewer]
+  \item Proochista Ariana [reviewer, copyright holder]
 }
 
 }

@@ -11,9 +11,9 @@ public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostat
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml)
+[![test-coverage](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/OxfordIHTM/codigo/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OxfordIHTM/codigo?branch=main)
-[![test-coverage](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml)
 [![CodeFactor](https://www.codefactor.io/repository/github/oxfordihtm/codigo/badge)](https://www.codefactor.io/repository/github/oxfordihtm/codigo)
 <!-- badges: end -->
 
