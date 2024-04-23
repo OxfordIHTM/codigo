@@ -66,18 +66,22 @@ icd_check_release <- function(release,
 #' @export
 #'
 icd_check_language <- function(release = NULL, language,
-                               icd = c("icd11", "icd10"), verbose = TRUE) {
+                               icd = c("icd11", "icd10"),
+                               verbose = TRUE) {
   icd <- match.arg(icd)
 
-  icd <- ifelse(icd == "icd11", "ICD-11", "ICD-10")
+  #icd <- ifelse(icd == "icd11", "ICD-11", "ICD-10")
 
   ## Check if release is NULL ----
   if (is.null(release)) release <- codigo::icd_versions |>
-    dplyr::filter(Classification == icd) |>
-    dplyr::pull(`Release ID`)
+    dplyr::filter(
+      .data$Classification == ifelse(icd == "icd11", "ICD-11", "ICD-10")
+    ) |>
+    dplyr::pull(.data$`Release ID`) |>
+    head(1)
 
   ## Check whether release is specified correctly ----
-  icd_check_release(release, verbose = verbose)
+  icd_check_release(release = release, icd = icd, verbose = verbose)
 
   ## Get languages available for release provided ----
   languages_available <- with(

@@ -18,6 +18,7 @@ icd_10_get_chapters(
   release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -36,6 +37,7 @@ icd_10_get_info(
   category,
   api_version = c("v2", "v1"),
   language = "en",
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -66,6 +68,9 @@ the translations of ICD-11 completes. The values are language codes such as
 en, es, zh, etc. Depending on the \code{release_id} specified, the available
 languages will vary. Default is English ("en"). Note that language support
 for ICD-10 is limited to English (\code{en}).}
+
+\item{verbose}{Logical. Should non-warning and non-error messages be
+printed? Default is TRUE.}
 
 \item{category}{ICD-10 category code or for blocks, the code range.}
 }

@@ -126,11 +126,14 @@ icd_search_foundation <- function(q,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release, verbose = verbose)
+  if (!is.null(release))
+    icd_check_release(release = release, icd = "icd11", verbose = verbose)
 
   ## Check language ----
   if (!is.null(language))
-    language <- icd_check_language(release, language, verbose = verbose)
+    language <- icd_check_language(
+      release = release, language = language, icd = "icd11", verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(base_url) |>
@@ -229,13 +232,15 @@ icd_search <- function(q,
 
   ## Check release identifier ----
   if (!is.null(release))
-    icd_check_release(release, verbose = verbose)
+    icd_check_release(release = release, icd = "icd11", verbose = verbose)
   else
     release <- icd_get_releases(latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
-    language <- icd_check_language(release, language, verbose = verbose)
+    language <- icd_check_language(
+      release = release, language = language, icd = "icd11", verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(base_url) |>

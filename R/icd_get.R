@@ -60,10 +60,13 @@ icd_get_foundation <- function(release = NULL,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release, verbose = verbose)
+  if (!is.null(release)) icd_check_release(release = release, verbose = verbose)
 
   ## Check language ----
-  if (!is.null(language)) icd_check_language(release, language, verbose = verbose)
+  if (!is.null(language))
+    language <- icd_check_language(
+      release = release, language = language, verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(file.path(base_url, "icd/entity"))
@@ -105,6 +108,7 @@ icd_get_entity <- function(id,
                            include = NULL,
                            api_version = c("v2", "v1"),
                            language = "en",
+                           verbose = TRUE,
                            base_url = "https://id.who.int",
                            client = icd_oauth_client(),
                            scope = "icdapi_access") {
@@ -112,10 +116,14 @@ icd_get_entity <- function(id,
   api_version <- match.arg(api_version)
 
   ## Check release identifier ----
-  if (!is.null(release)) icd_check_release(release)
+  if (!is.null(release))
+    icd_check_release(release = release, verbose = verbose)
 
   ## Check language ----
-  if (!is.null(language)) icd_check_language(release, language)
+  if (!is.null(language))
+    language <- icd_check_language(
+      release = release, language = language, verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(file.path(base_url, "icd/entity", id)) |>
@@ -159,6 +167,7 @@ icd_get_entity <- function(id,
 icd_get_info <- function(linearization = c("mms", "icf"),
                          api_version = c("v2", "v1"),
                          language = "en",
+                         verbose = TRUE,
                          base_url = "https://id.who.int",
                          client = icd_oauth_client(),
                          scope = "icdapi_access") {
@@ -170,9 +179,10 @@ icd_get_info <- function(linearization = c("mms", "icf"),
 
   ## Check language ----
   if (!is.null(language))
-    icd_check_language(
+    language <- icd_check_language(
       release = icd_get_releases(latest = TRUE) |> dplyr::pull(),
-      language
+      language = language,
+      verbose = verbose
     )
 
   ## Make base request ----
@@ -203,6 +213,7 @@ icd_get_chapter <- function(linearization = c("mms", "icf"),
                             release = NULL,
                             api_version = c("v2", "v1"),
                             language = "en",
+                            verbose = TRUE,
                             base_url = "https://id.who.int",
                             client = icd_oauth_client(),
                             scope = "icdapi_access") {
@@ -214,13 +225,15 @@ icd_get_chapter <- function(linearization = c("mms", "icf"),
 
   ## Check release identifier ----
   if (!is.null(release))
-    icd_check_release(release)
+    icd_check_release(release = release, verbose = verbose)
   else
     release <- icd_get_releases(latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
-    icd_check_language(release = release, language = language)
+    language <- icd_check_language(
+      release = release, language = language, verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(base_url) |>

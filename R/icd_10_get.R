@@ -14,6 +14,8 @@
 #'   languages will vary. Default is English ("en"). Note that language support
 #'   for ICD-10 is limited to English (`en`).
 #' @param category ICD-10 category code or for blocks, the code range.
+#' @param verbose Logical. Should non-warning and non-error messages be
+#'   printed? Default is TRUE.
 #' @param base_url The base URL of the API. Default uses the WHO API server at
 #'   https://id.who.int. If you are using a locally deployed server or hosting
 #'   your own ICD API server, you should specify the URL of your instance here.
@@ -72,6 +74,7 @@ icd_10_get_releases <- function(api_version = c("v2", "v1"),
 icd_10_get_chapters <- function(release = NULL,
                                 api_version = c("v2", "v1"),
                                 language = "en",
+                                verbose = TRUE,
                                 base_url = "https://id.who.int",
                                 client = icd_oauth_client(),
                                 scope = "icdapi_access") {
@@ -80,13 +83,15 @@ icd_10_get_chapters <- function(release = NULL,
 
   ## Check release identifier ----
   if (!is.null(release))
-    icd_check_release(release)
+    icd_check_release(release = release, icd = "icd10", verbose = verbose)
   else
     release <- icd_get_releases(icd = "icd10", latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
-    icd_check_language(release = release, language = language)
+    language <- icd_check_language(
+      release = release, language = language, icd = "icd10", verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(base_url) |>
@@ -150,6 +155,7 @@ icd_10_get_info <- function(release = NULL,
                             category,
                             api_version = c("v2", "v1"),
                             language = "en",
+                            verbose = TRUE,
                             base_url = "https://id.who.int",
                             client = icd_oauth_client(),
                             scope = "icdapi_access") {
@@ -158,13 +164,15 @@ icd_10_get_info <- function(release = NULL,
 
   ## Check release identifier ----
   if (!is.null(release))
-    icd_check_release(release)
+    icd_check_release(release = release, icd = "icd10", verbose = verbose)
   else
     release <- icd_get_releases(icd = "icd10", latest = TRUE) |> dplyr::pull()
 
   ## Check language ----
   if (!is.null(language))
-    icd_check_language(release = release, language = language)
+    language <- icd_check_language(
+      release = release, language = language, icd = "icd10", verbose = verbose
+    )
 
   ## Make base request ----
   req <- httr2::request(base_url) |>
