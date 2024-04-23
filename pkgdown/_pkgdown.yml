@@ -73,6 +73,10 @@ reference:
     - icd_10_get_release_by_category
     - icd_10_get_info
 
+  - title: Map between ICD versions
+    contents:
+    - icd_map
+
   - title: Structure
     contents:
     - icd_structure_foundation
