@@ -14,7 +14,9 @@
 #' @importFrom httr2 oauth_client request req_url_query req_headers
 #'   req_oauth_client_credentials req_perform resp_body_json req_url_path
 #' @importFrom tibble tibble
-#' @importFrom dplyr bind_cols bind_rows pull
+#' @importFrom dplyr bind_cols bind_rows pull filter
 #' @importFrom tidyr unnest
+#' @importFrom rlang .data
+#' @importFrom utils head
 #'
 "_PACKAGE"

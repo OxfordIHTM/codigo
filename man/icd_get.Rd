@@ -24,6 +24,7 @@ icd_get_entity(
   include = NULL,
   api_version = c("v2", "v1"),
   language = "en",
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -33,6 +34,7 @@ icd_get_info(
   linearization = c("mms", "icf"),
   api_version = c("v2", "v1"),
   language = "en",
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
@@ -43,6 +45,7 @@ icd_get_chapter(
   release = NULL,
   api_version = c("v2", "v1"),
   language = "en",
+  verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
   scope = "icdapi_access"
