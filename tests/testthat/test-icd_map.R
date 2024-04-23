@@ -12,7 +12,7 @@ testthat::test_that(
     expect_length(nrow(icd_map(from = "icd11", code = "1A00")), 1)
     expect_named(
       icd_map(from = "icd11", code = "1A00"),
-      expected = names(ten_map_to_one_eleven)
+      expected = names(eleven_map_to_one_ten)
     )
   }
 )
