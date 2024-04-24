@@ -25,11 +25,17 @@
 #'
 #' @export
 #'
-icd_oauth_client <- function(id = "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e-2f4b-46de-b127-df7454e36be8",
+icd_oauth_client <- function(id = Sys.getenv("ICD_CLIENT_ID"),
                              token_url = "https://icdaccessmanagement.who.int/connect/token",
-                             secret = "OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE=",
+                             secret = Sys.getenv("ICD_CLIENT_SECRET"),
                              name = "icd_client",
                              ...) {
+  if (id == "")
+    id <- "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e-2f4b-46de-b127-df7454e36be8"
+
+  if (secret == "")
+    secret <- "OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE="
+
   httr2::oauth_client(
     id = id,
     token_url = token_url,
