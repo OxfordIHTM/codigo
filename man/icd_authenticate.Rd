@@ -6,9 +6,9 @@
 \title{OAuth2 authentication to ICD API}
 \usage{
 icd_oauth_client(
-  id = "6fc8a1e4-4da9-43a8-bd0c-c164c0cb0ebd_3c7e272e-2f4b-46de-b127-df7454e36be8",
+  id = Sys.getenv("ICD_CLIENT_ID"),
   token_url = "https://icdaccessmanagement.who.int/connect/token",
-  secret = "OGIly8mTatQ2ILuhBTbviIp2FofWiQR3fj4HaPiGseE=",
+  secret = Sys.getenv("ICD_CLIENT_SECRET"),
   name = "icd_client",
   ...
 )
