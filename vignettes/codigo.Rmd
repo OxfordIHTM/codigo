@@ -19,27 +19,81 @@ knitr::opts_chunk$set(
 library(codigo)
 ```
 
-This article takes a quick tour of the main features of `codigo`. 
+This article takes a quick tour of the main features of `codigo`.
+
+## Authenticating with the ICD API
+
+The ICD API uses [OAuth2](https://httr2.r-lib.org/articles/oauth.html) for authentication. The package has a set of utility functions that support the ICD API authentication specifications leading to the generation of an OAuth2 token. The `icd_oauth_client()` function is the downstream and user-facing function that creates an ICD OAuth2 client that can be used for token retrieval by future functions that wrap ICD API for entity and linearization information retrieval.
+
+An ICD OAuth2 client can be generated as follows:
+
+```R
+icd_oauth_client()
+```
+
+This function uses a built in OAuth2 client created for light use and for purposes of package development and testing.
+
+It is recommended that those intending to use this package for programmatically performing high volume of calls to the ICD API to create their own **access keys** (`client id` and `client secret`) using [these instructions](https://icd.who.int/docs/icd-api/API-Authentication/).
+
+Then, with your access keys, perform the following commands:
+
+```R
+## Create your own OAuth client ----
+my_oauth_client <- icd_oauth_client(
+  id = "YOUR_CLIENT_ID",
+  token_url = "https://icdaccessmanagement.who.int/connect/token",
+  secret = "YOUR_CLIENT_SECRET",
+  name = "NAME_OF_YOUR_APP"
+)
+```
+
+This OAuth2 client can now be used to the various functions in the package that require an OAuth2 client for authentication for making requests to the ICD API.
 
 ## Performing a basic search
 
-A feature of the ICD API is the ability to search ICD 11 Foundation and ICD 11 Linearization for information regarding an illness/disease. This feature is captured by the `icd_search_foundation()` function. For example, if *colorectal cancer* is the disease of interest and information available from ICD 11 is needed, the following call can be made:
+A feature of the ICD API is the ability to search ICD 11 Foundation and ICD 11 Linearization for information regarding an illness/disease. This feature is captured by the `icd_search` functions. For example, if *colorectal cancer* is the disease of interest and information available from ICD 11 is needed, the following call can be made:
 
 ```{r search, eval = FALSE}
-icd_search_foundation("colorectal cancer", client = my_oauth_client)
+icd_search("colorectal cancer", client = my_oauth_client)
 ```
 
 which gives the following output:
 
 ```{r result, echo = FALSE}
-icd_search_foundation("colorectal cancer")
+icd_search("colorectal cancer")
 ```
 
-The output is a tibble created from parsed JSON body text of the HTTP response from the ICD API.
+The output is a tibble created from parsed JSON body text of the HTTP response from the ICD API. If you prefer the output to remain as the parsed JSON body text of the HTTP response from the ICD API, set the argument `tabular = FALSE`
+
+```{r search-list, eval = FALSE}
+icd_search("colorectal cancer", tabular = FALSE, client = my_oauth_client)
+```
+
+which gives the following output:
+
+```{r result-list, echo = FALSE}
+icd_search("colorectal cancer", tabular = FALSE)
+```
 
 ## Autocoding
 
-Autocoding is a focused search that returns a single result based on the closest match from ICD-11. Autocoding using the ICD Foundation API endpoint produces
+Autocoding is a focused search that returns results based on the closest match from ICD-11. Autocoding using the ICD Linearization component API endpoint can be done as follows:
 
+```{r autocode-show, eval = FALSE}
+icd_autocode("colorectal cancer", client = my_oauth_client)
+```
 
+which gives the following results
+
+```{r autocode-results, echo = FALSE}
+icd_autocode("colorectal cancer")
+```
+
+## Converting ICD-10 codes to ICD-11 and vice versa
+
+If you are working with data that used ICD-10 codes and need these codes to be converted to ICD-11 codes, the `icd_map()` function assists in performing this. The following code will provide information on what the *A00* ICD0-10 code including its ICD-11 counterpart.
+
+```{r icd-map-show}
+icd_map(code = "A00")
+```
 

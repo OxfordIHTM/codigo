@@ -5,9 +5,9 @@
 
 <!-- badges: start -->
 
-[![Project Status: WIP – Initial development is in progress, but there
-has not yet been a stable, usable release suitable for the
-public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml)
@@ -28,22 +28,24 @@ interface with the ICD API.
 
 ## What does `codigo` do?
 
-Please note that `codigo` is still highly experimental and is undergoing
-a lot of development. Hence, any functionalities described below and in
-the rest of the package documentation have a high likelihood of changing
-interface or approach as we aim for a stable working version.
+Please note that `codigo` is still experimental but is nearing a stable
+release. It is possible that some functionalities described below and in
+the rest of the package documentation may change interface or approach
+but these changes will likely be minor.
 
 Currently, the package provides functions for:
 
-- Authenticating with the ICD API;
-- Performing a search of ICD-11 foundation component;
-- Performing autocoding of causes of death using the ICD-11 foundation;
+- Authenticating with the ICD API (*stable*);
+- Performing a search of ICD-11 foundation and linearization components
+  (*stable*);
+- Performing autocoding of causes of death using the ICD-11 foundation
+  and linearization components (*stable*);
+- Getting information on various ICD-11 foundation and linearization
+  entities (*experimental*);
+- Converting ICD-10 codes to ICD-11 codes and vice versa (*stable*);
   and,
-- Getting information on various ICD-11 foundation entities.
-
-From here, the plan is to continue developing functions that wrap the
-various available [API
-endpoints](https://id.who.int/swagger/index.html).
+- Determining the underlying cause of death based on reported
+  information on a death certificate (*experimental*).
 
 ## Installation
 
@@ -57,7 +59,7 @@ install.packages(
 )
 ```
 
-then load `codigo`
+and then can be loaded into an R session
 
 ``` r
 # load package
@@ -98,7 +100,7 @@ my_oauth_client <- icd_oauth_client(
   id = "YOUR_CLIENT_ID",
   token_url = "https://icdaccessmanagement.who.int/connect/token",
   secret = "YOUR_CLIENT_SECRET",
-  name = "NAME_OF_YOUR_APP
+  name = "NAME_OF_YOUR_APP"
 )
 ```
 
@@ -110,35 +112,45 @@ requests to the ICD API.
 
 The main feature of the ICD API is the ability to search ICD 11
 Foundation and ICD 11 Linearization for information regarding an
-illness/disease. This feature is captured by the
-`icd_search_foundation()` function. For example, if *colorectal cancer*
-is the disease of interest and information available from ICD 11 is
-needed, the following call can be made:
+illness/disease. This feature is captured by the `icd_search` functions.
+For example, if *colorectal cancer* is the disease of interest and
+information available from ICD 11 is needed, the following call can be
+made:
 
 ``` r
-icd_search_foundation("colorectal cancer", client = my_oauth_client)
+icd_search("colorectal cancer", client = my_oauth_client)
 ```
 
 which gives the following output:
 
     #> Release `2024-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
-    #> # A tibble: 8 × 18
-    #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-    #> * <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
-    #> 1 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 2 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 3 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 4 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 5 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 6 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
-    #> 7 http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        
-    #> 8 http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        
+    #> # A tibble: 18 × 19
+    #>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+    #>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
+    #>  1 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  2 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  3 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  4 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  5 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  6 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  7 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>  8 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>  9 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 10 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 11 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 12 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 13 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 14 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 15 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 16 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 17 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 18 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
     #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-    #> # ℹ 12 more variables: hasMaternalChapterLink <lgl>,
+    #> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
     #> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
     #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
-    #> #   isResidualUnspecified <lgl>, chapter <chr>, score <dbl>,
+    #> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <chr>, score <dbl>,
     #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
     #> #   important <lgl>
 
