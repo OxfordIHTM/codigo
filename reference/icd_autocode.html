@@ -189,25 +189,25 @@ matching level, the matching score, and the matching type.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_autocode_foundation</span><span class="op">(</span><span class="st">"cholera"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText foundationURI          matchLevel matchScore matchType</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera    Cholera      http://id.who.int/icd…          0          1         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchLevel matchScore matchType</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera             3          0         0</span>
 <span class="r-in"><span><span class="fu">icd_autocode</span><span class="op">(</span>q <span class="op">=</span> <span class="st">"cholera"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 8</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText theCode foundationURI      linearizationURI matchLevel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera    Cholera      1A00    http://id.who.int… http://id.who.i…          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: matchScore &lt;int&gt;, matchType &lt;int&gt;</span></span>
-<span class="r-in"><span><span class="fu">icd_autocode</span><span class="op">(</span>q <span class="op">=</span> <span class="st">"impairment"</span>, linearization <span class="op">=</span> <span class="st">"icf"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchLevel matchScore matchType</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> impairment          3          0         0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera             3          0         0</span>
+<span class="r-in"><span><span class="fu">icd_autocode</span><span class="op">(</span>q <span class="op">=</span> <span class="st">"impairment"</span>, linearization <span class="op">=</span> <span class="st">"icf"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText      theCode foundationURI linearizationURI matchLevel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> impairment impaired adaptab… b2109   http://id.wh… http://id.who.i…          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: matchScore &lt;dbl&gt;, matchType &lt;int&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
