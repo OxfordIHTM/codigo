@@ -24,10 +24,10 @@ icd_map <- function(from = c("icd10", "icd11"), to = c("one", "multiple"),
   from <- match.arg(from)
 
   if (from == "icd10") {
-    dat <- paste0("ten_map_to_", to, "_eleven")
+    dat <- paste0("codigo::ten_map_to_", to, "_eleven")
     query <- paste0("icd10_code %in% '", code, "'")
   } else {
-    dat <- "eleven_map_to_one_ten"
+    dat <- "codigo::eleven_map_to_one_ten"
     query <- paste0("icd11_code %in% '", code, "'")
   }
 
