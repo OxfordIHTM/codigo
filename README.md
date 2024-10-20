@@ -35,22 +35,22 @@ but these changes will likely be minor.
 
 Currently, the package provides functions for:
 
-- Authenticating with the ICD API (*stable*);
-- Performing a search of ICD-11 foundation and linearization components
-  (*stable*);
-- Performing autocoding of causes of death using the ICD-11 foundation
-  and linearization components (*stable*);
-- Getting information on various ICD-11 foundation and linearization
-  entities (*experimental*);
-- Converting ICD-10 codes to ICD-11 codes and vice versa (*stable*);
-  and,
-- Determining the underlying cause of death based on reported
-  information on a death certificate (*experimental*).
+  - Authenticating with the ICD API (*stable*);
+  - Performing a search of ICD-11 foundation and linearization
+    components (*stable*);
+  - Performing autocoding of causes of death using the ICD-11 foundation
+    and linearization components (*stable*);
+  - Getting information on various ICD-11 foundation and linearization
+    entities (*experimental*);
+  - Converting ICD-10 codes to ICD-11 codes and vice versa (*stable*);
+    and,
+  - Determining the underlying cause of death based on reported
+    information on a death certificate (*experimental*).
 
 ## Installation
 
-`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM
-R-universe](https://oxfordihtm.r-universe.dev) as follows:
+`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R
+Universe](https://oxfordihtm.r-universe.dev) as follows:
 
 ``` r
 install.packages(
