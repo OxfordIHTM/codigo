@@ -8,7 +8,7 @@ development:
 template:
   bootstrap: 5
   bootswatch: journal
-  theme: haddock
+  theme: breeze-light
   ganalytics: G-G167Y0E8R0
 
 home:
@@ -21,7 +21,7 @@ navbar:
   type: light
   structure:
     left:  [home, intro, reference, articles, news]
-    right: [linkedin, mastodon, github]
+    right: [search, linkedin, mastodon, github]
 
   components:
     articles:
