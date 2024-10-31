@@ -49,8 +49,8 @@ Currently, the package provides functions for:
 
 ## Installation
 
-`codigo` is not yet on CRAN but can be installed from the [Oxford IHTM R
-Universe](https://oxfordihtm.r-universe.dev) as follows:
+`codigo` is not yet on CRAN but can be installed from the [Oxford
+iHealth R Universe](https://oxfordihtm.r-universe.dev) as follows:
 
 ``` r
 install.packages(
@@ -126,26 +126,26 @@ which gives the following output:
     #> Release `2024-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
     #> # A tibble: 18 × 19
-    #>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-    #>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
-    #>  1 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  2 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  3 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  4 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  5 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  6 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  7 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #>  8 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #>  9 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 10 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 11 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 12 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 13 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 14 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 15 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 16 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 17 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 18 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>    id                title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+    #>  * <chr>             <chr> <chr>  <lgl>                   <int> <lgl>        
+    #>  1 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  2 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  3 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  4 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  5 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  6 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
+    #>  7 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #>  8 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #>  9 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 10 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 11 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 12 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 13 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 14 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 15 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 16 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 17 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #> 18 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
     #> # ℹ abbreviated name: ¹​postcoordinationAvailability
     #> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
     #> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
