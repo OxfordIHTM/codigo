@@ -7,7 +7,7 @@ development:
 
 template:
   bootstrap: 5
-  bootswatch: journal
+  bootswatch: sandstone
   theme: breeze-light
   ganalytics: G-G167Y0E8R0
 
@@ -17,7 +17,7 @@ home:
     href: https://www.who.int/standards/classifications/classification-of-diseases
 
 navbar:
-  bg: info
+  bg: primary
   type: light
   structure:
     left:  [home, intro, reference, articles, news]
