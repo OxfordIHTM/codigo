@@ -52,7 +52,7 @@ icd_structure_foundation <- function(icd_list) {
 icd_structure_search <- function(icd_search) {
   ## Process search metadata ----
   meta <- lapply(
-    X = icd_search[1:7],
+    X = icd_search[c("error", "errorMessage", "resultChopped", "wordSuggestionsChopped", "guessType", "uniqueSearchId", "words")],
     FUN = function(x) ifelse(is.null(x), NA, x)
   ) |>
     dplyr::bind_cols()

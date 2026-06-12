@@ -27,6 +27,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Ernest Guevarra \email{ernest@guevarra.io} (\href{https://orcid.org/0000-0002-4887-4415}{ORCID}) [copyright holder]
   \item Anita Makori [copyright holder]
 }
 

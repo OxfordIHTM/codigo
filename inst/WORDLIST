@@ -15,7 +15,6 @@ GroupingX
 ICD
 ICF
 ICHI
-IHTM
 IndexTerm
 IsLeaf
 IsResidual
@@ -31,7 +30,6 @@ SupportedClassifications
 URIs
 Udoh
 Umanah
-WIP
 api
 autocode
 autocoding
@@ -43,6 +41,7 @@ etc
 fileName
 flexisearch
 iCatLink
+iHealth
 icd
 icdapi
 icdcdn
