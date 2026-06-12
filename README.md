@@ -10,10 +10,10 @@ state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/R-CMD-check.yaml)
-[![test-coverage](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/icd/actions/workflows/test-coverage.yaml)
+[![R-CMD-check](https://github.com/OxfordIHTM/codigo/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/OxfordIHTM/codigo/actions/workflows/R-CMD-check.yaml)
+[![test-coverage](https://github.com/OxfordIHTM/codigo/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/OxfordIHTM/codigo/actions/workflows/test-coverage.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/OxfordIHTM/codigo/branch/main/graph/badge.svg)](https://app.codecov.io/gh/OxfordIHTM/codigo?branch=main)
+coverage](https://codecov.io/gh/OxfordIHTM/codigo/graph/badge.svg)](https://app.codecov.io/gh/OxfordIHTM/codigo)
 [![CodeFactor](https://www.codefactor.io/repository/github/oxfordihtm/codigo/badge)](https://www.codefactor.io/repository/github/oxfordihtm/codigo)
 <!-- badges: end -->
 
@@ -35,17 +35,17 @@ but these changes will likely be minor.
 
 Currently, the package provides functions for:
 
-  - Authenticating with the ICD API (*stable*);
-  - Performing a search of ICD-11 foundation and linearization
-    components (*stable*);
-  - Performing autocoding of causes of death using the ICD-11 foundation
-    and linearization components (*stable*);
-  - Getting information on various ICD-11 foundation and linearization
-    entities (*experimental*);
-  - Converting ICD-10 codes to ICD-11 codes and vice versa (*stable*);
-    and,
-  - Determining the underlying cause of death based on reported
-    information on a death certificate (*experimental*).
+- Authenticating with the ICD API (*stable*);
+- Performing a search of ICD-11 foundation and linearization components
+  (*stable*);
+- Performing autocoding of causes of death using the ICD-11 foundation
+  and linearization components (*stable*);
+- Getting information on various ICD-11 foundation and linearization
+  entities (*experimental*);
+- Converting ICD-10 codes to ICD-11 codes and vice versa (*stable*);
+  and,
+- Determining the underlying cause of death based on reported
+  information on a death certificate (*experimental*).
 
 ## Installation
 
@@ -126,26 +126,26 @@ which gives the following output:
     #> Release `2024-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
     #> # A tibble: 18 × 19
-    #>    id                title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-    #>  * <chr>             <chr> <chr>  <lgl>                   <int> <lgl>        
-    #>  1 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  2 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  3 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  4 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  5 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  6 http://id.who.in… Mali… http:… TRUE                        1 FALSE        
-    #>  7 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #>  8 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #>  9 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 10 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 11 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 12 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 13 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 14 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 15 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 16 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 17 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
-    #> 18 http://id.who.in… Othe… http:… TRUE                        1 FALSE        
+    #>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+    #>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
+    #>  1 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  2 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  3 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  4 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  5 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  6 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
+    #>  7 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>  8 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>  9 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 10 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 11 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 12 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 13 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 14 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 15 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 16 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 17 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #> 18 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
     #> # ℹ abbreviated name: ¹​postcoordinationAvailability
     #> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
     #> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
@@ -166,17 +166,17 @@ citation provided by a call to the `citation()` function as follows:
 citation("codigo")
 #> To cite codigo in publications use:
 #> 
-#>   Anita Makori, Ernest Guevarra (2024). _codigo: Interface to the
+#>   Anita Makori, Ernest Guevarra (2026). _codigo: Interface to the
 #>   International Classification of Diseases (ICD) API_. R package
-#>   version 0.0.9000, <https://oxford-ihtm.io/codigo/>.
+#>   version 0.0.9001, <https://oxford-ihtm.io/codigo/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {codigo: Interface to the International Classification of Diseases (ICD) API},
 #>     author = {{Anita Makori} and {Ernest Guevarra}},
-#>     year = {2024},
-#>     note = {R package version 0.0.9000},
+#>     year = {2026},
+#>     note = {R package version 0.0.9001},
 #>     url = {https://oxford-ihtm.io/codigo/},
 #>   }
 ```
