@@ -2,14 +2,11 @@
 #' Checks for specified parameters supplied to search, autocode, and get
 #' functions
 #'
-#' @param release A string specifying the release version of the ICD-11.
+#' @inheritParams codigo-params release language verbose
 #' @param icd A character string of available ICD classifications. Currently,
 #'   this can be either "icd10" or "icd11". Default is "icd11".
-#' @param language language codes such as en, es, zh, etc.
-#' @param verbose Logical. Should non-warning and non-error messages be
-#'   printed? Default is TRUE.
 #'
-#' @return A message or an error if `release` provided is recognised or not. A
+#' @returns A message or an error if `release` provided is recognised or not. A
 #'   message or a warning if `language` requested is available or not for
 #'   `release` provided. For `icd_check_language()`, returns a character value
 #'   or a character vector of acceptable language codes.

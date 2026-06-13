@@ -10,13 +10,11 @@
 #' @param name Name of the application. This is not used for OAuth, but is
 #'   used to make it easier to identify different applications.
 #' @param req A request
-#' @param client An OAuth2 client. Default is a call to `icd_oauth_client()`.
-#' @param scope Scopes to be requested from the resource owner. Default is
-#'   *"icdapi_access"* as specified in the ICD API documentation.
+#' @inheritParams codigo-params client scope
 #' @param ... Other parameters/arguments to be passed onto `httr2::oauth_client()`
 #'   or to `httr2::req_oauth_client_credentials()`
 #'
-#' @return An `httr2_oauth_client` class object.
+#' @returns An `httr2_oauth_client` class object.
 #'
 #' @examples
 #' icd_oauth_client()

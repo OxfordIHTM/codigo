@@ -16,15 +16,18 @@ icd_check_language(
 )
 }
 \arguments{
-\item{release}{A string specifying the release version of the ICD-11.}
+\item{release}{A string specifying the release version to search from. If not
+specified, defaults to the latest available release version. See the
+available versions for each ICD classification with \code{icd_versions}.}
 
 \item{icd}{A character string of available ICD classifications. Currently,
 this can be either "icd10" or "icd11". Default is "icd11".}
 
-\item{verbose}{Logical. Should non-warning and non-error messages be
-printed? Default is TRUE.}
+\item{verbose}{Logical. Should non-warning and non-error messages be printed?
+Default is TRUE.}
 
-\item{language}{language codes such as en, es, zh, etc.}
+\item{language}{ICD-API is multi-lingual. Language codes such as "en", "es",
+"zh", etc. Default is English ("en").}
 }
 \value{
 A message or an error if \code{release} provided is recognised or not. A
