@@ -116,3 +116,9 @@ citation("codigo")
 Feedback, bug reports and feature requests are welcome; file issues or seek support [here](https://github.com/OxfordIHTM/codigo/issues). If you would like to contribute to the package, please see our [contributing guidelines](https://oxford-ihtm.io/codigo/CONTRIBUTING.html).
 
 This project is released with a [Contributor Code of Conduct](https://oxford-ihtm.io/codigo/CODE_OF_CONDUCT.html). By participating in this project you agree to abide by its terms.
+
+If you are interested in [Oxford iHealth](https://oxford-ihtm.io)'s work and would like to join the community or contribute to it's various projects, visit the [Oxford iHealth website](https://oxford-ihtm.io) and its [community page](https://oxford-ihtm.io/community/) to learn more.
+
+&nbsp;
+
+[![This is a project under the Oxford iHealth initiative of the MSc in International Health and Tropical Medicine of the Nuffield Department of Medicine, University of Oxford](https://github.com/OxfordIHTM/ihealth-images/blob/main/ihealth/ihealth_footer.png?raw=true)](https://oxford-ihtm.io)

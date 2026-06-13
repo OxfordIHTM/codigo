@@ -126,33 +126,31 @@ which gives the following output:
     #> Release `2024-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
     #> # A tibble: 18 × 19
-    #>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-    #>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
-    #>  1 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  2 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  3 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  4 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  5 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  6 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-    #>  7 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #>  8 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #>  9 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 10 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 11 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 12 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 13 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 14 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 15 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 16 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 17 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-    #> 18 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+    #>    id            title stemId isLeaf postcoordinationAvai…¹ hasCodingNote hasMaternalChapterLink
+    #>  * <chr>         <chr> <chr>  <lgl>                   <int> <lgl>         <lgl>                 
+    #>  1 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  2 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  3 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  4 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  5 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  6 http://id.wh… Mali… http:… TRUE                        1 FALSE         FALSE                 
+    #>  7 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #>  8 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #>  9 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 10 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 11 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 12 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 13 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 14 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 15 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 16 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 17 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
+    #> 18 http://id.wh… Othe… http:… TRUE                        1 FALSE         FALSE                 
     #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-    #> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
-    #> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
-    #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
-    #> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <chr>, score <dbl>,
-    #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
-    #> #   important <lgl>
+    #> # ℹ 12 more variables: hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+    #> #   propertiesTruncated <lgl>, isResidualOther <lgl>, isResidualUnspecified <lgl>,
+    #> #   chapter <chr>, theCode <chr>, score <dbl>, titleIsASearchResult <lgl>,
+    #> #   titleIsTopScore <lgl>, entityType <int>, important <lgl>
 
 The output is a tibble created from parsed JSON body text of the HTTP
 response from the ICD API.
@@ -166,9 +164,9 @@ citation provided by a call to the `citation()` function as follows:
 citation("codigo")
 #> To cite codigo in publications use:
 #> 
-#>   Anita Makori, Ernest Guevarra (2026). _codigo: Interface to the
-#>   International Classification of Diseases (ICD) API_. R package
-#>   version 0.0.9002, <https://oxford-ihtm.io/codigo/>.
+#>   Anita Makori, Ernest Guevarra (2026). _codigo: Interface to the International
+#>   Classification of Diseases (ICD) API_. R package version 0.0.9003,
+#>   <https://oxford-ihtm.io/codigo/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -176,7 +174,7 @@ citation("codigo")
 #>     title = {codigo: Interface to the International Classification of Diseases (ICD) API},
 #>     author = {{Anita Makori} and {Ernest Guevarra}},
 #>     year = {2026},
-#>     note = {R package version 0.0.9002},
+#>     note = {R package version 0.0.9003},
 #>     url = {https://oxford-ihtm.io/codigo/},
 #>   }
 ```
@@ -191,3 +189,15 @@ guidelines](https://oxford-ihtm.io/codigo/CONTRIBUTING.html).
 This project is released with a [Contributor Code of
 Conduct](https://oxford-ihtm.io/codigo/CODE_OF_CONDUCT.html). By
 participating in this project you agree to abide by its terms.
+
+If you are interested in [Oxford iHealth](https://oxford-ihtm.io)’s work
+and would like to join the community or contribute to it’s various
+projects, visit the [Oxford iHealth website](https://oxford-ihtm.io) and
+its [community page](https://oxford-ihtm.io/community/) to learn more.
+
+ 
+
+[![This is a project under the Oxford iHealth initiative of the MSc in
+International Health and Tropical Medicine of the Nuffield Department of
+Medicine, University of
+Oxford](https://github.com/OxfordIHTM/ihealth-images/blob/main/ihealth/ihealth_footer.png?raw=true)](https://oxford-ihtm.io)

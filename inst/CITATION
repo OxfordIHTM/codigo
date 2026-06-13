@@ -4,7 +4,7 @@ bibentry(
   title    = "codigo: Interface to the International Classification of Diseases (ICD) API",
   author   = c(person("Anita Makori"),  person("Ernest Guevarra")),
   year     = "2026",
-  note     = "R package version 0.0.9003",
+  note     = "R package version 0.0.9004",
   url      = "https://oxford-ihtm.io/codigo/"
 )
 
