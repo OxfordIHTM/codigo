@@ -224,89 +224,53 @@ languages will vary.
 icd_search_foundation("colorectal cancer")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 14 × 18
-#>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-#>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
-#>  1 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  2 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  3 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  4 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  5 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  6 http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        
-#>  7 http://id.who.int/i… Fami… http:… FALSE                       0 FALSE        
-#>  8 http://id.who.int/i… Here… http:… FALSE                       0 FALSE        
-#>  9 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
-#> 10 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
-#> 11 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
-#> 12 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
-#> 13 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
-#> 14 http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        
+#> # A tibble: 4 × 27
+#>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+#>   <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
+#> 1 http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        
+#> 2 http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        
+#> 3 http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        
+#> 4 http://id.who.int/ic… Meta… http:… TRUE                        0 FALSE        
 #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-#> # ℹ 12 more variables: hasMaternalChapterLink <lgl>,
-#> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+#> # ℹ 21 more variables: hasMaternalChapterLink <lgl>,
+#> #   hasPerinatalChapterLink <lgl>, matchingPVs <list>,
 #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
-#> #   isResidualUnspecified <lgl>, chapter <chr>, score <dbl>,
+#> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <lgl>, score <dbl>,
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
-#> #   important <lgl>
+#> #   important <lgl>, descendants <lgl>, error <lgl>, errorMessage <lgl>, …
 icd_search("colorectal cancer")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 18 × 19
-#>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-#>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
-#>  1 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  2 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  3 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  4 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  5 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  6 http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        
-#>  7 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#>  8 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#>  9 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 10 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 11 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 12 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 13 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 14 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 15 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 16 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 17 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
-#> 18 http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        
+#> # A tibble: 2 × 27
+#>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+#>   <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
+#> 1 http://id.who.int/ic… Mali… http:… TRUE                        1 FALSE        
+#> 2 http://id.who.int/ic… Othe… http:… TRUE                        1 FALSE        
 #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-#> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
-#> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+#> # ℹ 21 more variables: hasMaternalChapterLink <lgl>,
+#> #   hasPerinatalChapterLink <lgl>, matchingPVs <list>,
 #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
 #> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <chr>, score <dbl>,
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
-#> #   important <lgl>
+#> #   important <lgl>, descendants <lgl>, error <lgl>, errorMessage <lgl>, …
 icd_search("impairment", linearization = "icf")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 17 × 19
-#>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-#>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
-#>  1 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  2 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  3 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  4 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  5 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  6 http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        
-#>  7 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#>  8 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#>  9 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#> 10 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#> 11 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#> 12 http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        
-#> 13 http://id.who.int/i… COMP… http:… TRUE                        0 FALSE        
-#> 14 http://id.who.int/i… MILD… http:… TRUE                        0 FALSE        
-#> 15 http://id.who.int/i… SEVE… http:… TRUE                        0 FALSE        
-#> 16 http://id.who.int/i… MODE… http:… TRUE                        0 FALSE        
-#> 17 http://id.who.int/i… NO i… http:… TRUE                        0 FALSE        
+#> # A tibble: 7 × 27
+#>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
+#>   <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
+#> 1 http://id.who.int/ic… Seei… http:… TRUE                        0 FALSE        
+#> 2 http://id.who.int/ic… Swal… http:… TRUE                        0 FALSE        
+#> 3 http://id.who.int/ic… COMP… http:… TRUE                        0 FALSE        
+#> 4 http://id.who.int/ic… MILD… http:… TRUE                        0 FALSE        
+#> 5 http://id.who.int/ic… SEVE… http:… TRUE                        0 FALSE        
+#> 6 http://id.who.int/ic… MODE… http:… TRUE                        0 FALSE        
+#> 7 http://id.who.int/ic… NO i… http:… TRUE                        0 FALSE        
 #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-#> # ℹ 13 more variables: hasMaternalChapterLink <lgl>,
-#> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+#> # ℹ 21 more variables: hasMaternalChapterLink <lgl>,
+#> #   hasPerinatalChapterLink <lgl>, matchingPVs <list>,
 #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
 #> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <chr>, score <dbl>,
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
-#> #   important <lgl>
+#> #   important <lgl>, descendants <lgl>, error <lgl>, errorMessage <lgl>, …
 ```

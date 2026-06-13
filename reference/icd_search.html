@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">codigo</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9003</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -271,91 +271,55 @@ available languages will vary.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_search_foundation</span><span class="op">(</span><span class="st">"colorectal cancer"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 14 × 18</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://id.who.int/i… Mali… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://id.who.int/i… Fami… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://id.who.int/i… Here… http:… FALSE                       0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> http://id.who.int/i… Meta… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 27</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.who.int/ic… Mali… http:… FALSE                       0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.who.int/ic… Fami… http:… FALSE                       0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> http://id.who.int/ic… Here… http:… FALSE                       0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> http://id.who.int/ic… Meta… http:… TRUE                        0 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​postcoordinationAvailability</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 12 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;named list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   propertiesTruncated &lt;lgl&gt;, isResidualOther &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, score &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, theCode &lt;lgl&gt;, score &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;, descendants &lt;lgl&gt;, error &lt;lgl&gt;, errorMessage &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span><span class="fu">icd_search</span><span class="op">(</span><span class="st">"colorectal cancer"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 18 × 19</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://id.who.int/i… Mali… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> http://id.who.int/i… Othe… http:… TRUE                        1 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 27</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.who.int/ic… Mali… http:… TRUE                        1 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.who.int/ic… Othe… http:… TRUE                        1 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​postcoordinationAvailability</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;named list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   propertiesTruncated &lt;lgl&gt;, isResidualOther &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, theCode &lt;chr&gt;, score &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;, descendants &lt;lgl&gt;, error &lt;lgl&gt;, errorMessage &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span><span class="fu">icd_search</span><span class="op">(</span><span class="st">"impairment"</span>, linearization <span class="op">=</span> <span class="st">"icf"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 17 × 19</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> http://id.who.int/i… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> http://id.who.int/i… Swal… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> http://id.who.int/i… COMP… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> http://id.who.int/i… MILD… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> http://id.who.int/i… SEVE… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> http://id.who.int/i… MODE… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> http://id.who.int/i… NO i… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 27</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.who.int/ic… Seei… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.who.int/ic… Swal… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> http://id.who.int/ic… COMP… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> http://id.who.int/ic… MILD… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> http://id.who.int/ic… SEVE… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> http://id.who.int/ic… MODE… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> http://id.who.int/ic… NO i… http:… TRUE                        0 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ abbreviated name: ¹​postcoordinationAvailability</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;named list&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 21 more variables: hasMaternalChapterLink &lt;lgl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   hasPerinatalChapterLink &lt;lgl&gt;, matchingPVs &lt;list&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   propertiesTruncated &lt;lgl&gt;, isResidualOther &lt;lgl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, theCode &lt;chr&gt;, score &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;, descendants &lt;lgl&gt;, error &lt;lgl&gt;, errorMessage &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

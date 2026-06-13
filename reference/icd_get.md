@@ -137,28 +137,12 @@ entities.
   icd_get_foundation()
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> New names:
-#> • `` -> `...8`
-#> • `` -> `...9`
-#> • `` -> `...10`
-#> • `` -> `...11`
-#> • `` -> `...12`
-#> • `` -> `...13`
-#> • `` -> `...14`
-#> • `` -> `...15`
-#> • `` -> `...16`
-#> • `` -> `...17`
-#> • `` -> `...18`
-#> • `` -> `...19`
-#> # A tibble: 2 × 20
-#>   `@context`          `@id` `title@language` `title@value` releaseId releaseDate
-#>   <chr>               <chr> <chr>            <chr>         <chr>     <chr>      
-#> 1 http://id.who.int/… http… en               WHO Family o… 2026-01   2026-01-17 
-#> 2 http://id.who.int/… http… en               WHO Family o… 2026-01   2026-01-17 
-#> # ℹ 14 more variables: availableLanguages <chr>, child <chr>, ...9 <chr>,
-#> #   ...10 <chr>, ...11 <chr>, ...12 <chr>, ...13 <chr>, ...14 <chr>,
-#> #   ...15 <chr>, ...16 <chr>, ...17 <chr>, ...18 <chr>, ...19 <chr>,
-#> #   browserUrl <chr>
+#> # A tibble: 1 × 11
+#>   `@context`        `@id` `title_@language` `title_@value` releaseId releaseDate
+#>   <chr>             <chr> <chr>             <chr>          <chr>     <chr>      
+#> 1 http://id.who.in… http… en                WHO Family of… 2026-01   2026-01-17 
+#> # ℹ 5 more variables: availableLanguages <list>, allReleases <list>,
+#> #   includedLinearizations <list>, child <list>, browserUrl <chr>
   icd_get_entity(id = "1435254666")     ## chapter
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.

@@ -44,41 +44,28 @@ output responses.
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
   icd_tbl_foundation <- icd_structure_foundation(icd_list)
-#> New names:
-#> • `` -> `...8`
-#> • `` -> `...9`
-#> • `` -> `...10`
-#> • `` -> `...11`
-#> • `` -> `...12`
-#> • `` -> `...13`
-#> • `` -> `...14`
-#> • `` -> `...15`
-#> • `` -> `...16`
-#> • `` -> `...17`
-#> • `` -> `...18`
-#> • `` -> `...19`
   icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 103 × 18
+#> # A tibble: 27 × 27
 #>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
-#>  * <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
+#>    <chr>                <chr> <chr>  <lgl>                   <int> <lgl>        
 #>  1 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#>  2 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
+#>  2 http://id.who.int/i… Expo… http:… TRUE                        0 FALSE        
 #>  3 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
 #>  4 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#>  5 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#>  6 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#>  7 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#>  8 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
+#>  5 http://id.who.int/i… Chol… http:… TRUE                        0 FALSE        
+#>  6 http://id.who.int/i… Vibr… http:… FALSE                       0 FALSE        
+#>  7 http://id.who.int/i… Anti… http:… TRUE                        0 FALSE        
+#>  8 http://id.who.int/i… Harm… http:… TRUE                        0 FALSE        
 #>  9 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#> 10 http://id.who.int/i… Chol… http:… FALSE                       0 FALSE        
-#> # ℹ 93 more rows
+#> 10 http://id.who.int/i… Chol… http:… TRUE                        0 FALSE        
+#> # ℹ 17 more rows
 #> # ℹ abbreviated name: ¹​postcoordinationAvailability
-#> # ℹ 12 more variables: hasMaternalChapterLink <lgl>,
-#> #   hasPerinatalChapterLink <lgl>, matchingPVs <named list>,
+#> # ℹ 21 more variables: hasMaternalChapterLink <lgl>,
+#> #   hasPerinatalChapterLink <lgl>, matchingPVs <list>,
 #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
-#> #   isResidualUnspecified <lgl>, chapter <chr>, score <dbl>,
+#> #   isResidualUnspecified <lgl>, chapter <chr>, theCode <lgl>, score <dbl>,
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>, …
   icd_structure_autocode(icd_autocode_foundation("cholera"))
 #> Release `2024-01` matches a known release for ICD-11.
