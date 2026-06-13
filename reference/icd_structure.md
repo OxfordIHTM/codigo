@@ -82,8 +82,8 @@ icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 icd_structure_autocode(icd_autocode_foundation("cholera"))
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 1 × 5
-#>   searchText matchLevel matchScore matchType isTitle
-#>   <chr>           <int>      <int>     <int> <lgl>  
-#> 1 cholera             3          0         0 FALSE  
+#> # A tibble: 1 × 7
+#>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle
+#>   <chr>      <chr>        <chr>               <int>      <int>     <int> <lgl>  
+#> 1 cholera    Cholera      http://id.who…          0          1         0 TRUE   
 ```

@@ -359,7 +359,7 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; [1] 2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $uniqueSearchId</span></span>
-<span><span class="co">#&gt; [1] "6d012b1e-d555-4cda-be26-0f037cc6954c"</span></span>
+<span><span class="co">#&gt; [1] "d5a9dd64-1029-4753-b770-3d12a797758c"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $words</span></span>
 <span><span class="co">#&gt; NULL</span></span></code></pre>
@@ -375,10 +375,11 @@ component API endpoint can be done as follows:</p>
 <p>which gives the following results</p>
 <pre><code><span><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
 <span><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
-<span><span class="co">#&gt;   searchText        matchLevel matchScore matchType isTitle</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> colorectal cancer          3          0         0 FALSE</span></span></code></pre>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
+<span><span class="co">#&gt;   searchText      matchingText theCode foundationURI linearizationURI matchLevel</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> colorectal can… Colorectal … 2B91.Z  http://id.wh… http://id.who.i…          0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: matchScore &lt;int&gt;, matchType &lt;int&gt;, isTitle &lt;lgl&gt;</span></span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="converting-icd-10-codes-to-icd-11-and-vice-versa">Converting ICD-10 codes to ICD-11 and vice versa<a class="anchor" aria-label="anchor" href="#converting-icd-10-codes-to-icd-11-and-vice-versa"></a>

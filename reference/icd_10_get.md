@@ -9,7 +9,9 @@ icd_10_get_releases(
   api_version = c("v2", "v1"),
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_10_get_chapters(
@@ -19,7 +21,9 @@ icd_10_get_chapters(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_10_get_release_by_category(
@@ -27,7 +31,9 @@ icd_10_get_release_by_category(
   api_version = c("v2", "v1"),
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_10_get_info(
@@ -38,7 +44,9 @@ icd_10_get_info(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 ```
 
@@ -66,6 +74,16 @@ icd_10_get_info(
 
   Scopes to be requested from the resource owner. Default is
   *"icdapi_access"* as specified in the ICD API documentation.
+
+- timeout:
+
+  The maximum time to wait for a response from the API server in
+  seconds. Default is 30 seconds.
+
+- max_tries:
+
+  The maximum number of times to retry the request in case of failure.
+  Default is 3.
 
 - release:
 

@@ -20,7 +20,9 @@ icd_search_foundation(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_search(
@@ -42,7 +44,9 @@ icd_search(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 ```
 
@@ -130,6 +134,16 @@ icd_search(
 
   Scopes to be requested from the resource owner. Default is
   *"icdapi_access"* as specified in the ICD API documentation.
+
+- timeout:
+
+  The number of seconds to wait for a response from the API. Default is
+  30 seconds.
+
+- max_tries:
+
+  Maximum number of times to retry a request if it fails with a
+  transient error (e.g. 429, 500, 503). Default is 3.
 
 - linearization:
 

@@ -306,7 +306,7 @@ which gives the following output:
     #> [1] 2
     #> 
     #> $uniqueSearchId
-    #> [1] "6d012b1e-d555-4cda-be26-0f037cc6954c"
+    #> [1] "d5a9dd64-1029-4753-b770-3d12a797758c"
     #> 
     #> $words
     #> NULL
@@ -326,10 +326,11 @@ which gives the following results
 
     #> Release `2024-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
-    #> # A tibble: 1 × 5
-    #>   searchText        matchLevel matchScore matchType isTitle
-    #>   <chr>                  <int>      <int>     <int> <lgl>  
-    #> 1 colorectal cancer          3          0         0 FALSE
+    #> # A tibble: 1 × 9
+    #>   searchText      matchingText theCode foundationURI linearizationURI matchLevel
+    #>   <chr>           <chr>        <chr>   <chr>         <chr>                 <int>
+    #> 1 colorectal can… Colorectal … 2B91.Z  http://id.wh… http://id.who.i…          0
+    #> # ℹ 3 more variables: matchScore <int>, matchType <int>, isTitle <lgl>
 
 ## Converting ICD-10 codes to ICD-11 and vice versa
 

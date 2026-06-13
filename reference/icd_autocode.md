@@ -17,7 +17,9 @@ icd_autocode_foundation(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_autocode(
@@ -32,7 +34,9 @@ icd_autocode(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 ```
 
@@ -101,6 +105,17 @@ icd_autocode(
   Scopes to be requested from the resource owner. Default is
   *"icdapi_access"* as specified in the ICD API documentation.
 
+- timeout:
+
+  The number of seconds to wait for a response from the API. Default is
+  30 seconds. If the API does not respond within this time, the request
+  will be aborted.
+
+- max_tries:
+
+  Maximum number of times to retry a request if it fails with a
+  transient error (e.g. 429, 500, 503). Default is 3.
+
 - linearization:
 
   A character value for which linearization to search. Currently, the
@@ -118,23 +133,23 @@ matching level, the matching score, and the matching type.
 icd_autocode_foundation("cholera")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 1 × 5
-#>   searchText matchLevel matchScore matchType isTitle
-#>   <chr>           <int>      <int>     <int> <lgl>  
-#> 1 cholera             3          0         0 FALSE  
+#> # A tibble: 1 × 7
+#>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle
+#>   <chr>      <chr>        <chr>               <int>      <int>     <int> <lgl>  
+#> 1 cholera    Cholera      http://id.who…          0          1         0 TRUE   
 icd_autocode(q = "cholera")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 1 × 5
-#>   searchText matchLevel matchScore matchType isTitle
-#>   <chr>           <int>      <int>     <int> <lgl>  
-#> 1 cholera             3          0         0 FALSE  
+#> # A tibble: 1 × 9
+#>   searchText matchingText theCode foundationURI      linearizationURI matchLevel
+#>   <chr>      <chr>        <chr>   <chr>              <chr>                 <int>
+#> 1 cholera    Cholera      1A00    http://id.who.int… http://id.who.i…          0
+#> # ℹ 3 more variables: matchScore <int>, matchType <int>, isTitle <lgl>
 icd_autocode(q = "impairment", linearization = "icf")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-#> # A tibble: 1 × 9
-#>   searchText matchingText      theCode foundationURI linearizationURI matchLevel
-#>   <chr>      <chr>             <chr>   <chr>         <chr>                 <int>
-#> 1 impairment impaired adaptab… b2109   http://id.wh… http://id.who.i…          1
-#> # ℹ 3 more variables: matchScore <dbl>, matchType <int>, isTitle <lgl>
+#> # A tibble: 1 × 5
+#>   searchText matchLevel matchScore matchType isTitle
+#>   <chr>           <int>      <int>     <int> <lgl>  
+#> 1 impairment          3          0         0 FALSE  
 ```
