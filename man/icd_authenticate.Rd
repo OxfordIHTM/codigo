@@ -38,7 +38,8 @@ or to \code{httr2::req_oauth_client_credentials()}}
 
 \item{req}{A request}
 
-\item{client}{An OAuth2 client. Default is a call to \code{icd_oauth_client()}.}
+\item{client}{The OAuth2 client produced through a call to
+\code{icd_oauth_client()}.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}

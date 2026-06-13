@@ -1,32 +1,8 @@
 #'
 #' Get available ICD-10 releases
 #'
-#' @param release A string specifying the release version of ICD-10 to search
-#'   from. If not specified, defaults to the latest release version. See
-#'   the available versions with `icd_versions`.
-#' @param api_version Version of the API. Possible values are `v1` or `v2`.
-#'   For example, if you provide value v2, the API will respond in the format of
-#'   the version 2 of the API. Default is `v2`.
-#' @param language ICD-API is multi-lingual. By changing this header, you may
-#'   make the API respond in different languages. Languages will be available as
-#'   the translations of ICD-11 completes. The values are language codes such as
-#'   en, es, zh, etc. Depending on the `release_id` specified, the available
-#'   languages will vary. Default is English ("en"). Note that language support
-#'   for ICD-10 is limited to English (`en`).
+#' @inheritParams codigo-params release api_version language verbose base_url client scope timeout max_tries
 #' @param category ICD-10 category code or for blocks, the code range.
-#' @param verbose Logical. Should non-warning and non-error messages be
-#'   printed? Default is TRUE.
-#' @param base_url The base URL of the API. Default uses the WHO API server at
-#'   https://id.who.int. If you are using a locally deployed server or hosting
-#'   your own ICD API server, you should specify the URL of your instance here.
-#' @param client The OAuth2 client produced through a call to
-#'   `icd_oauth_client()`.
-#' @param scope Scopes to be requested from the resource owner. Default is
-#'   *"icdapi_access"* as specified in the ICD API documentation.
-#' @param timeout The maximum time to wait for a response from the API server in
-#'   seconds. Default is 30 seconds.
-#' @param max_tries The maximum number of times to retry the request in case of
-#'   failure. Default is 3.
 #'
 #' @returns A list with information on specified ICD 10 parameters
 #'
