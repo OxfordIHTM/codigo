@@ -89,9 +89,6 @@ testthat::test_that(
   }
 )
 
-
-### Test properties query ----
-
 testthat::test_that(
   "icd_search_foundation() returns with the expected outputs when searching for specific properties", {
     skip_if_no_icd_api()
@@ -200,5 +197,25 @@ testthat::test_that(
     testthat::expect_s3_class(test_search_release, "tbl_df")
     testthat::expect_type(test_search_release, "list")
     testthat::expect_error(icd_search(q = "cholera", release = "2025-01"))
+  }
+)
+
+testthat::test_that(
+  "icd_search() returns a tibble with the expected columns and types for a specific subtree", {
+    skip_if_no_icd_api()
+    test_search_subtree <- icd_search(q = "cholera", subtree = "http://id.who.int/icd/entity/1435254666")
+    testthat::expect_message(icd_search(q = "cholera", subtree = "http://id.who.int/icd/entity/1435254666"))
+    testthat::expect_s3_class(test_search_subtree, "tbl_df")
+    testthat::expect_type(test_search_subtree, "list")
+  }
+)
+
+testthat::test_that(
+  "icd_search() returns with the expected outputs when searching for a specific chapter", {
+    skip_if_no_icd_api()
+    test_search_chapter <- icd_search(q = "cholera", chapter = "01")
+    testthat::expect_message(icd_search(q = "cholera", chapter = "01"))
+    testthat::expect_s3_class(test_search_chapter, "tbl_df")
+    testthat::expect_type(test_search_chapter, "list")
   }
 )
