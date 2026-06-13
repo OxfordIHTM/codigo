@@ -16,7 +16,9 @@ icd_autocode_foundation(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 
 icd_autocode(
@@ -31,7 +33,9 @@ icd_autocode(
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),
-  scope = "icdapi_access"
+  scope = "icdapi_access",
+  timeout = 30,
+  max_tries = 3
 )
 }
 \arguments{
@@ -75,6 +79,13 @@ your own ICD API server, you should specify the URL of your instance here.}
 
 \item{scope}{Scopes to be requested from the resource owner. Default is
 \emph{"icdapi_access"} as specified in the ICD API documentation.}
+
+\item{timeout}{The number of seconds to wait for a response from the API.
+Default is 30 seconds. If the API does not respond within this time, the
+request will be aborted.}
+
+\item{max_tries}{Maximum number of times to retry a request if it fails with a
+transient error (e.g. 429, 500, 503). Default is 3.}
 
 \item{linearization}{A character value for which linearization to search.
 Currently, the possible values for this are \emph{"mms"} and \emph{"icf"}.}

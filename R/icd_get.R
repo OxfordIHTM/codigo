@@ -31,6 +31,10 @@
 #'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
+#' @param timeout The number of seconds to wait for a response from the API.
+#'   Default is 30 seconds.
+#' @param max_tries Maximum number of times to retry a request if it fails with a
+#'   transient error (e.g. 429, 500, 503). Default is 3.
 #'
 #' @return A list with information on specified ICD 11 Foundation and top level
 #'   entities.
@@ -55,7 +59,9 @@ icd_get_foundation <- function(release = NULL,
                                verbose = TRUE,
                                base_url = "https://id.who.int",
                                client = icd_oauth_client(),
-                               scope = "icdapi_access") {
+                               scope = "icdapi_access",
+                               timeout = 30,
+                               max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -78,6 +84,10 @@ icd_get_foundation <- function(release = NULL,
     req <- req |>
       httr2::req_url_query(releaseId = release)
   }
+
+  ## Add timeout and max_tries ----
+  req <- req |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Add headers, authenticate, and perform request ----
   resp <- req |>
@@ -111,7 +121,9 @@ icd_get_entity <- function(id,
                            verbose = TRUE,
                            base_url = "https://id.who.int",
                            client = icd_oauth_client(),
-                           scope = "icdapi_access") {
+                           scope = "icdapi_access",
+                           timeout = 30,
+                           max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -149,6 +161,10 @@ icd_get_entity <- function(id,
       httr2::req_url_query(include = include)
   }
 
+  ## Add timeout and max_tries ----
+  req <- req |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
+
   ## Authenticate and perform request ----
   resp <- req |>
     icd_authenticate(client = client, scope = scope) |>
@@ -170,7 +186,9 @@ icd_get_info <- function(linearization = c("mms", "icf"),
                          verbose = TRUE,
                          base_url = "https://id.who.int",
                          client = icd_oauth_client(),
-                         scope = "icdapi_access") {
+                         scope = "icdapi_access",
+                         timeout = 30,
+                         max_tries = 3) {
   ## Get linearization to search ----
   linearization <- match.arg(linearization)
 
@@ -192,8 +210,9 @@ icd_get_info <- function(linearization = c("mms", "icf"),
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
-    )
-
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
+  
   ## Authenticate and perform request ----
   resp <- req |>
     icd_authenticate(client = client, scope = scope) |>
@@ -216,7 +235,9 @@ icd_get_chapter <- function(linearization = c("mms", "icf"),
                             verbose = TRUE,
                             base_url = "https://id.who.int",
                             client = icd_oauth_client(),
-                            scope = "icdapi_access") {
+                            scope = "icdapi_access",
+                            timeout = 30,
+                            max_tries = 3) {
   ## Get linearization to search ----
   linearization <- match.arg(linearization)
 
@@ -242,7 +263,8 @@ icd_get_chapter <- function(linearization = c("mms", "icf"),
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
-    )
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Authenticate and perform request ----
   resp <- req |>

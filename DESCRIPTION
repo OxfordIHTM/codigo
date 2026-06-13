@@ -21,7 +21,7 @@ Depends:
     R (>= 4.1.0)
 Imports: 
     dplyr,
-    httr2,
+    httr2 (>= 1.0.0),
     rlang,
     tibble,
     tidyr
@@ -31,7 +31,8 @@ Suggests:
     knitr,
     rmarkdown,
     spelling,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    webfakes
 Encoding: UTF-8
 LazyData: true
 Language: en-GB
