@@ -7,12 +7,10 @@
 \format{
 A data frame with 6 columns and 11 rows:\tabular{ll}{
    \strong{Variable} \tab \strong{Description} \cr
-   \emph{Classification} \tab Version of classification. Either ICD-11 or ICD-10 \cr
-   \emph{Release ID} \tab Release identifier for specific classification version \cr
-   \emph{Foundation} \tab Logical. Does this version include the Foundation? \cr
-   \emph{MMS} \tab Logical. Does this version include the MMS information? \cr
-   \emph{ICF} \tab Logical. Does this version include the ICF? \cr
-   \emph{Languages} \tab Languages in which version and release is available for \cr
+   \emph{release_id} \tab Release identifier for specific classification version \cr
+   \emph{foundation} \tab Logical. Does this version include the Foundation? \cr
+   \emph{mms} \tab Languages in which version and release is available for \cr
+   \emph{icf} \tab Languages in which version and release is available for \cr
 }
 
 
