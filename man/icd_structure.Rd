@@ -34,9 +34,11 @@ within the \code{icd_get}, \code{icd_search}, and \code{icd_autocode} functions 
 structure the output responses.
 }
 \examples{
-icd_list <- icd_get_foundation(tabular = FALSE)
-icd_tbl_foundation <- icd_structure_foundation(icd_list)
-icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
-icd_structure_autocode(icd_autocode_foundation("cholera"))
+\donttest{
+  icd_list <- icd_get_foundation(tabular = FALSE)
+  icd_tbl_foundation <- icd_structure_foundation(icd_list)
+  icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
+  icd_structure_autocode(icd_autocode_foundation("cholera"))
+}
 
 }

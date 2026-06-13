@@ -31,12 +31,14 @@
 #' @returns A list with information on specified ICD 10 parameters
 #'
 #' @examples
-#' icd_10_get_releases()
-#' icd_10_get_chapters()
-#' icd_10_get_release_by_category(category = "A00")
-#' icd_10_get_release_by_category(category = "A00-A09")
-#' icd_10_get_info(category = "A00")
-#' icd_10_get_info(category = "A00-A09")
+#' \donttest{
+#'   icd_10_get_releases()
+#'   icd_10_get_chapters()
+#'   icd_10_get_release_by_category(category = "A00")
+#'   icd_10_get_release_by_category(category = "A00-A09")
+#'   icd_10_get_info(category = "A00")
+#'   icd_10_get_info(category = "A00-A09")
+#' }
 #'
 #' @rdname icd_10_get
 #' @export

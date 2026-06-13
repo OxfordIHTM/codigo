@@ -99,8 +99,10 @@ matching level, the matching score, and the matching type.
 Autocode against the foundation component or linearizations of the ICD-11
 }
 \examples{
-icd_autocode_foundation("cholera")
-icd_autocode(q = "cholera")
-icd_autocode(q = "impairment", linearization = "icf")
+\donttest{
+  icd_autocode_foundation("cholera")
+  icd_autocode(q = "cholera")
+  icd_autocode(q = "impairment", linearization = "icf")
+}
 
 }
