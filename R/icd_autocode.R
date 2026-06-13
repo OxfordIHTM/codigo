@@ -33,6 +33,11 @@
 #'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
+#' @param timeout The number of seconds to wait for a response from the API.
+#'   Default is 30 seconds. If the API does not respond within this time, the
+#'   request will be aborted.
+#' @param max_tries Maximum number of times to retry a request if it fails with a
+#'   transient error (e.g. 429, 500, 503). Default is 3.
 #'
 #' @return A tibble of autocode results showing the search text, the matching
 #'   text, the code, URIs for the foundation and linearization entities, the
@@ -56,7 +61,9 @@ icd_autocode_foundation <- function(q,
                                     verbose = TRUE,
                                     base_url = "https://id.who.int",
                                     client = icd_oauth_client(),
-                                    scope = "icdapi_access") {
+                                    scope = "icdapi_access",
+                                    timeout = 30,
+                                    max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -89,6 +96,10 @@ icd_autocode_foundation <- function(q,
     req <- req |>
       httr2::req_url_query(matchThreshold = threshold)
   }
+
+  ## Add timeout ----
+  req <- req |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Add headers, authenticate, and perform request ----
   resp <- req |>
@@ -125,7 +136,9 @@ icd_autocode <- function(q,
                          verbose = TRUE,
                          base_url = "https://id.who.int",
                          client = icd_oauth_client(),
-                         scope = "icdapi_access") {
+                         scope = "icdapi_access",
+                         timeout = 30,
+                         max_tries = 3) {
   ## Get linearization ----
   linearization <- match.arg(linearization)
 
@@ -158,6 +171,10 @@ icd_autocode <- function(q,
     req <- req |>
       httr2::req_url_query(matchThreshold = threshold)
   }
+
+  ## Add timeout ----
+  req <- req |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Add headers, authenticate, and perform request ----
   resp <- req |>

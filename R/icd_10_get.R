@@ -23,6 +23,10 @@
 #'   `icd_oauth_client()`.
 #' @param scope Scopes to be requested from the resource owner. Default is
 #'   *"icdapi_access"* as specified in the ICD API documentation.
+#' @param timeout The maximum time to wait for a response from the API server in
+#'   seconds. Default is 30 seconds.
+#' @param max_tries The maximum number of times to retry the request in case of
+#'   failure. Default is 3.
 #'
 #' @returns A list with information on specified ICD 10 parameters
 #'
@@ -42,7 +46,9 @@
 icd_10_get_releases <- function(api_version = c("v2", "v1"),
                                 base_url = "https://id.who.int",
                                 client = icd_oauth_client(),
-                                scope = "icdapi_access") {
+                                scope = "icdapi_access",
+                                timeout = 30,
+                                max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -53,7 +59,8 @@ icd_10_get_releases <- function(api_version = c("v2", "v1"),
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = "en"
-    )
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Authenticate and perform request ----
   resp <- req |>
@@ -77,7 +84,9 @@ icd_10_get_chapters <- function(release = NULL,
                                 verbose = TRUE,
                                 base_url = "https://id.who.int",
                                 client = icd_oauth_client(),
-                                scope = "icdapi_access") {
+                                scope = "icdapi_access",
+                                timeout = 30,
+                                max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -100,7 +109,8 @@ icd_10_get_chapters <- function(release = NULL,
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
-    )
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Authenticate and perform request ----
   resp <- req |>
@@ -122,7 +132,9 @@ icd_10_get_release_by_category <- function(category,
                                            api_version = c("v2", "v1"),
                                            base_url = "https://id.who.int",
                                            client = icd_oauth_client(),
-                                           scope = "icdapi_access") {
+                                           scope = "icdapi_access",
+                                           timeout = 30,
+                                           max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -133,7 +145,8 @@ icd_10_get_release_by_category <- function(category,
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = "en"
-    )
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Authenticate and perform request ----
   resp <- req |>
@@ -158,7 +171,9 @@ icd_10_get_info <- function(category,
                             verbose = TRUE,
                             base_url = "https://id.who.int",
                             client = icd_oauth_client(),
-                            scope = "icdapi_access") {
+                            scope = "icdapi_access",
+                            timeout = 30,
+                            max_tries = 3) {
   ## Get API version to use ----
   api_version <- match.arg(api_version)
 
@@ -181,7 +196,8 @@ icd_10_get_info <- function(category,
       Accept = "application/json",
       "API-Version" = api_version,
       "Accept-Language" = language
-    )
+    ) |>
+    icd_req_policies(timeout = timeout, max_tries = max_tries)
 
   ## Authenticate and perform request ----
   resp <- req |>

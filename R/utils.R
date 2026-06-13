@@ -116,3 +116,27 @@ icd_get_entities <- function(class = NULL) {
   if (!is.null(class)) entity_df |> (\(x) x[x$class %in% class, ])()
   else entity_df
 }
+
+
+#'
+#' Implement internal request policies for timeout and retry
+#' 
+#' @param req An httr2 request object.
+#' @param timeout Timeout in seconds. Default is 30 seconds.
+#' @param max_tries Maximum number of retry attempts. Default is 5.
+#' 
+#' @returns A httr2 request object with timeout and retry features.
+#' 
+#' @keywords internal
+#' @noRd
+#' 
+
+icd_req_policies <- function(req, timeout = 30, max_tries = 5) {
+  req |>
+    httr2::req_timeout(seconds = timeout) |>
+    httr2::req_retry(
+      max_tries = max_tries,
+      retry_on_failure = TRUE,
+      is_transient = \(resp) httr2::resp_status(resp) %in% c(429, 500, 503)
+    )
+}
