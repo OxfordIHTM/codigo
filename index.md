@@ -9,7 +9,7 @@ API](https://icd.who.int/icdapi) allows programmatic access to the ICD.
 It is an HTTP based REST API. This package provides functions that
 interface with the ICD API.
 
-## What does `codigo` do?
+## What does the package do?
 
 Please note that `codigo` is still experimental but is nearing a stable
 release. It is possible that some functionalities described below and in
@@ -162,7 +162,7 @@ citation("codigo")
 #> 
 #>   Anita Makori, Ernest Guevarra (2026). _codigo: Interface to the
 #>   International Classification of Diseases (ICD) API_. R package
-#>   version 0.0.9001, <https://oxford-ihtm.io/codigo/>.
+#>   version 0.0.9002, <https://oxford-ihtm.io/codigo/>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -170,7 +170,7 @@ citation("codigo")
 #>     title = {codigo: Interface to the International Classification of Diseases (ICD) API},
 #>     author = {{Anita Makori} and {Ernest Guevarra}},
 #>     year = {2026},
-#>     note = {R package version 0.0.9001},
+#>     note = {R package version 0.0.9002},
 #>     url = {https://oxford-ihtm.io/codigo/},
 #>   }
 ```

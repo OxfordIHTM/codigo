@@ -130,14 +130,15 @@ matching level, the matching score, and the matching type.
 ## Examples
 
 ``` r
-icd_autocode_foundation("cholera")
+# \donttest{
+  icd_autocode_foundation("cholera")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 7
 #>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle
 #>   <chr>      <chr>        <chr>               <int>      <int>     <int> <lgl>  
 #> 1 cholera    Cholera      http://id.who…          0          1         0 TRUE   
-icd_autocode(q = "cholera")
+  icd_autocode(q = "cholera")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 9
@@ -145,11 +146,12 @@ icd_autocode(q = "cholera")
 #>   <chr>      <chr>        <chr>   <chr>              <chr>                 <int>
 #> 1 cholera    Cholera      1A00    http://id.who.int… http://id.who.i…          0
 #> # ℹ 3 more variables: matchScore <int>, matchType <int>, isTitle <lgl>
-icd_autocode(q = "impairment", linearization = "icf")
+  icd_autocode(q = "impairment", linearization = "icf")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 5
 #>   searchText matchLevel matchScore matchType isTitle
 #>   <chr>           <int>      <int>     <int> <lgl>  
 #> 1 impairment          3          0         0 FALSE  
+# }
 ```

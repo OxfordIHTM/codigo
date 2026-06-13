@@ -116,7 +116,8 @@ A list with information on specified ICD 10 parameters
 ## Examples
 
 ``` r
-icd_10_get_releases()
+# \donttest{
+  icd_10_get_releases()
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"
 #> 
@@ -148,7 +149,7 @@ icd_10_get_releases()
 #> [1] "http://id.who.int/icd/release/10/2008"
 #> 
 #> 
-icd_10_get_chapters()
+  icd_10_get_chapters()
 #> Release `2019` matches a known release for ICD-10.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -239,7 +240,7 @@ icd_10_get_chapters()
 #> $browserUrl
 #> [1] "http://apps.who.int/classifications/icd10/browse/2019/en"
 #> 
-icd_10_get_release_by_category(category = "A00")
+  icd_10_get_release_by_category(category = "A00")
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"
 #> 
@@ -271,7 +272,7 @@ icd_10_get_release_by_category(category = "A00")
 #> [1] "http://id.who.int/icd/release/10/2008/A00"
 #> 
 #> 
-icd_10_get_release_by_category(category = "A00-A09")
+  icd_10_get_release_by_category(category = "A00-A09")
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"
 #> 
@@ -303,7 +304,7 @@ icd_10_get_release_by_category(category = "A00-A09")
 #> [1] "http://id.who.int/icd/release/10/2008/A00-A09"
 #> 
 #> 
-icd_10_get_info(category = "A00")
+  icd_10_get_info(category = "A00")
 #> Release `2019` matches a known release for ICD-10.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -345,7 +346,7 @@ icd_10_get_info(category = "A00")
 #> $classKind
 #> [1] "category"
 #> 
-icd_10_get_info(category = "A00-A09")
+  icd_10_get_info(category = "A00-A09")
 #> Release `2019` matches a known release for ICD-10.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -408,4 +409,5 @@ icd_10_get_info(category = "A00-A09")
 #> $classKind
 #> [1] "block"
 #> 
+# }
 ```

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">codigo</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +156,8 @@ printed? Default is TRUE.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_10_get_releases</span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_releases</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -188,7 +189,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/release/10/2008"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">icd_10_get_chapters</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_chapters</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2019` matches a known release for ICD-10.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
@@ -279,7 +280,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $browserUrl</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://apps.who.int/classifications/icd10/browse/2019/en"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">icd_10_get_release_by_category</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_release_by_category</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -311,7 +312,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/release/10/2008/A00"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">icd_10_get_release_by_category</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00-A09"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_release_by_category</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00-A09"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -343,7 +344,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "http://id.who.int/icd/release/10/2008/A00-A09"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">icd_10_get_info</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_info</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2019` matches a known release for ICD-10.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
@@ -385,7 +386,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $classKind</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "category"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">icd_10_get_info</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00-A09"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">icd_10_get_info</span><span class="op">(</span>category <span class="op">=</span> <span class="st">"A00-A09"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2019` matches a known release for ICD-10.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`@context`</span>
@@ -448,6 +449,7 @@ printed? Default is TRUE.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $classKind</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "block"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

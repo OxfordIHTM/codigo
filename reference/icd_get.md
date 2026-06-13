@@ -140,7 +140,8 @@ entities.
 ## Examples
 
 ``` r
-icd_get_foundation()
+# \donttest{
+  icd_get_foundation()
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> New names:
@@ -165,7 +166,7 @@ icd_get_foundation()
 #> #   ...10 <chr>, ...11 <chr>, ...12 <chr>, ...13 <chr>, ...14 <chr>,
 #> #   ...15 <chr>, ...16 <chr>, ...17 <chr>, ...18 <chr>, ...19 <chr>,
 #> #   browserUrl <chr>
-icd_get_entity(id = "1435254666")     ## chapter
+  icd_get_entity(id = "1435254666")     ## chapter
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -348,7 +349,7 @@ icd_get_entity(id = "1435254666")     ## chapter
 #> 
 #> 
 #> 
-icd_get_entity(id = "588616678")      ## block; depth 1
+  icd_get_entity(id = "588616678")      ## block; depth 1
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -393,7 +394,7 @@ icd_get_entity(id = "588616678")      ## block; depth 1
 #> [1] "Gastroenteritis or colitis of infectious origin"
 #> 
 #> 
-icd_get_entity(id = "1465325727")     ## category; depth 1
+  icd_get_entity(id = "1465325727")     ## category; depth 1
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -541,7 +542,7 @@ icd_get_entity(id = "1465325727")     ## category; depth 1
 #> [1] "http://id.who.int/icd/entity/911707612"
 #> 
 #> 
-icd_get_info()
+  icd_get_info()
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -590,7 +591,7 @@ icd_get_info()
 #> [1] "http://id.who.int/icd/release/11/2018/mms"
 #> 
 #> 
-icd_get_info("icf")
+  icd_get_info("icf")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -621,7 +622,7 @@ icd_get_info("icf")
 #> [1] "http://id.who.int/icd/release/11/2024-01/icf"
 #> 
 #> 
-icd_get_chapter()
+  icd_get_chapter()
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -765,7 +766,7 @@ icd_get_chapter()
 #> $browserUrl
 #> [1] "https://icd.who.int/browse/2024-01/mms/en"
 #> 
-icd_get_chapter("icf")
+  icd_get_chapter("icf")
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
@@ -831,4 +832,5 @@ icd_get_chapter("icf")
 #> $browserUrl
 #> [1] "https://icd.who.int/browse/2024-01/icf/en"
 #> 
+# }
 ```

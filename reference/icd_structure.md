@@ -39,10 +39,11 @@ output responses.
 ## Examples
 
 ``` r
-icd_list <- icd_get_foundation(tabular = FALSE)
+# \donttest{
+  icd_list <- icd_get_foundation(tabular = FALSE)
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
-icd_tbl_foundation <- icd_structure_foundation(icd_list)
+  icd_tbl_foundation <- icd_structure_foundation(icd_list)
 #> New names:
 #> • `` -> `...8`
 #> • `` -> `...9`
@@ -56,7 +57,7 @@ icd_tbl_foundation <- icd_structure_foundation(icd_list)
 #> • `` -> `...17`
 #> • `` -> `...18`
 #> • `` -> `...19`
-icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
+  icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 103 × 18
@@ -79,11 +80,12 @@ icd_structure_search(icd_search_foundation("cholera", tabular = FALSE))
 #> #   propertiesTruncated <lgl>, isResidualOther <lgl>,
 #> #   isResidualUnspecified <lgl>, chapter <chr>, score <dbl>,
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>, …
-icd_structure_autocode(icd_autocode_foundation("cholera"))
+  icd_structure_autocode(icd_autocode_foundation("cholera"))
 #> Release `2024-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 7
 #>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle
 #>   <chr>      <chr>        <chr>               <int>      <int>     <int> <lgl>  
 #> 1 cholera    Cholera      http://id.who…          0          1         0 TRUE   
+# }
 ```
