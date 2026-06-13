@@ -44,9 +44,11 @@
 #'   matching level, the matching score, and the matching type.
 #'
 #' @examples
-#' icd_autocode_foundation("cholera")
-#' icd_autocode(q = "cholera")
-#' icd_autocode(q = "impairment", linearization = "icf")
+#' \donttest{
+#'   icd_autocode_foundation("cholera")
+#'   icd_autocode(q = "cholera")
+#'   icd_autocode(q = "impairment", linearization = "icf")
+#' }
 #'
 #' @rdname icd_autocode
 #' @export
