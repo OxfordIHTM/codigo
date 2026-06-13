@@ -56,7 +56,7 @@ icd_authenticate(
 
 - client:
 
-  An OAuth2 client. Default is a call to `icd_oauth_client()`.
+  The OAuth2 client produced through a call to `icd_oauth_client()`.
 
 - scope:
 

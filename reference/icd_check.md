@@ -20,7 +20,9 @@ icd_check_language(
 
 - release:
 
-  A string specifying the release version of the ICD-11.
+  A string specifying the release version to search from. If not
+  specified, defaults to the latest available release version. See the
+  available versions for each ICD classification with `icd_versions`.
 
 - icd:
 
@@ -34,7 +36,8 @@ icd_check_language(
 
 - language:
 
-  language codes such as en, es, zh, etc.
+  ICD-API is multi-lingual. Language codes such as "en", "es", "zh",
+  etc. Default is English ("en").
 
 ## Value
 

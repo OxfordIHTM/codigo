@@ -20,12 +20,12 @@ Source:
 
 Anita Makori, Ernest Guevarra (2026). *codigo: Interface to the
 International Classification of Diseases (ICD) API*. R package version
-0.0.9002, <https://oxford-ihtm.io/codigo/>.
+0.0.9003, <https://oxford-ihtm.io/codigo/>.
 
     @Manual{,
       title = {codigo: Interface to the International Classification of Diseases (ICD) API},
       author = {{Anita Makori} and {Ernest Guevarra}},
       year = {2026},
-      note = {R package version 0.0.9002},
+      note = {R package version 0.0.9003},
       url = {https://oxford-ihtm.io/codigo/},
     }

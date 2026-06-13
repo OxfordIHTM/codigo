@@ -9,7 +9,7 @@ functions"><meta property="og:image" content="https://oxford-ihtm.io/codigo/logo
 
     <a class="navbar-brand me-2" href="../index.html">codigo</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,7 +62,9 @@ functions</p>
 
 
 <dl><dt id="arg-release">release<a class="anchor" aria-label="anchor" href="#arg-release"></a></dt>
-<dd><p>A string specifying the release version of the ICD-11.</p></dd>
+<dd><p>A string specifying the release version to search from. If not
+specified, defaults to the latest available release version. See the
+available versions for each ICD classification with <code>icd_versions</code>.</p></dd>
 
 
 <dt id="arg-icd">icd<a class="anchor" aria-label="anchor" href="#arg-icd"></a></dt>
@@ -71,12 +73,13 @@ this can be either "icd10" or "icd11". Default is "icd11".</p></dd>
 
 
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
-<dd><p>Logical. Should non-warning and non-error messages be
-printed? Default is TRUE.</p></dd>
+<dd><p>Logical. Should non-warning and non-error messages be printed?
+Default is TRUE.</p></dd>
 
 
 <dt id="arg-language">language<a class="anchor" aria-label="anchor" href="#arg-language"></a></dt>
-<dd><p>language codes such as en, es, zh, etc.</p></dd>
+<dd><p>ICD-API is multi-lingual. Language codes such as "en", "es",
+"zh", etc. Default is English ("en").</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -306,7 +306,7 @@ which gives the following output:
     #> [1] 2
     #> 
     #> $uniqueSearchId
-    #> [1] "7cbad6de-1d2e-4114-a240-e60762a163b6"
+    #> [1] "1edcdccf-0fcd-426a-8fa9-130fff4308a1"
     #> 
     #> $words
     #> NULL
