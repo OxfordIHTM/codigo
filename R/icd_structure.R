@@ -26,24 +26,9 @@
 #' @export
 #'
 icd_structure_foundation <- function(icd_list) {
-  ## Structure title ----
-  icd_list$title <- dplyr::bind_cols(icd_list$title)
-
-  ## Structure availableLanguages ----
-  icd_list$availableLanguages <- unlist(icd_list$availableLanguages) |>
-    paste(collapse = ", ")
-
-  ## Structure child ----
-  icd_list$child <- unlist(icd_list$child) |> list()
-
-  ## Bind columns and rename columns ----
-  icd_tbl <- dplyr::bind_cols(icd_list)
-  names(icd_tbl)[3] <- "title@language"
-  names(icd_tbl)[4] <- "title@value"
-  names(icd_tbl)[8] <- "child"
-
-  ## Return output ----
-  icd_tbl
+  tibble::tibble("entity" = list(icd_list)) |>
+    tidyr::unnest_wider(col = .data$entity) |>
+    tidyr::unnest_wider(col = .data$title, names_sep = "_")
 }
 
 #'
@@ -52,64 +37,16 @@ icd_structure_foundation <- function(icd_list) {
 #'
 
 icd_structure_search <- function(icd_search) {
-  ## Process search metadata ----
-  meta <- lapply(
-    X = icd_search[c("error", "errorMessage", "resultChopped", "wordSuggestionsChopped", "guessType", "uniqueSearchId", "words")],
-    FUN = function(x) ifelse(is.null(x), NA, x)
-  ) |>
-    dplyr::bind_cols()
+  search_results <- tibble::tibble("entity" = list(icd_search)) |>
+    tidyr::unnest_wider(col = .data$entity) |>
+    tidyr::unnest_longer(col = .data$destinationEntities)
 
-  ## Standardise classes of metadata fields ----
-  meta <- within(
-    meta,
-    {
-      error <- ifelse(is.logical(error), error, as.logical(error))
-
-      errorMessage <- ifelse(
-        is.character(errorMessage),
-        errorMessage,
-        as.character(errorMessage)
-      )
-
-      resultChopped <- ifelse(
-        is.logical(resultChopped),
-        resultChopped,
-        as.logical(resultChopped)
-      )
-
-      wordSuggestionsChopped <- ifelse(
-        is.logical(wordSuggestionsChopped),
-        wordSuggestionsChopped,
-        as.logical(wordSuggestionsChopped)
-      )
-
-      guessType <- ifelse(
-        is.integer(guessType),
-        guessType,
-        as.integer(guessType)
-      )
-
-      uniqueSearchId <- ifelse(
-        is.character(uniqueSearchId),
-        uniqueSearchId,
-        as.character(uniqueSearchId)
-      )
-
-      words <- ifelse(is.character(words), words, as.character(words))
-    }
-  )
-
-  ## Process search results ----
-  search_results <- lapply(
-    X = icd_search$destinationEntities,
-    FUN = function(x) do.call(cbind, x) |>
-      data.frame() |>
-      tidyr::unnest(cols = dplyr::everything())
-  ) |>
-    dplyr::bind_rows()
-
-  ## Set attributes for search metadata ----
-  attributes(search_results)$metadata <- meta
+  if (nrow(search_results) == 1 && is.na(search_results$destinationEntities[1])) {
+    search_results
+  } else {
+    search_results <- search_results |>
+      tidyr::unnest_wider(col = .data$destinationEntities)
+  }
 
   ## Return search results
   search_results
