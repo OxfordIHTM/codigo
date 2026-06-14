@@ -6,9 +6,17 @@
 \alias{icd_get_entities}
 \title{Utility functions for retrieving ICD parameters and definitions}
 \usage{
-icd_get_releases(icd = c("icd11", "icd10"), latest = FALSE)
+icd_get_releases(
+  icd = c("icd11", "icd10"),
+  linearization = c("mms", "icf"),
+  latest = FALSE
+)
 
-icd_get_languages(icd = c("icd11", "icd10"), latest = FALSE)
+icd_get_languages(
+  icd = c("icd11", "icd10"),
+  linearization = c("mms", "icf"),
+  latest = FALSE
+)
 
 icd_get_entities(class = NULL)
 }
@@ -16,6 +24,9 @@ icd_get_entities(class = NULL)
 \item{icd}{A character string of available ICD classifications. Currently,
 this can be either "icd10" or "icd11". Default is "icd11". If NULL, all ICD
 classifications are used (currently both "icd10" and "icd11").}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the possible values are \emph{"mms"} and \emph{"icf"}. Default is \emph{"mms"}.}
 
 \item{latest}{Logical. If TRUE, identifier for latest release is returned.
 Default is FALSE.}

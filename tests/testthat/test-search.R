@@ -43,7 +43,7 @@ testthat::test_that(
   "icd_search_foundation() raises an error for an unavailable release", {
     skip_if_no_icd_api()
     testthat::expect_error(
-      icd_search_foundation(q = "cholera", release = "2025-01")
+      icd_search_foundation(q = "cholera", release = "2027-01")
     )
   }
 )
@@ -75,7 +75,7 @@ testthat::test_that(
     testthat::expect_message(icd_search_foundation(q = "cholera", release = "2024-01"))
     testthat::expect_s3_class(test_search_release, "tbl_df")
     testthat::expect_type(test_search_release, "list")
-    testthat::expect_error(icd_search_foundation(q = "cholera", release = "2025-01"))
+    testthat::expect_error(icd_search_foundation(q = "cholera", release = "2027-01"))
   }
 )
 
@@ -148,7 +148,7 @@ testthat::test_that(
     testthat::expect_message(icd_search(q = "cholera", release = "2024-01"))
     testthat::expect_s3_class(test_search_release, "tbl_df")
     testthat::expect_type(test_search_release, "list")
-    testthat::expect_error(icd_search(q = "cholera", release = "2025-01"))
+    testthat::expect_error(icd_search(q = "cholera", release = "2027-01"))
   }
 )
   
@@ -196,7 +196,7 @@ testthat::test_that(
     testthat::expect_message(icd_search(q = "cholera", release = "2024-01"))
     testthat::expect_s3_class(test_search_release, "tbl_df")
     testthat::expect_type(test_search_release, "list")
-    testthat::expect_error(icd_search(q = "cholera", release = "2025-01"))
+    testthat::expect_error(icd_search(q = "cholera", release = "2027-01"))
   }
 )
 

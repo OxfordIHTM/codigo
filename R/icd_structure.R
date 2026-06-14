@@ -7,12 +7,14 @@
 #'   functions
 #' @param icd_autocode An object produced by a call to any of the `icd_autocode`
 #'   functions
-#'
-#' @return A tibble of structured ICD outputs.
+#' @param icd_entity An object produced by a call to any of the `icd_get_entity`
+#'   functions
+#' 
+#' @returns A tibble of structured ICD outputs.
 #'
 #' @details These functions are meant to be helper functions and are used
-#'   within the `icd_get`, `icd_search`, and `icd_autocode` functions to
-#'   structure the output responses.
+#'   within the `icd_get`, `icd_search`, `icd_autocode`, and `icd_get_entity`
+#'   functions to structure the output responses.
 #'
 #' @examples
 #' \donttest{
@@ -59,4 +61,14 @@ icd_structure_search <- function(icd_search) {
 #'
 icd_structure_autocode <- function(icd_autocode) {
   dplyr::bind_cols(icd_autocode)
+}
+
+
+#'
+#' @rdname icd_structure
+#' @export
+#' 
+
+icd_structure_entity <- function(icd_entity) {
+  
 }

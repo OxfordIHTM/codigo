@@ -10,6 +10,7 @@ icd_check_release(release, icd = c("icd11", "icd10"), verbose = TRUE)
 
 icd_check_language(
   release = NULL,
+  linearization = c("mms", "icf"),
   language,
   icd = c("icd11", "icd10"),
   verbose = TRUE
@@ -25,6 +26,9 @@ this can be either "icd10" or "icd11". Default is "icd11".}
 
 \item{verbose}{Logical. Should non-warning and non-error messages be printed?
 Default is TRUE.}
+
+\item{linearization}{A character value for which linearization to search.
+Currently, the possible values are \emph{"mms"} and \emph{"icf"}. Default is \emph{"mms"}.}
 
 \item{language}{ICD-API is multi-lingual. Language codes such as "en", "es",
 "zh", etc. Default is English ("en").}
@@ -42,8 +46,8 @@ functions
 \examples{
 icd_check_release("2024-01")
 try(icd_check_release("2025-01"))
-icd_check_language("2024-01", "ar")
-icd_check_language("2024-01", "rr")
-try(icd_check_language("2025-01", "ar"))
+icd_check_language("2024-01", "mms", "ar")
+icd_check_language("2024-01", "mms", "rr")
+try(icd_check_language("2025-01", "mms", "ar"))
 
 }

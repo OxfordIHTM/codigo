@@ -7,11 +7,9 @@
 #' | :--- | :--- |
 #' | *release_id* | Release identifier for specific classification version |
 #' | *foundation* | Logical. Does this version include the Foundation? |
-#' | *mms* | Languages in which version and release is available for |
-#' | *icf* | Languages in which version and release is available for |
-#'
-#' For logical fields that specify NA, this indicates that for that particular
-#' version and release, the particular field was not applicable or relevant.
+#' | *classification* | Classification name: ICD-11 or ICD-10 |
+#' | *linearization* | Either MMS or ICF |
+#' | *languages* | Languages in which classification, release, and linearization is available for |
 #'
 #' @examples
 #' icd_versions
