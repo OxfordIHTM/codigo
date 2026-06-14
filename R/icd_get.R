@@ -92,6 +92,7 @@ icd_get_entity <- function(id,
                            include = NULL,
                            api_version = c("v2", "v1"),
                            language = "en",
+                           tabular = TRUE,
                            verbose = TRUE,
                            base_url = "https://id.who.int",
                            client = icd_oauth_client(),
@@ -146,7 +147,11 @@ icd_get_entity <- function(id,
     httr2::resp_body_json()
 
   ## Return response ----
-  resp
+  if (tabular) {
+    icd_structure_entity(icd_entity = resp)
+  } else {
+    resp
+  }
 }
 
 
