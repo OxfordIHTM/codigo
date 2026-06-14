@@ -59,8 +59,9 @@ reference:
   - title: Get
     contents:
     - icd_get_foundation
-    - icd_get_entity
+    - icd_get_foundation_entity
     - icd_get_info
+    - icd_get_chapter
 
   - title: Get ICD-10
     contents:

@@ -1,7 +1,7 @@
 Package: codigo
 Type: Package
 Title: Interface to the International Classification of Diseases (ICD) API
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: c(
     person("Anita", "Makori", role = c("aut", "cph")),
     person("Ernest", "Guevarra", 
