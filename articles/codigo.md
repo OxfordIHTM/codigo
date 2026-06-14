@@ -61,7 +61,7 @@ icd_search("colorectal cancer", client = my_oauth_client)
 
 which gives the following output:
 
-    #> Release `2024-01` matches a known release for ICD-11.
+    #> Release `2026-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
     #> # A tibble: 2 × 27
     #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
@@ -88,18 +88,18 @@ icd_search("colorectal cancer", tabular = FALSE, client = my_oauth_client)
 
 which gives the following output:
 
-    #> Release `2024-01` matches a known release for ICD-11.
+    #> Release `2026-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
     #> $destinationEntities
     #> $destinationEntities[[1]]
     #> $destinationEntities[[1]]$id
-    #> [1] "http://id.who.int/icd/release/11/2024-01/mms/774170412/unspecified"
+    #> [1] "http://id.who.int/icd/release/11/2026-01/mms/642412809/unspecified"
     #> 
     #> $destinationEntities[[1]]$title
-    #> [1] "Malignant neoplasms of rectosigmoid junction, unspecified"
+    #> [1] "Malignant neoplasms of large intestine, site and type unspecified"
     #> 
     #> $destinationEntities[[1]]$stemId
-    #> [1] "http://id.who.int/icd/release/11/2024-01/mms/774170412/unspecified"
+    #> [1] "http://id.who.int/icd/release/11/2026-01/mms/642412809/unspecified"
     #> 
     #> $destinationEntities[[1]]$isLeaf
     #> [1] TRUE
@@ -122,7 +122,7 @@ which gives the following output:
     #> [1] "Synonym"
     #> 
     #> $destinationEntities[[1]]$matchingPVs[[1]]$label
-    #> [1] "Colorectal Cancer NOS"
+    #> [1] "colorectal cancer NOS"
     #> 
     #> $destinationEntities[[1]]$matchingPVs[[1]]$score
     #> [1] 1
@@ -131,10 +131,30 @@ which gives the following output:
     #> [1] TRUE
     #> 
     #> $destinationEntities[[1]]$matchingPVs[[1]]$foundationUri
-    #> [1] "http://id.who.int/icd/entity/774170412"
+    #> [1] "http://id.who.int/icd/entity/642412809"
     #> 
     #> $destinationEntities[[1]]$matchingPVs[[1]]$propertyValueType
     #> [1] 0
+    #> 
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$propertyId
+    #> [1] "Synonym"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$label
+    #> [1] "Metastatic colorectal cancer [primary colorectal cancer spreading elsewhere]"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$score
+    #> [1] 0.5237753
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$important
+    #> [1] FALSE
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$foundationUri
+    #> [1] "http://id.who.int/icd/entity/1136845335"
+    #> 
+    #> $destinationEntities[[1]]$matchingPVs[[2]]$propertyValueType
+    #> [1] 1
     #> 
     #> 
     #> 
@@ -151,7 +171,7 @@ which gives the following output:
     #> [1] "02"
     #> 
     #> $destinationEntities[[1]]$theCode
-    #> [1] "2B91.Z"
+    #> [1] "2B93.Z"
     #> 
     #> $destinationEntities[[1]]$score
     #> [1] 1
@@ -174,13 +194,13 @@ which gives the following output:
     #> 
     #> $destinationEntities[[2]]
     #> $destinationEntities[[2]]$id
-    #> [1] "http://id.who.int/icd/release/11/2024-01/mms/1265576634/other"
+    #> [1] "http://id.who.int/icd/release/11/2026-01/mms/1265576634/other"
     #> 
     #> $destinationEntities[[2]]$title
     #> [1] "Other specified malignant neoplasms of colon"
     #> 
     #> $destinationEntities[[2]]$stemId
-    #> [1] "http://id.who.int/icd/release/11/2024-01/mms/1265576634/other"
+    #> [1] "http://id.who.int/icd/release/11/2026-01/mms/1265576634/other"
     #> 
     #> $destinationEntities[[2]]$isLeaf
     #> [1] TRUE
@@ -290,7 +310,7 @@ which gives the following output:
     #> [1] 2
     #> 
     #> $uniqueSearchId
-    #> [1] "c8f0dc85-1459-48f9-98ed-0d1bb8e2d315"
+    #> [1] "86307d4d-805d-44cc-bc77-3ede383fd4a7"
     #> 
     #> $words
     #> NULL
@@ -308,13 +328,12 @@ icd_autocode("colorectal cancer", client = my_oauth_client)
 
 which gives the following results
 
-    #> Release `2024-01` matches a known release for ICD-11.
+    #> Release `2026-01` matches a known release for ICD-11.
     #> Language `en` is available for the release specified.
-    #> # A tibble: 1 × 9
-    #>   searchText      matchingText theCode foundationURI linearizationURI matchLevel
-    #>   <chr>           <chr>        <chr>   <chr>         <chr>                 <int>
-    #> 1 colorectal can… Colorectal … 2B91.Z  http://id.wh… http://id.who.i…          0
-    #> # ℹ 3 more variables: matchScore <int>, matchType <int>, isTitle <lgl>
+    #> # A tibble: 1 × 5
+    #>   searchText        matchLevel matchScore matchType isTitle
+    #>   <chr>                  <int>      <int>     <int> <lgl>  
+    #> 1 colorectal cancer          3          0         0 FALSE
 
 ## Converting ICD-10 codes to ICD-11 and vice versa
 

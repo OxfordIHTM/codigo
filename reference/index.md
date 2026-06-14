@@ -52,6 +52,7 @@
 - [`icd_structure_foundation()`](https://oxford-ihtm.io/codigo/reference/icd_structure.md)
   [`icd_structure_search()`](https://oxford-ihtm.io/codigo/reference/icd_structure.md)
   [`icd_structure_autocode()`](https://oxford-ihtm.io/codigo/reference/icd_structure.md)
+  [`icd_structure_entity()`](https://oxford-ihtm.io/codigo/reference/icd_structure.md)
   : Structure ICD list and ICD search outputs
 
 ## Checks

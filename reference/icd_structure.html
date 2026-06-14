@@ -48,7 +48,9 @@
 <span></span>
 <span><span class="fu">icd_structure_search</span><span class="op">(</span><span class="va">icd_search</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">icd_structure_autocode</span><span class="op">(</span><span class="va">icd_autocode</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">icd_structure_autocode</span><span class="op">(</span><span class="va">icd_autocode</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">icd_structure_entity</span><span class="op">(</span><span class="va">icd_entity</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,6 +71,11 @@ functions</p></dd>
 <dd><p>An object produced by a call to any of the <code>icd_autocode</code>
 functions</p></dd>
 
+
+<dt id="arg-icd-entity">icd_entity<a class="anchor" aria-label="anchor" href="#arg-icd-entity"></a></dt>
+<dd><p>An object produced by a call to any of the <code>icd_get_entity</code>
+functions</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -77,19 +84,19 @@ functions</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>These functions are meant to be helper functions and are used
-within the <code>icd_get</code>, <code>icd_search</code>, and <code>icd_autocode</code> functions to
-structure the output responses.</p>
+within the <code>icd_get</code>, <code>icd_search</code>, <code>icd_autocode</code>, and <code>icd_get_entity</code>
+functions to structure the output responses.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span>  <span class="va">icd_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="icd_get.html">icd_get_foundation</a></span><span class="op">(</span>tabular <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-in"><span>  <span class="va">icd_tbl_foundation</span> <span class="op">&lt;-</span> <span class="fu">icd_structure_foundation</span><span class="op">(</span><span class="va">icd_list</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">icd_structure_search</span><span class="op">(</span><span class="fu"><a href="icd_search.html">icd_search_foundation</a></span><span class="op">(</span><span class="st">"cholera"</span>, tabular <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 27</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    id                   title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
@@ -112,12 +119,12 @@ structure the output responses.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   isResidualUnspecified &lt;lgl&gt;, chapter &lt;chr&gt;, theCode &lt;lgl&gt;, score &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;, …</span></span>
 <span class="r-in"><span>  <span class="fu">icd_structure_autocode</span><span class="op">(</span><span class="fu"><a href="icd_autocode.html">icd_autocode_foundation</a></span><span class="op">(</span><span class="st">"cholera"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera    Cholera      http://id.who…          0          1         0 TRUE   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   searchText matchLevel matchScore matchType isTitle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> cholera             3          0         0 FALSE  </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

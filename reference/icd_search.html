@@ -269,7 +269,7 @@ available languages will vary.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">icd_search_foundation</span><span class="op">(</span><span class="st">"colorectal cancer"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 27</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
@@ -286,7 +286,7 @@ available languages will vary.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;, descendants &lt;lgl&gt;, error &lt;lgl&gt;, errorMessage &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span><span class="fu">icd_search</span><span class="op">(</span><span class="st">"colorectal cancer"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 27</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
@@ -301,13 +301,13 @@ available languages will vary.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   titleIsASearchResult &lt;lgl&gt;, titleIsTopScore &lt;lgl&gt;, entityType &lt;int&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   important &lt;lgl&gt;, descendants &lt;lgl&gt;, error &lt;lgl&gt;, errorMessage &lt;lgl&gt;, …</span></span>
 <span class="r-in"><span><span class="fu">icd_search</span><span class="op">(</span><span class="st">"impairment"</span>, linearization <span class="op">=</span> <span class="st">"icf"</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2024-01` matches a known release for ICD-11.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Release `2026-01` matches a known release for ICD-11.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Language `en` is available for the release specified.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 27</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.who.int/ic… Seei… http:… TRUE                        0 FALSE        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.who.int/ic… Swal… http:… TRUE                        0 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> http://id.who.int/ic… Seei… http:… TRUE                        1 FALSE        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> http://id.who.int/ic… Swal… http:… TRUE                        1 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> http://id.who.int/ic… COMP… http:… TRUE                        0 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> http://id.who.int/ic… MILD… http:… TRUE                        0 FALSE        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> http://id.who.int/ic… SEVE… http:… TRUE                        0 FALSE        </span>

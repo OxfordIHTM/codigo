@@ -222,7 +222,7 @@ languages will vary.
 
 ``` r
 icd_search_foundation("colorectal cancer")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 4 × 27
 #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
@@ -239,7 +239,7 @@ icd_search_foundation("colorectal cancer")
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
 #> #   important <lgl>, descendants <lgl>, error <lgl>, errorMessage <lgl>, …
 icd_search("colorectal cancer")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 2 × 27
 #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
@@ -254,13 +254,13 @@ icd_search("colorectal cancer")
 #> #   titleIsASearchResult <lgl>, titleIsTopScore <lgl>, entityType <int>,
 #> #   important <lgl>, descendants <lgl>, error <lgl>, errorMessage <lgl>, …
 icd_search("impairment", linearization = "icf")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 7 × 27
 #>   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote
 #>   <chr>                 <chr> <chr>  <lgl>                   <int> <lgl>        
-#> 1 http://id.who.int/ic… Seei… http:… TRUE                        0 FALSE        
-#> 2 http://id.who.int/ic… Swal… http:… TRUE                        0 FALSE        
+#> 1 http://id.who.int/ic… Seei… http:… TRUE                        1 FALSE        
+#> 2 http://id.who.int/ic… Swal… http:… TRUE                        1 FALSE        
 #> 3 http://id.who.int/ic… COMP… http:… TRUE                        0 FALSE        
 #> 4 http://id.who.int/ic… MILD… http:… TRUE                        0 FALSE        
 #> 5 http://id.who.int/ic… SEVE… http:… TRUE                        0 FALSE        

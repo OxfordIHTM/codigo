@@ -124,26 +124,26 @@ matching level, the matching score, and the matching type.
 ``` r
 # \donttest{
   icd_autocode_foundation("cholera")
-#> Release `2024-01` matches a known release for ICD-11.
-#> Language `en` is available for the release specified.
-#> # A tibble: 1 × 7
-#>   searchText matchingText foundationURI  matchLevel matchScore matchType isTitle
-#>   <chr>      <chr>        <chr>               <int>      <int>     <int> <lgl>  
-#> 1 cholera    Cholera      http://id.who…          0          1         0 TRUE   
-  icd_autocode(q = "cholera")
-#> Release `2024-01` matches a known release for ICD-11.
-#> Language `en` is available for the release specified.
-#> # A tibble: 1 × 9
-#>   searchText matchingText theCode foundationURI      linearizationURI matchLevel
-#>   <chr>      <chr>        <chr>   <chr>              <chr>                 <int>
-#> 1 cholera    Cholera      1A00    http://id.who.int… http://id.who.i…          0
-#> # ℹ 3 more variables: matchScore <int>, matchType <int>, isTitle <lgl>
-  icd_autocode(q = "impairment", linearization = "icf")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 5
 #>   searchText matchLevel matchScore matchType isTitle
 #>   <chr>           <int>      <int>     <int> <lgl>  
-#> 1 impairment          3          0         0 FALSE  
+#> 1 cholera             3          0         0 FALSE  
+  icd_autocode(q = "cholera")
+#> Release `2026-01` matches a known release for ICD-11.
+#> Language `en` is available for the release specified.
+#> # A tibble: 1 × 5
+#>   searchText matchLevel matchScore matchType isTitle
+#>   <chr>           <int>      <int>     <int> <lgl>  
+#> 1 cholera             3          0         0 FALSE  
+  icd_autocode(q = "impairment", linearization = "icf")
+#> Release `2026-01` matches a known release for ICD-11.
+#> Language `en` is available for the release specified.
+#> # A tibble: 1 × 9
+#>   searchText matchingText      theCode foundationURI linearizationURI matchLevel
+#>   <chr>      <chr>             <chr>   <chr>         <chr>                 <int>
+#> 1 impairment impaired adaptab… b2109   http://id.wh… http://id.who.i…          1
+#> # ℹ 3 more variables: matchScore <dbl>, matchType <int>, isTitle <lgl>
 # }
 ```

@@ -5,9 +5,17 @@ Utility functions for retrieving ICD parameters and definitions
 ## Usage
 
 ``` r
-icd_get_releases(icd = c("icd11", "icd10"), latest = FALSE)
+icd_get_releases(
+  icd = c("icd11", "icd10"),
+  linearization = c("mms", "icf"),
+  latest = FALSE
+)
 
-icd_get_languages(icd = c("icd11", "icd10"), latest = FALSE)
+icd_get_languages(
+  icd = c("icd11", "icd10"),
+  linearization = c("mms", "icf"),
+  latest = FALSE
+)
 
 icd_get_entities(class = NULL)
 ```
@@ -19,6 +27,11 @@ icd_get_entities(class = NULL)
   A character string of available ICD classifications. Currently, this
   can be either "icd10" or "icd11". Default is "icd11". If NULL, all ICD
   classifications are used (currently both "icd10" and "icd11").
+
+- linearization:
+
+  A character value for which linearization to search. Currently, the
+  possible values are *"mms"* and *"icf"*. Default is *"mms"*.
 
 - latest:
 
@@ -42,37 +55,72 @@ definitions/titles and classes (for `icd_get_entitties()`).
 
 ``` r
 icd_get_releases()
-#> # A tibble: 7 × 2
-#>   Classification `Release ID`
-#>   <chr>          <chr>       
-#> 1 ICD-11         2024-01     
-#> 2 ICD-11         2023-01     
-#> 3 ICD-11         2022-02     
-#> 4 ICD-11         2021-05     
-#> 5 ICD-11         2020-09     
-#> 6 ICD-11         2019-04     
-#> 7 ICD-11         2018        
+#> # A tibble: 9 × 3
+#>   classification release_id linearization
+#>   <chr>          <chr>      <chr>        
+#> 1 ICD-11         2026-01    mms          
+#> 2 ICD-11         2025-01    mms          
+#> 3 ICD-11         2024-01    mms          
+#> 4 ICD-11         2023-01    mms          
+#> 5 ICD-11         2022-02    mms          
+#> 6 ICD-11         2021-05    mms          
+#> 7 ICD-11         2020-09    mms          
+#> 8 ICD-11         2019-04    mms          
+#> 9 ICD-11         2018       mms          
 icd_get_languages()
-#> $`ICD-11 - Release 2024-01`
-#>  [1] "ar" "cs" "en" "es" "fr" "pt" "ru" "tr" "uz" "zh"
+#> $`ICD-11 - Release 2026-01 - mms`
+#>  [1] "ar" "zh" "cs" "en" "fr" "de" "kk" "la" "pt" "ru" "sk" "es" "sv" "tr" "uz"
 #> 
-#> $`ICD-11 - Release 2023-01`
-#> [1] "ar" "en" "es" "fr" "ru" "tr" "zh"
+#> $`ICD-11 - Release 2026-01 - icf`
+#>  [1] "hy" "zh" "cs" "en" "et" "fi" "fr" "it" "mn" "pt" "ru" "sk" "es" "tr" "uk"
 #> 
-#> $`ICD-11 - Release 2022-02`
-#> [1] "ar"  "en"  "es"  "fr"  " zh"
+#> $`ICD-11 - Release 2025-01 - mms`
+#>  [1] "ar" "zh" "cs" "en" "fr" "kk" "la" "pt" "ru" "sk" "es" "sv" "tr" "uz"
 #> 
-#> $`ICD-11 - Release 2021-05`
-#> [1] "ar" "en" "es" "zh"
+#> $`ICD-11 - Release 2025-01 - icf`
+#> [1] "zh" "cs" "en" "fr" "es" "tr"
 #> 
-#> $`ICD-11 - Release 2020-09`
+#> $`ICD-11 - Release 2024-01 - mms`
+#>  [1] "ar" "zh" "cs" "en" "fr" "pt" "ru" "es" "tr" "uz"
+#> 
+#> $`ICD-11 - Release 2024-01 - icf`
+#> [1] "cs" "en" "tr"
+#> 
+#> $`ICD-11 - Release 2023-01 - mms`
+#> [1] "ar" "zh" "en" "fr" "ru" "es" "tr"
+#> 
+#> $`ICD-11 - Release 2023-01 - icf`
+#> NULL
+#> 
+#> $`ICD-11 - Release 2022-02 - mms`
+#> [1] "ar" "zh" "en" "fr" "es"
+#> 
+#> $`ICD-11 - Release 2022-02 - icf`
+#> NULL
+#> 
+#> $`ICD-11 - Release 2021-05 - mms`
+#> [1] "ar" "zh" "en" "es"
+#> 
+#> $`ICD-11 - Release 2021-05 - icf`
+#> NULL
+#> 
+#> $`ICD-11 - Release 2020-09 - mms`
 #> [1] "ar" "en" "es"
 #> 
-#> $`ICD-11 - Release 2019-04`
+#> $`ICD-11 - Release 2020-09 - icf`
+#> NULL
+#> 
+#> $`ICD-11 - Release 2019-04 - mms`
 #> [1] "en"
 #> 
-#> $`ICD-11 - Release 2018`
+#> $`ICD-11 - Release 2019-04 - icf`
+#> NULL
+#> 
+#> $`ICD-11 - Release 2018 - mms`
 #> [1] "en"
+#> 
+#> $`ICD-11 - Release 2018 - icf`
+#> NULL
 #> 
 icd_get_entities()
 #> # A tibble: 36,044 × 5

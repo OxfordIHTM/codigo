@@ -49,9 +49,7 @@
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A data frame with 6 columns and 11 rows:</p><table class="table table"><tr><td><strong>Variable</strong></td><td><strong>Description</strong></td></tr><tr><td><em>release_id</em></td><td>Release identifier for specific classification version</td></tr><tr><td><em>foundation</em></td><td>Logical. Does this version include the Foundation?</td></tr><tr><td><em>mms</em></td><td>Languages in which version and release is available for</td></tr><tr><td><em>icf</em></td><td>Languages in which version and release is available for</td></tr></table><p>For logical fields that specify NA, this indicates that for that particular
-version and release, the particular field was not applicable or relevant.</p>
-    </div>
+    <p>A data frame with 6 columns and 11 rows:</p><table class="table table"><tr><td><strong>Variable</strong></td><td><strong>Description</strong></td></tr><tr><td><em>release_id</em></td><td>Release identifier for specific classification version</td></tr><tr><td><em>foundation</em></td><td>Logical. Does this version include the Foundation?</td></tr><tr><td><em>classification</em></td><td>Classification name: ICD-11 or ICD-10</td></tr><tr><td><em>linearization</em></td><td>Either MMS or ICF</td></tr><tr><td><em>languages</em></td><td>Languages in which classification, release, and linearization is available for</td></tr></table></div>
     <div class="section level2">
     <h2 id="source">Source<a class="anchor" aria-label="anchor" href="#source"></a></h2>
     <p>https://icd.who.int/docs/icd-api/SupportedClassifications/</p>
@@ -60,20 +58,20 @@ version and release, the particular field was not applicable or relevant.</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">icd_versions</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 11 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Classification `Release ID` Foundation MMS   ICF   Languages </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ICD-11         2024-01      TRUE       TRUE  TRUE  <span style="color: #949494;">&lt;chr [10]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ICD-11         2023-01      TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [7]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> ICD-11         2022-02      TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [5]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> ICD-11         2021-05      TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [4]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> ICD-11         2020-09      TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [3]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> ICD-11         2019-04      TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [1]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> ICD-11         2018         TRUE       TRUE  FALSE <span style="color: #949494;">&lt;chr [1]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> ICD-10         2019         <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">&lt;chr [1]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> ICD-10         2016         <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">&lt;chr [1]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> ICD-10         2010         <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">&lt;chr [1]&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> ICD-10         2008         <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span>    <span style="color: #BB0000;">NA</span>    <span style="color: #949494;">&lt;chr [2]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 22 × 5</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    release_id foundation classification linearization language  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 2026-01    TRUE       ICD-11         mms           <span style="color: #949494;">&lt;chr [15]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2026-01    TRUE       ICD-11         icf           <span style="color: #949494;">&lt;chr [15]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 2025-01    TRUE       ICD-11         mms           <span style="color: #949494;">&lt;chr [14]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 2025-01    TRUE       ICD-11         icf           <span style="color: #949494;">&lt;chr [6]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 2024-01    TRUE       ICD-11         mms           <span style="color: #949494;">&lt;chr [10]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 2024-01    TRUE       ICD-11         icf           <span style="color: #949494;">&lt;chr [3]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 2023-01    TRUE       ICD-11         mms           <span style="color: #949494;">&lt;chr [7]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 2023-01    TRUE       ICD-11         icf           <span style="color: #949494;">&lt;NULL&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 2022-02    TRUE       ICD-11         mms           <span style="color: #949494;">&lt;chr [5]&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 2022-02    TRUE       ICD-11         icf           <span style="color: #949494;">&lt;NULL&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 12 more rows</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

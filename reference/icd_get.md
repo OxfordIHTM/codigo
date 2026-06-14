@@ -135,7 +135,7 @@ entities.
 ``` r
 # \donttest{
   icd_get_foundation()
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> # A tibble: 1 × 11
 #>   `@context`        `@id` `title_@language` `title_@value` releaseId releaseDate
@@ -144,7 +144,7 @@ entities.
 #> # ℹ 5 more variables: availableLanguages <list>, allReleases <list>,
 #> #   includedLinearizations <list>, child <list>, browserUrl <chr>
   icd_get_entity(id = "1435254666")     ## chapter
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForFoundationEntity.json"
@@ -327,7 +327,7 @@ entities.
 #> 
 #> 
   icd_get_entity(id = "588616678")      ## block; depth 1
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForFoundationEntity.json"
@@ -372,7 +372,7 @@ entities.
 #> 
 #> 
   icd_get_entity(id = "1465325727")     ## category; depth 1
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForFoundationEntity.json"
@@ -520,7 +520,7 @@ entities.
 #> 
 #> 
   icd_get_info()
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"
@@ -569,7 +569,7 @@ entities.
 #> 
 #> 
   icd_get_info("icf")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForMultiVersion.json"
@@ -600,13 +600,13 @@ entities.
 #> 
 #> 
   icd_get_chapter()
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForTopLevel.json"
 #> 
 #> $`@id`
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms"
 #> 
 #> $title
 #> $title$`@language`
@@ -617,10 +617,10 @@ entities.
 #> 
 #> 
 #> $releaseId
-#> [1] "2024-01"
+#> [1] "2026-01"
 #> 
 #> $releaseDate
-#> [1] "2024-01-21"
+#> [1] "2026-01-17"
 #> 
 #> $availableLanguages
 #> $availableLanguages[[1]]
@@ -630,127 +630,147 @@ entities.
 #> [1] "cs"
 #> 
 #> $availableLanguages[[3]]
-#> [1] "en"
+#> [1] "de"
 #> 
 #> $availableLanguages[[4]]
-#> [1] "es"
+#> [1] "en"
 #> 
 #> $availableLanguages[[5]]
-#> [1] "fr"
+#> [1] "es"
 #> 
 #> $availableLanguages[[6]]
-#> [1] "pt"
+#> [1] "fr"
 #> 
 #> $availableLanguages[[7]]
-#> [1] "ru"
+#> [1] "kk"
 #> 
 #> $availableLanguages[[8]]
-#> [1] "tr"
+#> [1] "la"
 #> 
 #> $availableLanguages[[9]]
-#> [1] "uz"
+#> [1] "pt"
 #> 
 #> $availableLanguages[[10]]
+#> [1] "ru"
+#> 
+#> $availableLanguages[[11]]
+#> [1] "sk"
+#> 
+#> $availableLanguages[[12]]
+#> [1] "sv"
+#> 
+#> $availableLanguages[[13]]
+#> [1] "tr"
+#> 
+#> $availableLanguages[[14]]
+#> [1] "uz"
+#> 
+#> $availableLanguages[[15]]
 #> [1] "zh"
+#> 
+#> 
+#> $prereleaseLanguages
+#> $prereleaseLanguages[[1]]
+#> [1] "de"
 #> 
 #> 
 #> $child
 #> $child[[1]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1435254666"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1435254666"
 #> 
 #> $child[[2]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1630407678"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1630407678"
 #> 
 #> $child[[3]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1766440644"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1766440644"
 #> 
 #> $child[[4]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1954798891"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1954798891"
 #> 
 #> $child[[5]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/21500692"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/21500692"
 #> 
 #> $child[[6]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/334423054"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/334423054"
 #> 
 #> $child[[7]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/274880002"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/274880002"
 #> 
 #> $child[[8]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1296093776"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1296093776"
 #> 
 #> $child[[9]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/868865918"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/868865918"
 #> 
 #> $child[[10]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1218729044"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1218729044"
 #> 
 #> $child[[11]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/426429380"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/426429380"
 #> 
 #> $child[[12]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/197934298"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/197934298"
 #> 
 #> $child[[13]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1256772020"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1256772020"
 #> 
 #> $child[[14]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1639304259"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1639304259"
 #> 
 #> $child[[15]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1473673350"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1473673350"
 #> 
 #> $child[[16]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/30659757"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/30659757"
 #> 
 #> $child[[17]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/577470983"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/577470983"
 #> 
 #> $child[[18]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/714000734"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/714000734"
 #> 
 #> $child[[19]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1306203631"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1306203631"
 #> 
 #> $child[[20]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/223744320"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/223744320"
 #> 
 #> $child[[21]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1843895818"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1843895818"
 #> 
 #> $child[[22]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/435227771"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/435227771"
 #> 
 #> $child[[23]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/850137482"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/850137482"
 #> 
 #> $child[[24]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1249056269"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1249056269"
 #> 
 #> $child[[25]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/1596590595"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/1596590595"
 #> 
 #> $child[[26]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/718687701"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/718687701"
 #> 
 #> $child[[27]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/231358748"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/231358748"
 #> 
 #> $child[[28]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/mms/979408586"
+#> [1] "http://id.who.int/icd/release/11/2026-01/mms/979408586"
 #> 
 #> 
 #> $browserUrl
-#> [1] "https://icd.who.int/browse/2024-01/mms/en"
+#> [1] "https://icd.who.int/browse/2026-01/mms/en"
 #> 
   icd_get_chapter("icf")
-#> Release `2024-01` matches a known release for ICD-11.
+#> Release `2026-01` matches a known release for ICD-11.
 #> Language `en` is available for the release specified.
 #> $`@context`
 #> [1] "http://id.who.int/icd/contexts/contextForTopLevel.json"
 #> 
 #> $`@id`
-#> [1] "http://id.who.int/icd/release/11/2024-01/icf"
+#> [1] "http://id.who.int/icd/release/11/2026-01/icf"
 #> 
 #> $title
 #> $title$`@language`
@@ -761,53 +781,68 @@ entities.
 #> 
 #> 
 #> $releaseId
-#> [1] "2024-01"
+#> [1] "2026-01"
 #> 
 #> $releaseDate
-#> [1] "2024-01-21"
+#> [1] "2026-01-17"
 #> 
 #> $availableLanguages
 #> $availableLanguages[[1]]
-#> [1] "ar"
-#> 
-#> $availableLanguages[[2]]
 #> [1] "cs"
 #> 
-#> $availableLanguages[[3]]
+#> $availableLanguages[[2]]
 #> [1] "en"
 #> 
-#> $availableLanguages[[4]]
+#> $availableLanguages[[3]]
 #> [1] "es"
 #> 
+#> $availableLanguages[[4]]
+#> [1] "et"
+#> 
 #> $availableLanguages[[5]]
-#> [1] "fr"
+#> [1] "fi"
 #> 
 #> $availableLanguages[[6]]
-#> [1] "pt"
+#> [1] "fr"
 #> 
 #> $availableLanguages[[7]]
-#> [1] "ru"
+#> [1] "hy"
 #> 
 #> $availableLanguages[[8]]
-#> [1] "tr"
+#> [1] "it"
 #> 
 #> $availableLanguages[[9]]
-#> [1] "uz"
+#> [1] "mn"
 #> 
 #> $availableLanguages[[10]]
+#> [1] "pt"
+#> 
+#> $availableLanguages[[11]]
+#> [1] "ru"
+#> 
+#> $availableLanguages[[12]]
+#> [1] "sk"
+#> 
+#> $availableLanguages[[13]]
+#> [1] "tr"
+#> 
+#> $availableLanguages[[14]]
+#> [1] "uk"
+#> 
+#> $availableLanguages[[15]]
 #> [1] "zh"
 #> 
 #> 
 #> $child
 #> $child[[1]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/icf/619527855"
+#> [1] "http://id.who.int/icd/release/11/2026-01/icf/619527855"
 #> 
 #> $child[[2]]
-#> [1] "http://id.who.int/icd/release/11/2024-01/icf/423829389"
+#> [1] "http://id.who.int/icd/release/11/2026-01/icf/423829389"
 #> 
 #> 
 #> $browserUrl
-#> [1] "https://icd.who.int/browse/2024-01/icf/en"
+#> [1] "https://icd.who.int/browse/2026-01/icf/en"
 #> 
 # }
 ```

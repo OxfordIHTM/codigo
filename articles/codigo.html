@@ -120,7 +120,7 @@ made:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/icd_search.html">icd_search</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span>, client <span class="op">=</span> <span class="va">my_oauth_client</span><span class="op">)</span></span></code></pre></div>
 <p>which gives the following output:</p>
-<pre><code><span><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
+<pre><code><span><span class="co">#&gt; Release `2026-01` matches a known release for ICD-11.</span></span>
 <span><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 27</span></span></span>
 <span><span class="co">#&gt;   id                    title stemId isLeaf postcoordinationAvai…¹ hasCodingNote</span></span>
@@ -141,18 +141,18 @@ argument <code>tabular = FALSE</code></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/icd_search.html">icd_search</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span>, tabular <span class="op">=</span> <span class="cn">FALSE</span>, client <span class="op">=</span> <span class="va">my_oauth_client</span><span class="op">)</span></span></code></pre></div>
 <p>which gives the following output:</p>
-<pre><code><span><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
+<pre><code><span><span class="co">#&gt; Release `2026-01` matches a known release for ICD-11.</span></span>
 <span><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
 <span><span class="co">#&gt; $destinationEntities</span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]</span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$id</span></span>
-<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2024-01/mms/774170412/unspecified"</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2026-01/mms/642412809/unspecified"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$title</span></span>
-<span><span class="co">#&gt; [1] "Malignant neoplasms of rectosigmoid junction, unspecified"</span></span>
+<span><span class="co">#&gt; [1] "Malignant neoplasms of large intestine, site and type unspecified"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$stemId</span></span>
-<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2024-01/mms/774170412/unspecified"</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2026-01/mms/642412809/unspecified"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$isLeaf</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
@@ -175,7 +175,7 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; [1] "Synonym"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[1]]$label</span></span>
-<span><span class="co">#&gt; [1] "Colorectal Cancer NOS"</span></span>
+<span><span class="co">#&gt; [1] "colorectal cancer NOS"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[1]]$score</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
@@ -184,10 +184,30 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[1]]$foundationUri</span></span>
-<span><span class="co">#&gt; [1] "http://id.who.int/icd/entity/774170412"</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/entity/642412809"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[1]]$propertyValueType</span></span>
 <span><span class="co">#&gt; [1] 0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]</span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$propertyId</span></span>
+<span><span class="co">#&gt; [1] "Synonym"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$label</span></span>
+<span><span class="co">#&gt; [1] "Metastatic colorectal cancer [primary colorectal cancer spreading elsewhere]"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$score</span></span>
+<span><span class="co">#&gt; [1] 0.5237753</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$important</span></span>
+<span><span class="co">#&gt; [1] FALSE</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$foundationUri</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/entity/1136845335"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $destinationEntities[[1]]$matchingPVs[[2]]$propertyValueType</span></span>
+<span><span class="co">#&gt; [1] 1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -204,7 +224,7 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; [1] "02"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$theCode</span></span>
-<span><span class="co">#&gt; [1] "2B91.Z"</span></span>
+<span><span class="co">#&gt; [1] "2B93.Z"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[1]]$score</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
@@ -227,13 +247,13 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[2]]</span></span>
 <span><span class="co">#&gt; $destinationEntities[[2]]$id</span></span>
-<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2024-01/mms/1265576634/other"</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2026-01/mms/1265576634/other"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[2]]$title</span></span>
 <span><span class="co">#&gt; [1] "Other specified malignant neoplasms of colon"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[2]]$stemId</span></span>
-<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2024-01/mms/1265576634/other"</span></span>
+<span><span class="co">#&gt; [1] "http://id.who.int/icd/release/11/2026-01/mms/1265576634/other"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $destinationEntities[[2]]$isLeaf</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
@@ -343,7 +363,7 @@ argument <code>tabular = FALSE</code></p>
 <span><span class="co">#&gt; [1] 2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $uniqueSearchId</span></span>
-<span><span class="co">#&gt; [1] "c8f0dc85-1459-48f9-98ed-0d1bb8e2d315"</span></span>
+<span><span class="co">#&gt; [1] "86307d4d-805d-44cc-bc77-3ede383fd4a7"</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $words</span></span>
 <span><span class="co">#&gt; NULL</span></span></code></pre>
@@ -357,13 +377,12 @@ component API endpoint can be done as follows:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/icd_autocode.html">icd_autocode</a></span><span class="op">(</span><span class="st">"colorectal cancer"</span>, client <span class="op">=</span> <span class="va">my_oauth_client</span><span class="op">)</span></span></code></pre></div>
 <p>which gives the following results</p>
-<pre><code><span><span class="co">#&gt; Release `2024-01` matches a known release for ICD-11.</span></span>
+<pre><code><span><span class="co">#&gt; Release `2026-01` matches a known release for ICD-11.</span></span>
 <span><span class="co">#&gt; Language `en` is available for the release specified.</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 9</span></span></span>
-<span><span class="co">#&gt;   searchText      matchingText theCode foundationURI linearizationURI matchLevel</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> colorectal can… Colorectal … 2B91.Z  http://id.wh… http://id.who.i…          0</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: matchScore &lt;int&gt;, matchType &lt;int&gt;, isTitle &lt;lgl&gt;</span></span></span></code></pre>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
+<span><span class="co">#&gt;   searchText        matchLevel matchScore matchType isTitle</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> colorectal cancer          3          0         0 FALSE</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="converting-icd-10-codes-to-icd-11-and-vice-versa">Converting ICD-10 codes to ICD-11 and vice versa<a class="anchor" aria-label="anchor" href="#converting-icd-10-codes-to-icd-11-and-vice-versa"></a>

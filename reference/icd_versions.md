@@ -12,17 +12,14 @@ icd_versions
 
 A data frame with 6 columns and 11 rows:
 
-|              |                                                         |
-|--------------|---------------------------------------------------------|
-| **Variable** | **Description**                                         |
-| *release_id* | Release identifier for specific classification version  |
-| *foundation* | Logical. Does this version include the Foundation?      |
-| *mms*        | Languages in which version and release is available for |
-| *icf*        | Languages in which version and release is available for |
-
-For logical fields that specify NA, this indicates that for that
-particular version and release, the particular field was not applicable
-or relevant.
+|  |  |
+|----|----|
+| **Variable** | **Description** |
+| *release_id* | Release identifier for specific classification version |
+| *foundation* | Logical. Does this version include the Foundation? |
+| *classification* | Classification name: ICD-11 or ICD-10 |
+| *linearization* | Either MMS or ICF |
+| *languages* | Languages in which classification, release, and linearization is available for |
 
 ## Source
 
@@ -32,18 +29,18 @@ https://icd.who.int/docs/icd-api/SupportedClassifications/
 
 ``` r
 icd_versions
-#> # A tibble: 11 × 6
-#>    Classification `Release ID` Foundation MMS   ICF   Languages 
-#>    <chr>          <chr>        <lgl>      <lgl> <lgl> <list>    
-#>  1 ICD-11         2024-01      TRUE       TRUE  TRUE  <chr [10]>
-#>  2 ICD-11         2023-01      TRUE       TRUE  FALSE <chr [7]> 
-#>  3 ICD-11         2022-02      TRUE       TRUE  FALSE <chr [5]> 
-#>  4 ICD-11         2021-05      TRUE       TRUE  FALSE <chr [4]> 
-#>  5 ICD-11         2020-09      TRUE       TRUE  FALSE <chr [3]> 
-#>  6 ICD-11         2019-04      TRUE       TRUE  FALSE <chr [1]> 
-#>  7 ICD-11         2018         TRUE       TRUE  FALSE <chr [1]> 
-#>  8 ICD-10         2019         NA         NA    NA    <chr [1]> 
-#>  9 ICD-10         2016         NA         NA    NA    <chr [1]> 
-#> 10 ICD-10         2010         NA         NA    NA    <chr [1]> 
-#> 11 ICD-10         2008         NA         NA    NA    <chr [2]> 
+#> # A tibble: 22 × 5
+#>    release_id foundation classification linearization language  
+#>    <chr>      <lgl>      <chr>          <chr>         <list>    
+#>  1 2026-01    TRUE       ICD-11         mms           <chr [15]>
+#>  2 2026-01    TRUE       ICD-11         icf           <chr [15]>
+#>  3 2025-01    TRUE       ICD-11         mms           <chr [14]>
+#>  4 2025-01    TRUE       ICD-11         icf           <chr [6]> 
+#>  5 2024-01    TRUE       ICD-11         mms           <chr [10]>
+#>  6 2024-01    TRUE       ICD-11         icf           <chr [3]> 
+#>  7 2023-01    TRUE       ICD-11         mms           <chr [7]> 
+#>  8 2023-01    TRUE       ICD-11         icf           <NULL>    
+#>  9 2022-02    TRUE       ICD-11         mms           <chr [5]> 
+#> 10 2022-02    TRUE       ICD-11         icf           <NULL>    
+#> # ℹ 12 more rows
 ```
