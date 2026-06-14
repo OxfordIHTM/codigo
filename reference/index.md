@@ -27,12 +27,12 @@
 
 ## Get
 
-- [`icd_get_foundation()`](https://oxford-ihtm.io/codigo/reference/icd_get.md)
-  [`icd_get_entity()`](https://oxford-ihtm.io/codigo/reference/icd_get.md)
-  [`icd_get_info()`](https://oxford-ihtm.io/codigo/reference/icd_get.md)
+- [`icd_get_foundation()`](https://oxford-ihtm.io/codigo/reference/icd_get_foundation.md)
+  [`icd_get_foundation_entity()`](https://oxford-ihtm.io/codigo/reference/icd_get_foundation.md)
+  : Get information on various ICD-11 foundation entities
+- [`icd_get_info()`](https://oxford-ihtm.io/codigo/reference/icd_get.md)
   [`icd_get_chapter()`](https://oxford-ihtm.io/codigo/reference/icd_get.md)
-  : Get information on various ICD-11 foundation and linearization
-  entities
+  : Get information on various ICD-11 linearization entities
 
 ## Get ICD-10
 
