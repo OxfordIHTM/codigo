@@ -19,7 +19,7 @@ testthat::test_that(
     )
 
     testthat::expect_error(
-      icd_autocode_foundation("colorectal cancer", release = "2025-01")
+      icd_autocode_foundation("colorectal cancer", release = "2027-01")
     )
 
     testthat::expect_no_message(
@@ -48,7 +48,7 @@ testthat::test_that(
     )
 
     testthat::expect_error(
-      icd_autocode("colorectal cancer", release = "2025-01")
+      icd_autocode("colorectal cancer", release = "2027-01")
     )
 
     testthat::expect_no_message(

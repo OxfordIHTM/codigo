@@ -4,6 +4,7 @@
 \alias{icd_structure_foundation}
 \alias{icd_structure_search}
 \alias{icd_structure_autocode}
+\alias{icd_structure_entity}
 \title{Structure ICD list and ICD search outputs}
 \usage{
 icd_structure_foundation(icd_list)
@@ -11,6 +12,8 @@ icd_structure_foundation(icd_list)
 icd_structure_search(icd_search)
 
 icd_structure_autocode(icd_autocode)
+
+icd_structure_entity(icd_entity)
 }
 \arguments{
 \item{icd_list}{An object produced by a call to any of the \code{icd_get}
@@ -21,6 +24,9 @@ functions}
 
 \item{icd_autocode}{An object produced by a call to any of the \code{icd_autocode}
 functions}
+
+\item{icd_entity}{An object produced by a call to any of the \code{icd_get_entity}
+functions}
 }
 \value{
 A tibble of structured ICD outputs.
@@ -30,8 +36,8 @@ Structure ICD list and ICD search outputs
 }
 \details{
 These functions are meant to be helper functions and are used
-within the \code{icd_get}, \code{icd_search}, and \code{icd_autocode} functions to
-structure the output responses.
+within the \code{icd_get}, \code{icd_search}, \code{icd_autocode}, and \code{icd_get_entity}
+functions to structure the output responses.
 }
 \examples{
 \donttest{

@@ -2,7 +2,7 @@
 #' Checks for specified parameters supplied to search, autocode, and get
 #' functions
 #'
-#' @inheritParams codigo-params release language verbose
+#' @inheritParams codigo-params release language linearization verbose
 #' @param icd A character string of available ICD classifications. Currently,
 #'   this can be either "icd10" or "icd11". Default is "icd11".
 #'
@@ -14,9 +14,9 @@
 #' @examples
 #' icd_check_release("2024-01")
 #' try(icd_check_release("2025-01"))
-#' icd_check_language("2024-01", "ar")
-#' icd_check_language("2024-01", "rr")
-#' try(icd_check_language("2025-01", "ar"))
+#' icd_check_language("2024-01", "mms", "ar")
+#' icd_check_language("2024-01", "mms", "rr")
+#' try(icd_check_language("2025-01", "mms", "ar"))
 #'
 #' @rdname icd_check
 #' @export
@@ -29,13 +29,9 @@ icd_check_release <- function(release,
   icd <- ifelse(icd == "icd11", "ICD-11", "ICD-10")
 
   release_check <- release %in%
-    codigo::icd_versions$`Release ID`[codigo::icd_versions$Classification == icd]
+    codigo::icd_versions$release_id[codigo::icd_versions$classification == icd]
 
   if (release_check) {
-    # icd_set <- with(
-    #   codigo::icd_versions,
-    #   Classification[`Release ID` == release]
-    # )
 
     if (verbose)
       message(
@@ -62,28 +58,39 @@ icd_check_release <- function(release,
 #' @rdname icd_check
 #' @export
 #'
-icd_check_language <- function(release = NULL, language,
+icd_check_language <- function(release = NULL,
+                               linearization = c("mms", "icf"),
+                               language,
                                icd = c("icd11", "icd10"),
                                verbose = TRUE) {
   icd <- match.arg(icd)
+  linearization <- match.arg(linearization)
 
-  #icd <- ifelse(icd == "icd11", "ICD-11", "ICD-10")
-
-  ## Check if release is NULL ----
+  ## Check if release is NULL, get latest ----
   if (is.null(release)) release <- codigo::icd_versions |>
     dplyr::filter(
-      .data$Classification == ifelse(icd == "icd11", "ICD-11", "ICD-10")
+      .data$classification == ifelse(icd == "icd11", "ICD-11", "ICD-10")
     ) |>
-    dplyr::pull(.data$`Release ID`) |>
+    dplyr::pull(.data$release_id) |>
     head(1)
 
   ## Check whether release is specified correctly ----
   icd_check_release(release = release, icd = icd, verbose = verbose)
 
   ## Get languages available for release provided ----
-  languages_available <- with(
-    codigo::icd_versions, Languages[`Release ID` == release] |> unlist()
+  if (icd == "icd10") {
+    languages_available <- with(
+      codigo::icd_versions, 
+      language[classification == "ICD-10" & release_id == release] |>
+        unlist()
+    )
+  } else {
+    languages_available <- with(
+      codigo::icd_versions, 
+      language[release_id == release & linearization == linearization] |>
+        unlist()
   )
+  }
 
   if (length(language) == 1) {
     if (language %in% languages_available) {

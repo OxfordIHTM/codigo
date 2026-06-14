@@ -9,6 +9,7 @@
 #' @param class A character string of code classes to retrieve. This can be
 #'   either "chapter", "block", or "category". If NULL (default), all
 #'   classes are retrieved.
+#' @inheritParams codigo-params linearization
 #'
 #' @return A tibble for ICD classification values and their corresponding
 #'   release identifiers (for `icd_get_releases()`). A names list of
@@ -25,7 +26,9 @@
 #' @export
 #'
 
-icd_get_releases <- function(icd = c("icd11", "icd10"), latest = FALSE) {
+icd_get_releases <- function(icd = c("icd11", "icd10"),
+                             linearization = c("mms", "icf"),
+                             latest = FALSE) {
   ## Check and get value for icd ----
   if (!is.null(icd)) {
     icd <- match.arg(icd)
@@ -37,13 +40,32 @@ icd_get_releases <- function(icd = c("icd11", "icd10"), latest = FALSE) {
   ## Get full ICD name ----
   icd <- ifelse(icd == "icd10", "ICD-10", "ICD-11")
 
+  ## Check and get value for linearization ----
+  ln <- match.arg(linearization)
+
   ## Get release identifiers for requested classification versions ----
-  releases <- codigo::icd_versions[codigo::icd_versions$Classification %in% icd, ] |>
-    subset(select = c("Classification", "Release ID"))
+  if ("ICD-10" %in% icd) {
+    releases <- with(
+      codigo::icd_versions,
+      codigo::icd_versions[
+        classification %in% icd, 
+        c("classification", "release_id", "linearization")
+      ]
+    ) |>
+      (\(x) x[x$linearization == ln | is.na(x$linearization), ])()
+  } else {
+    releases <- with(
+      codigo::icd_versions,
+      codigo::icd_versions[
+        classification == icd & linearization == ln, 
+        c("classification", "release_id", "linearization")
+      ]
+    )
+  }
 
   ## Determine what to return ----
   if (latest) {
-    releases[rev(order(releases$`Release ID`)), ][1, 2]
+    releases[rev(order(releases$`release_id`)), ][1, 2]
   } else {
     releases
   }
@@ -55,7 +77,12 @@ icd_get_releases <- function(icd = c("icd11", "icd10"), latest = FALSE) {
 #' @export
 #'
 
-icd_get_languages <- function(icd = c("icd11", "icd10"), latest = FALSE) {
+icd_get_languages <- function(icd = c("icd11", "icd10"),
+                              linearization = c("mms", "icf"), 
+                              latest = FALSE) {
+  ## Get linearization value ----
+  linearization <- match.arg(linearization)
+  
   ## Check and get value for icd ----
   if (!is.null(icd)) {
     icd <- match.arg(icd)
@@ -68,28 +95,33 @@ icd_get_languages <- function(icd = c("icd11", "icd10"), latest = FALSE) {
   icd <- ifelse(icd == "icd10", "ICD-10", "ICD-11")
 
   ## Get languages for requested classification versions ----
-  languages <- codigo::icd_versions[codigo::icd_versions$Classification %in% icd, ] |>
-    subset(select = c("Classification", "Release ID", "Languages"))
+  languages <- with(
+    codigo::icd_versions,
+    codigo::icd_versions[
+      classification == icd & linearization == linearization, 
+      c("classification", "release_id", "language", "linearization")
+    ]
+  )
 
   ## Determine what to return ----
   if (latest) {
-    languages[rev(order(languages$`Release ID`)), ] |>
+    languages[rev(order(languages$release_id)), ] |>
       (\(x)
         {
-          names(x$Languages) <- paste0(
-            x$Classification, " - Release ", x$`Release ID`
+          names(x$language) <- paste0(
+            x$classification, " - Release ", x$`release_id`
           )
-          x$Languages[1]
+          x$language[1]
         }
       )()
   } else {
     languages |>
       (\(x)
        {
-         names(x$Languages) <- paste0(
-           x$Classification, " - Release ", x$`Release ID`
+         names(x$language) <- paste0(
+           x$classification, " - Release ", x$release_id, " - ", x$linearization 
          )
-         x$Languages
+         x$language
       }
       )()
   }
