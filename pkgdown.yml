@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   codigo: codigo.html
   icd11_foundation: icd11_foundation.html
-last_built: 2026-06-14T07:26Z
+last_built: 2026-06-14T09:26Z
 urls:
   reference: https://oxford-ihtm.io/codigo/reference
   article: https://oxford-ihtm.io/codigo/articles
