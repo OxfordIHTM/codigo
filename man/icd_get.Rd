@@ -26,6 +26,7 @@ icd_get_entity(
   include = NULL,
   api_version = c("v2", "v1"),
   language = "en",
+  tabular = TRUE,
   verbose = TRUE,
   base_url = "https://id.who.int",
   client = icd_oauth_client(),

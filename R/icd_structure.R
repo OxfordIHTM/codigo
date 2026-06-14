@@ -70,5 +70,7 @@ icd_structure_autocode <- function(icd_autocode) {
 #' 
 
 icd_structure_entity <- function(icd_entity) {
-  
+  tibble::tibble(entity = list(icd_entity)) |>
+    tidyr::unnest_wider(col = .data$entity) |>
+    tidyr::unnest_wider(col = .data$title, names_sep = "")
 }
